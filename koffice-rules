@@ -1,0 +1,93 @@
+#
+# Create the KOffice modules
+#
+create repository koffice
+end repository
+
+# fix-up these
+match /tags/KDE/2.0/koffice/
+  min revision 416394
+  max revision 416394
+  repository koffice
+  branch KDE/2.0.0
+end match
+match /tags/KDE/2.0.1/koffice/
+  min revision 416398
+  max revision 416398
+  repository koffice
+  branch KDE/2.0.1
+end match
+
+# KOffice
+match /trunk/koffice/
+  repository koffice
+  branch master
+end match
+match /(branches|tags)/koffice/([^/]+)/koffice/
+  min revision 409209
+  repository koffice
+  branch koffice/\2
+end match
+
+#added by tz
+match /tags/koffice/(1.9.9[12345])/
+  min revision 681282
+  repository koffice
+  branch koffice/\1
+end match
+match /tags/koffice/(1.9.95.[1234])/
+  min revision 747575
+  repository koffice
+  branch koffice/\1
+end match
+#end added
+
+match /branches/KOFFICE_(\d+)_(\d+)_BRANCH/koffice/
+  max revision 409202
+  repository koffice
+  branch koffice/\1.\2
+end match
+match /tags/KOFFICE_(\d+)_(\d+)_RELEASE/koffice/
+  min revision 175775  # first found with 1.2.0
+  max revision 409202
+  repository koffice
+  branch koffice/\1.\2.0
+end match
+match /tags/KOFFICE_(\d+)_(\d+)_(\d+)_RELEASE/koffice/
+  min revision 178008  # first found with 1.1.1
+  max revision 409202
+  repository koffice
+  branch koffice/\1.\2.\3
+end match
+match /tags/KOFFICE_(\d+)_(\d+)_BETA(\d+)/koffice/
+  min revision 406710
+  max revision 409202
+  repository koffice
+  branch koffice/\1.\2.0-beta\3
+end match
+match /tags/KDE_(\d+)_(\d+)_RELEASE/koffice/
+  repository koffice
+  branch KDE/\1.\2.0
+  max revision 409202
+end match
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/koffice/
+  repository koffice
+  branch KDE/\1.\2.\3
+  max revision 409202
+end match
+match /branches/KDE_(\d+)_(\d+)_BRANCH/koffice/
+  repository koffice
+  branch KDE/\1.\2
+  max revision 409202
+end match
+
+match /branches/KOFFICE_1_1_BRANCH_KDE3/koffice/
+  min revision 136433
+  max revision 200000
+  repository koffice
+  branch koffice/1.1-kde3
+end match
+
+# Ignore everything else
+match /
+end match

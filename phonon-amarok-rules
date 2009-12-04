@@ -1,0 +1,128 @@
+#
+# Create the KDE modules
+#
+create repository phonon
+end repository
+create repository amarok
+end repository
+
+match /
+  min revision 409202
+  max revision 409210
+end match
+match /
+  min revision 411973
+  max revision 411973
+end match
+
+#
+# Phonon rules
+#
+match /trunk/kdesupport/(phonon)/
+  repository phonon
+  branch master
+  min revision 409202
+end match
+match /branches/phonon/([^/]+)/
+  repository phonon
+  branch \1
+  min revision 409202
+end match
+match /tags/phonon/([^/]+)/
+  repository phonon
+  branch refs/tags/v\1
+  min revision 409202
+  annotated true
+end match
+match /trunk/KDE/kdelibs/phonon/
+  repository phonon
+  branch kdelibs
+  max revision 813007
+  min revision 520710  # copied from branches/work/kdelibs-phonon/phonon
+end match
+match /branches/work/kdelibs-phonon/phonon/
+  repository phonon
+  branch kdelibs
+  max revision 520710
+  min revision 409210
+end match
+
+#
+# Amarok rules
+#
+match /
+  min revision 631024
+  max revision 631024
+end match
+match /trunk/(extragear/[^/]+|kdeextragear-[^/]+)/(amarok)/
+  repository amarok
+  branch master
+end match
+match /branches/stable/extragear/multimedia/amarok/
+  repository amarok
+  branch 1.3
+  max revision 629190
+end match
+match /branches/stable/extragear/multimedia/amarok/
+  repository amarok
+  branch 1.4
+  min revision 629191
+end match
+match /branches/stable/extragear-kde4/multimedia/amarok/
+  repository amarok
+  branch 2.0
+end match
+
+match /branches/amarok/([^/]+)(/multimedia)?/amarok/
+  repository amarok
+  branch \1
+end match
+match /branches/amarok_0_6_0/kdeextragear-1/amarok/
+  repository amarok
+  branch 0.6
+end match
+match /branches/amarok_(\d)_(\d)_branch/kdeextragear-1/amarok/
+  repository amarok
+  branch \1.\2
+end match
+match /branches/amarok_1_1_branch_new/kdeextragear-1/amarok/
+  repository amarok
+  branch 1.1-new
+end match
+
+match /tags/amarok/(1.3|2.0|2.1)(/multimedia)?/amarok/
+  repository amarok
+  branch refs/tags/v\1.0
+  annotated true
+end match
+match /tags/amarok/([^/]+)(/multimedia)?/amarok/
+  repository amarok
+  branch refs/tags/v\1
+  annotated true
+end match
+match /tags/amarok_(\d)_(\d)_(\d)/kdeextragear-1/amarok/
+  repository amarok
+  branch refs/tags/v\1.\2.\3
+  annotated true
+end match
+match /tags/amarok_(\d)_(\d)/kdeextragear-1/amarok/
+  repository amarok
+  branch refs/tags/v\1.\2.0
+  annotated true
+end match
+match /tags/amarok_(\d)_(\d)_([^/]+)/kdeextragear-1/amarok/
+  repository amarok
+  branch refs/tags/v\1.\2-\3
+  annotated true
+end match
+
+match /(branches|tags)/amarok[^/]*/$
+  action recurse
+end match
+match /(branches|tags)/amarok[^/]*/kdeextragear-1/$
+  action recurse
+end match
+
+# Ignore everything else
+match /
+end match

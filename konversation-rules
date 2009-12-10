@@ -79,6 +79,11 @@ match /tags/konversation_0_15_release/kdeextragear-2/konversation/
   branch refs/tags/v0.15
   annotated true
 end match
+
+# WARNING! The following line turned out to be an error: While it
+# was meant to skip the 0.15 tag (see above), it of course also
+# ended up skipping the 1.2-alpha5 tag unintentionally. It was
+# later created and pushed into the repository manually instead.
 match /tags/konversation/([^5/]+)/
   repository konversation
   branch refs/tags/v\1

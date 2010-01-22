@@ -1,0 +1,166 @@
+#
+# Created by Jeremy Whiting <jpwhiting@kde.org>
+#
+
+#
+# The following two additions were made to the account map file
+# originally generated from KDE SVN's kde-common/accounts, as it
+# didn't cover these authors:
+#
+#   eisfuchs Dario Abatianni <eisfuchs@tigress.com>
+#   gismore Matthias Gierlings <gismore@users.sourceforge.net>
+#
+# With those additions, there are no more unaccounted for commit
+# authors in the generated repo.
+#
+# The affected commits were likely from the CVS era, and the
+# accounts got renamed in the CVS-to-SVN migration. Dario Aba-
+# tianni's (still existing) SVN account name is "abatianni" for
+# example.
+#
+
+#
+# Create the KDE modules
+#
+create repository KDE/kdeaccessibility
+end repository
+
+# Ignore some upheaval in KDE's SVN history.
+# during this time, kdeaccessibility was directly under trunk
+match /trunk/kdeaccessibility/
+  repository KDE/kdeaccessibility
+  branch master
+  min revision 92214
+  max revision 409202
+end match
+
+match /
+  min revision 409202
+  max revision 409210
+end match
+match /
+  min revision 411973
+  max revision 411973
+end match
+
+
+#
+# kdeaccessibility rules
+#
+# The following two blocks ignore an erroneous tagging of 1.2-alpha6
+# and deletion of the tag. It was later tagged again correctly at SVN
+# rev 1008985.
+#match /
+#  min revision 1008973
+#  max revision 1008973
+#end match
+#match /
+#  min revision 1008982
+#  max revision 1008982
+#end match
+
+match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeaccessibility)/
+  repository KDE/\3
+  branch KDE/\1.\2
+  max revision 409202
+end match
+
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility)/
+  repository KDE/\3
+  branch KDE/\1.\2.0
+  max revision 409202
+end match
+
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility)/
+  repository KDE/\3
+  branch KDE/\1.\2.0
+  max revision 85028
+  min revision 68154
+end match
+
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/(kdeaccessibility)/
+  repository KDE/\4
+  branch KDE/\1.\2.\3
+  max revision 409202
+end match
+match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/(kdeaccessibility)/
+  repository KDE/\4
+  branch KDE/\1.\2.\3a
+  min revision 192719
+  max revision 409202
+end match
+match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdeaccessibility)/
+  repository KDE/\5
+  branch KDE/\1.\2.\3-beta\4
+  min revision 376088
+  max revision 409202
+end match
+
+match /trunk/KDE/(kdeaccessibility)/
+  repository KDE/\1
+  branch master
+  min revision 409209
+end match
+match /tags/KDE/3.5.0-alpha1/(kdeaccessibility)/
+  repository KDE/\1
+  branch KDE/3.4.90
+  min revision 443441
+  max revision 445561
+end match
+match /tags/KDE/3.5.0-beta1/(kdeaccessibility)/
+  repository KDE/\1
+  branch KDE/3.4.91
+  min revision 459298
+  max revision 460260
+end match
+match /(branches|tags)/KDE/([^/]+)A/(kdeaccessibility)/
+  repository KDE/\3
+  branch KDE/\2a
+  min revision 409209
+end match
+match /(branches|tags)/KDE/([^/]+)/(kdeaccessibility)/
+  repository KDE/\3
+  branch KDE/\2
+  min revision 409209
+end match
+#match /(branches|tags)/KDE/
+#  action recurse
+#  min revision 757126
+#  max revision 757456
+#end match
+
+# We're not taking the 0.15 tag from /tags/konversation/0.15 as it
+# produced an orphaned tag in earlier test runs (though in retro-
+# spect that might have been due to the recurse rules not being
+# right yet at the time either, see the next paragraph). It was ori-
+# ginally at the path given below, so that works, too.
+# The 0.15 tag is the only one where the entire kdeextragear-2 su-
+# perstructure was tagged, rather than only the "konversation" di-
+# rectory. The recurse rules further down in the ruleset are need-
+# ed to deal with this situation properly.
+#match /tags/konversation_0_15_release/kdeextragear-2/konversation/
+#  repository konversation
+#  branch refs/tags/v0.15
+#  annotated true
+#end match
+
+# WARNING! The following line turned out to be an error: While it
+# was meant to skip the 0.15 tag (see above), it of course also
+# ended up skipping the 1.2-alpha5 tag unintentionally. It was
+# later created and pushed into the repository manually instead.
+#match /tags/konversation/([^5/]+)/
+#  repository konversation
+#  branch refs/tags/v\1
+#  annotated true
+#end match
+
+#match /tags/konversation_0_15_release/$
+#  action recurse
+#end match
+#match /tags/konversation_0_15_release/kdeextragear-2/$
+#  action recurse
+#end match
+
+# Ignore everything else
+match /
+end match

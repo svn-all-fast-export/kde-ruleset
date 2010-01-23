@@ -115,6 +115,44 @@ match /branches/KDE/([^/]+)/$
   min revision 757128
 end match
 
+# KMag releases
+match /tags/kmag/0.2.0/
+  min revision 437072
+  max revision 437072
+  repository KDE/kdeaccessibility
+  branch kmag/0.2.0
+end match
+match /tags/kmag/0.4.0/
+  min revision 437072
+  max revision 437072
+  repository KDE/kdeaccessibility
+  branch kmag/0.4.0
+end match
+match /tags/kmag/0.5.0/
+  min revision 437072
+  max revision 437072
+  repository KDE/kdeaccessibility
+  branch kmag/0.5.0
+end match
+match /tags/kmag/0.6.0/
+  min revision 437072
+  max revision 437072
+  repository KDE/kdeaccessibility
+  branch kmag/0.6.0
+end match
+match /tags/kmag/0.7.0/
+  min revision 437072
+  max revision 437072
+  repository KDE/kdeaccessibility
+  branch kmag/0.7.0
+end match
+match /tags/kmag/0.8.0/
+  min revision 437072
+  max revision 437072
+  repository KDE/kdeaccessibility
+  branch kmag/0.8.0
+end match
+
 # Ignore everything else
 match /
 end match

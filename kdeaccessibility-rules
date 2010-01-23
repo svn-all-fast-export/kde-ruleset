@@ -109,6 +109,12 @@ match /(branches|tags)/KDE/([^/]+)/(kdeaccessibility)/
   min revision 409209
 end match
 
+# create branches in each sub-repository
+match /branches/KDE/([^/]+)/$
+  action recurse
+  min revision 757128
+end match
+
 # Ignore everything else
 match /
 end match

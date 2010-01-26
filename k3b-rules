@@ -1,0 +1,64 @@
+#                                                                                           
+# Created by Abdurrahman AVCI <abdurrahmanavci@gmail.com>                                   
+#                                                                                           
+
+#
+# Create the k3b repository
+#                      
+create repository k3b  
+end repository         
+
+# Ignore some upheaval in KDE's SVN history.
+match /                                     
+  min revision 409202                       
+  max revision 409210                       
+end match                                   
+match /                                     
+  min revision 411973                       
+  max revision 411973                       
+end match                                   
+
+# Import master
+match /trunk/(kdemultimedia|kdeextragear-1|extragear/multimedia)/k3b/
+  repository k3b                                                     
+  branch master                                                      
+end match                                                            
+
+match /branches/extragear/kde3/multimedia/k3b/
+  repository k3b                              
+  branch master                               
+end match                                     
+
+# Import branches
+# 0.11 branch
+match /branches/(k3b_0_11_branch|k3b/0.11)/kdeextragear-1/k3b/
+  repository k3b                            
+  branch 0.11                               
+end match                                   
+# dvd_rw branch
+match /branches/(k3b_dvd_rw_branch|k3b/dvd_rw_branch)/kdeextragear-1/k3b/
+  repository k3b                                     
+  branch dvd_rw
+end match
+# 0.12 branch
+match /branches/k3b/0.12/k3b/
+  repository k3b             
+  branch 0.12                
+end match                    
+# libk3b-redesign and other branches if any exists
+match /branches/k3b/([^/]+)/
+  repository k3b            
+  branch \1
+end match
+
+# Import tags
+match /tags/k3b/([^/]+)/
+  repository k3b
+  branch refs/tags/v\1
+  annotated true
+end match
+
+# Ignore everything else
+match /
+end match
+

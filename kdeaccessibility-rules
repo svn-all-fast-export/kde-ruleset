@@ -52,31 +52,36 @@ end match
 
 match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility)/
   repository KDE/\3
-  branch KDE/\1.\2.0
+  branch refs/tags/KDE/\1.\2.0
+  annotated true
   max revision 409202
 end match
 
 match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility)/
   repository KDE/\3
-  branch KDE/\1.\2.0
+  branch refs/tags/KDE/\1.\2.0
+  annotated true
   max revision 85028
   min revision 68154
 end match
 
 match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/(kdeaccessibility)/
   repository KDE/\4
-  branch KDE/\1.\2.\3
+  branch refs/tags/KDE/\1.\2.\3
+  annotated true
   max revision 409202
 end match
 match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/(kdeaccessibility)/
   repository KDE/\4
-  branch KDE/\1.\2.\3a
+  branch refs/tags/KDE/\1.\2.\3a
+  annotated true
   min revision 192719
   max revision 409202
 end match
 match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdeaccessibility)/
   repository KDE/\5
-  branch KDE/\1.\2.\3-beta\4
+  branch refs/tags/KDE/\1.\2.\3-beta\4
+  annotated true
   min revision 376088
   max revision 409202
 end match
@@ -88,13 +93,15 @@ match /trunk/KDE/(kdeaccessibility)/
 end match
 match /tags/KDE/3.5.0-alpha1/(kdeaccessibility)/
   repository KDE/\1
-  branch KDE/3.4.90
+  branch refs/tags/KDE/3.4.90
+  annotated true
   min revision 443441
   max revision 445561
 end match
 match /tags/KDE/3.5.0-beta1/(kdeaccessibility)/
   repository KDE/\1
-  branch KDE/3.4.91
+  branch refs/tags/KDE/3.4.91
+  annotated true
   min revision 459298
   max revision 460260
 end match
@@ -120,37 +127,43 @@ match /tags/kmag/0.2.0/
   min revision 437072
   max revision 437072
   repository KDE/kdeaccessibility
-  branch kmag/0.2.0
+  branch refs/tags/kmag/0.2.0
+  annotated true
 end match
 match /tags/kmag/0.4.0/
   min revision 437072
   max revision 437072
   repository KDE/kdeaccessibility
-  branch kmag/0.4.0
+  branch refs/tags/kmag/0.4.0
+  annotated true
 end match
 match /tags/kmag/0.5.0/
   min revision 437072
   max revision 437072
   repository KDE/kdeaccessibility
-  branch kmag/0.5.0
+  branch refs/tags/kmag/0.5.0
+  annotated true
 end match
 match /tags/kmag/0.6.0/
   min revision 437072
   max revision 437072
   repository KDE/kdeaccessibility
-  branch kmag/0.6.0
+  branch refs/tags/kmag/0.6.0
+  annotated true
 end match
 match /tags/kmag/0.7.0/
   min revision 437072
   max revision 437072
   repository KDE/kdeaccessibility
-  branch kmag/0.7.0
+  branch refs/tags/kmag/0.7.0
+  annotated true
 end match
 match /tags/kmag/0.8.0/
   min revision 437072
   max revision 437072
   repository KDE/kdeaccessibility
-  branch kmag/0.8.0
+  branch refs/tags/kmag/0.8.0
+  annotated true
 end match
 
 # Ignore everything else

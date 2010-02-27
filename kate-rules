@@ -1,0 +1,57 @@
+#
+# Created by Christoph Cullmann <cullmann@kde.org>
+#
+
+#
+# Create the Kate modules
+#
+create repository kate-part
+end repository
+
+create repository kate-kate
+end repository
+
+create repository kate-ktexteditor
+end repository
+
+create repository kate-kwrite
+end repository
+
+# Ignore some upheaval in KDE's SVN history.
+# stolen from konversation-rules
+match /
+  min revision 409202
+  max revision 409210
+end match
+match /
+  min revision 411973
+  max revision 411973
+end match
+
+#
+# Kate rules, all stuff, app + part + kwrite
+#
+
+match /trunk/(kdelibs|KDE/kdelibs)/(kant|kate|kwrite)/
+  repository kate-part
+  branch master
+end match
+
+match /trunk/(kdebase/(kant|kate|kwrite)|kdesdk/kate|KDE/kdebase/(kant|kate|kwrite)|KDE/kdesdk/kate|KDE/kdebase/apps/kate)/
+  repository kate-kate
+  branch master
+end match
+
+match /trunk/(kdelibs|KDE/kdelibs)/(interfaces/ktexteditor|ktexteditor)/
+  repository kate-ktexteditor
+  branch master
+end match
+
+match /trunk/KDE/kdebase/apps/kwrite/
+  repository kate-kwrite
+  branch master
+end match
+
+# Ignore everything else
+match /
+end match

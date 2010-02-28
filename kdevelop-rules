@@ -317,6 +317,12 @@ end match
 match /tags/kdevelop/soc-teamwork-submission/
 end match
 
+# 3.5.2 was also re-tagged
+match /tags/kdevelop/3.5.2/
+  min revision 807258
+  max revision 807267
+end match
+
 # Ignore the 3.5.1 tag in tags/kdevelop as it doesn't
 # seem to be matching with a branch created by git, hence is "floating"
 # Instead we'll use the KDE 3.5.9 as tag for 3.5.1

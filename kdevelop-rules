@@ -207,50 +207,50 @@ match /tags/kdevelop/3.9.93/
   min revision 975680
   max revision 975680
   repository kdevelop
-  branch refs/tags/3.9.93
+  branch refs/tags/v3.9.93
 end match
 
 # KDE 2.1.1 release KDevelop 1.4.1
 match /tags/KDE/2.1/kdevelop/
   repository kdevelop
-  branch refs/tags/1.4
+  branch refs/tags/v1.4
 end match
 
 # KDE 2.1.1 release KDevelop 1.4.1
 match /tags/KDE/2.1.1/kdevelop/
   repository kdevelop
-  branch refs/tags/1.4.1
+  branch refs/tags/v1.4.1
 end match
 
 # KDE 2.2.x released with KDevelop 2.0.x 
 match /tags/KDE/2.2.([^/])/kdevelop/
   repository kdevelop
-  branch refs/tags/2.0.\1
+  branch refs/tags/v2.0.\1
 end match
 
 # KDevelop 3.0.x, x>1 was a bit messy, its always KDE patch-level+1
 # _except 3.0.0, which matches 3.2.0
 match /tags/KDE/3.2.0/kdevelop/
   repository kdevelop
-  branch refs/tags/3.0.0
+  branch refs/tags/v3.0.0
 end match
 match /tags/KDE/3.2.1/kdevelop/
   repository kdevelop
-  branch refs/tags/3.0.2
+  branch refs/tags/v3.0.2
 end match
 match /tags/KDE/3.2.2/kdevelop/
   repository kdevelop
-  branch refs/tags/3.0.3
+  branch refs/tags/v3.0.3
 end match
 match /tags/KDE/3.2.3/kdevelop/
   repository kdevelop
-  branch refs/tags/3.0.4
+  branch refs/tags/v3.0.4
 end match
 
 # KDE/3.3.x/kdevelop shipped KDevelop 3.1.x
 match /tags/KDE/3.3.([^/])/kdevelop/
   repository kdevelop
-  branch refs/tags/3.1.\1
+  branch refs/tags/v3.1.\1
 end match
 
 # KDE/3.4.3 was tagged twice, ignore the first tagging
@@ -262,7 +262,7 @@ end match
 # KDE/3.4.x/kdevelop shipped KDevelop 3.2.x
 match /tags/KDE/3.4.([^/])/kdevelop/
   repository kdevelop
-  branch refs/tags/3.2.\1
+  branch refs/tags/v3.2.\1
 end match
 
 # KDE/3.5.2 was tagged twice, ignore the first tagging
@@ -280,33 +280,33 @@ end match
 # KDE/3.5.[0-6] are equal to KDevelop 3.3.x
 match /tags/KDE/3.5.([0-6])/kdevelop/
   repository kdevelop
-  branch refs/tags/3.3.\1
+  branch refs/tags/v3.3.\1
 end match
 
 # KDE 3.5.7 shipped 3.4.1 (3.4.0 was released independently)
 match /tags/KDE/3.5.7/kdevelop/
   repository kdevelop
-  branch refs/tags/3.4.1
+  branch refs/tags/v3.4.1
 end match
 
 # KDE 3.5.8 shipped 3.5.0
 match /tags/KDE/3.5.8/kdevelop/
   repository kdevelop
-  branch refs/tags/3.5.0
+  branch refs/tags/v3.5.0
 end match
 
 # KDE 3.5.8 shipped 3.5.1, use this instead of tags/kdevelop/3.5.1, see below
 # for more info
 match /tags/KDE/3.5.9/kdevelop/
   repository kdevelop
-  branch refs/tags/3.5.1
+  branch refs/tags/v3.5.1
 end match
 
 # KDE 3.5.10 shipped 3.5.3 which wasn't tagged separately
 # all other 3.5.x releases are tagged under tags/kdevelop
 match /tags/KDE/3.5.10/kdevelop/
   repository kdevelop
-  branch refs/tags/3.5.3
+  branch refs/tags/v3.5.3
 end match
 
 # Ignore some of the tags as they don't make any sense to keep
@@ -338,7 +338,7 @@ end match
 # Match all other tags as they are in svn
 match /tags/kdevelop/([^/]+)/
   repository kdevelop
-  branch refs/tags/\1
+  branch refs/tags/v\1
 end match
 
 #########################################################
@@ -385,13 +385,13 @@ match /tags/kdevplatform/0.9.85/
   min revision 907346
   max revision 907346
   repository kdevplatform
-  branch refs/tags/0.9.85
+  branch refs/tags/v0.9.85
 end match
 match /tags/kdevplatform/0.9.93/
   min revision 975678
   max revision 975678
   repository kdevplatform
-  branch refs/tags/0.9.93
+  branch refs/tags/v0.9.93
 end match
 
 # All other tags are fine

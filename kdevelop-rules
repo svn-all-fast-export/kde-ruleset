@@ -200,6 +200,10 @@ end match
  
 # 3.9.93 tag was re-created 3 times, so only take the last one
 match /tags/kdevelop/3.9.93/
+  min revision 972085
+  max revision 975679
+end match
+match /tags/kdevelop/3.9.93/
   min revision 975680
   max revision 975680
   repository kdevelop

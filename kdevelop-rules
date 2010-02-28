@@ -76,7 +76,7 @@ end match
 
 match /branches/KDE_2_1_BRANCH/kdevelop/
   repository kdevelop
-  match 2.0
+  branch 2.0
 end match
 
 match /branches/KDE/2.1/kdevelop/
@@ -86,7 +86,7 @@ end match
 
 match /branches/KDE_2_2_BRANCH/kdevelop/
   repository kdevelop
-  match 2.1
+  branch 2.1
 end match
 
 match /branches/KDE/2.2/kdevelop/
@@ -96,7 +96,7 @@ end match
 
 match /branches/KDE_3_2_BRANCH/kdevelop/
   repository kdevelop
-  match 3.0
+  branch 3.0
 end match
 
 match /branches/KDE/3.2/kdevelop/
@@ -106,7 +106,7 @@ end match
 
 match /branches/KDE_3_3_BRANCH/kdevelop/
   repository kdevelop
-  match 3.1
+  branch 3.1
 end match
 
 match /branches/KDE/3.3/kdevelop/
@@ -116,7 +116,7 @@ end match
 
 match /branches/KDE_3_4_BRANCH/kdevelop/
   repository kdevelop
-  match 3.2
+  branch 3.2
 end match
 
 match /branches/KDE/3.4/kdevelop/

@@ -295,6 +295,13 @@ match /tags/KDE/3.5.8/kdevelop/
   branch refs/tags/3.5.0
 end match
 
+# KDE 3.5.8 shipped 3.5.1, use this instead of tags/kdevelop/3.5.1, see below
+# for more info
+match /tags/KDE/3.5.9/kdevelop/
+  repository kdevelop
+  branch refs/tags/3.5.1
+end match
+
 # KDE 3.5.10 shipped 3.5.3 which wasn't tagged separately
 # all other 3.5.x releases are tagged under tags/kdevelop
 match /tags/KDE/3.5.10/kdevelop/
@@ -308,6 +315,12 @@ end match
 match /tags/kdevelop/2-MERGE/
 end match
 match /tags/kdevelop/soc-teamwork-submission/
+end match
+
+# Ignore the 3.5.1 tag in tags/kdevelop as it doesn't
+# seem to be matching with a branch created by git, hence is "floating"
+# Instead we'll use the KDE 3.5.9 as tag for 3.5.1
+match /tags/kdevelop/3.5.1/
 end match
 
 # Match all other tags as they are in svn

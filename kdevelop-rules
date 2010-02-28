@@ -253,11 +253,29 @@ match /tags/KDE/3.3.([^/])/kdevelop/
   branch refs/tags/3.1.\1
 end match
 
+# KDE/3.4.3 was tagged twice, ignore the first tagging
+match /tags/KDE/3.4.3/kdevelop/
+  min revision 467472
+  max revision 467490
+end match
+
 # KDE/3.4.x/kdevelop shipped KDevelop 3.2.x
 match /tags/KDE/3.4.([^/])/kdevelop/
   repository kdevelop
   branch refs/tags/3.2.\1
 end match
+
+# KDE/3.5.2 was tagged twice, ignore the first tagging
+match /tags/KDE/3.5.2/kdevelop/
+  min revision 519755
+  max revision 519761
+end match
+# KDE/3.5.5 was tagged twice, ignore the first tagging
+match /tags/KDE/3.5.5/kdevelop/
+  min revision 591372
+  max revision 591395
+end match
+
 
 # KDE/3.5.[0-6] are equal to KDevelop 3.3.x
 match /tags/KDE/3.5.([0-6])/kdevelop/

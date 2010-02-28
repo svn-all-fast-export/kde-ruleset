@@ -135,6 +135,17 @@ match /branches/KDE/3.5/kdevelop/
   branch 3.3
 end match
 
+match /branches/KDE/3.5/kdevelop/
+  max revision 453965
+  repository kdevelop
+  branch 3.4
+end match
+
+match /branches/work/kdevelop3/
+  repository kdevelop
+  branch 3.4
+end match
+
 match /branches/work/kdevelop/3.4/
   repository kdevelop
   branch 3.4

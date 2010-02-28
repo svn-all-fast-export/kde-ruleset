@@ -382,6 +382,10 @@ end match
 #
 # for tags that were re-created only take the last one
 match /tags/kdevplatform/0.9.85/
+  min revision 907191
+  max revision 907345
+end match
+match /tags/kdevplatform/0.9.85/
   min revision 907346
   max revision 907346
   repository kdevplatform

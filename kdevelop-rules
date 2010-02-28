@@ -329,6 +329,12 @@ end match
 match /tags/kdevelop/3.5.1/
 end match
 
+# 3.4.0 was re-tagged, so ignore the original tag
+match /tags/kdevelop/3.4.0/
+  min revision 624322
+  max revision 627086
+end match
+
 # Match all other tags as they are in svn
 match /tags/kdevelop/([^/]+)/
   repository kdevelop

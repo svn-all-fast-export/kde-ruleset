@@ -1,0 +1,348 @@
+#
+# Created by Andreas Pakulat <apaku@gmx.de>
+#
+
+#
+# Create the KDevelop/KDevPlatform modules
+#
+create repository kdevplatform
+end repository
+create repository kdevelop
+end repository
+
+# Ignore some upheaval in KDE's SVN history.
+match /
+  min revision 409202
+  max revision 409210
+end match
+match /
+  min revision 411973
+  max revision 411973
+end match
+
+
+#
+# KDevelop master rules
+#
+match /trunk/kdevelop/
+  repository kdevelop
+  branch master
+end match
+
+match /branches/work/kdevelop4-merge/
+  repository kdevelop
+  min revision 446110
+  max revision 454224
+  branch master
+end match
+
+match /trunk/KDE/kdevelop/
+  repository kdevelop
+  branch master
+end match
+
+match /trunk/extragear/sdk/kdevelop/
+  repository kdevelop
+  branch master
+end match
+
+#
+# KDevelop branches
+#
+# Most of these need to be done manually as kdevelop moved
+# around a lot and additionally has different versions than 
+# the KDE branches it was part of
+#
+match /branches/KDEVELOP_1_4/
+  repository kdevelop
+  branch 1.4
+end match
+
+match /branches/kdevelop/1.4/
+  repository kdevelop
+  branch 1.4
+end match
+
+match /branches/KDEVELOP_2_BRANCH/
+  repository kdevelop
+  branch 2
+end match
+
+match /branches/kdevelop/2/
+  repository kdevelop
+  branch 2
+end match
+
+
+match /branches/KDE_2_1_BRANCH/kdevelop/
+  repository kdevelop
+  match 2.0
+end match
+
+match /branches/KDE/2.1/kdevelop/
+  repository kdevelop
+  branch 2.0
+end match
+
+match /branches/KDE_2_2_BRANCH/kdevelop/
+  repository kdevelop
+  match 2.1
+end match
+
+match /branches/KDE/2.2/kdevelop/
+  repository kdevelop
+  branch 2.1
+end match
+
+match /branches/KDE_3_2_BRANCH/kdevelop/
+  repository kdevelop
+  match 3.0
+end match
+
+match /branches/KDE/3.2/kdevelop/
+  repository kdevelop
+  branch 3.0
+end match
+
+match /branches/KDE_3_3_BRANCH/kdevelop/
+  repository kdevelop
+  match 3.1
+end match
+
+match /branches/KDE/3.3/kdevelop/
+  repository kdevelop
+  branch 3.1
+end match
+
+match /branches/KDE_3_4_BRANCH/kdevelop/
+  repository kdevelop
+  match 3.2
+end match
+
+match /branches/KDE/3.4/kdevelop/
+  repository kdevelop
+  branch 3.2
+end match
+
+match /branches/kdevelop/3.3/
+  repository kdevelop
+  branch 3.3
+end match
+
+match /branches/KDE/3.5/kdevelop/
+  max revision 646825
+  repository kdevelop
+  branch 3.3
+end match
+
+match /branches/work/kdevelop/3.4/
+  repository kdevelop
+  branch 3.4
+end match
+
+match /branches/kdevelop/3.4/
+  repository kdevelop
+  branch 3.4
+end match
+
+match /branches/KDE/3.5/kdevelop/
+  min revision 646828
+  max revision 722529
+  repository kdevelop
+  branch 3.4
+end match
+
+match /branches/kdevelop/3.5/
+  repository kdevelop
+  branch 3.5
+end match
+
+match /branches/KDE/3.5/kdevelop/
+  min revision 722530
+  repository kdevelop
+  branch 3.5
+end match
+
+match /branches/kdevelop/make_kdevelop_cool/kdevelop/
+  repository kdevelop
+  branch make_kdevelop_cool
+end match
+
+match /branches/kdevelop/sublime_rework/kdevelop/
+  repository kdevelop
+  branch sublime_rework
+end match
+
+match /branches/kdevelop/interfaces_cleanup/kdevelop/
+    repository kdevelop
+    branch interfaces_cleanup
+end match
+
+match /branches/kdevelop/class-generation-extraction/kdevelop/
+    repository kdevelop
+    branch class-generation-extraction
+end match
+
+#
+# Tags from kdevelop
+#
+ 
+# 3.9.93 tag was re-created 3 times, so only take the last one
+match /tags/kdevelop/3.9.93/
+  min revision 975680
+  max revision 975680
+  repository kdevelop
+  branch refs/tags/3.9.93
+end match
+
+# KDE 2.1.1 release KDevelop 1.4.1
+match /tags/KDE/2.1/kdevelop/
+  repository kdevelop
+  branch refs/tags/1.4
+end match
+
+# KDE 2.1.1 release KDevelop 1.4.1
+match /tags/KDE/2.1.1/kdevelop/
+  repository kdevelop
+  branch refs/tags/1.4.1
+end match
+
+# KDE 2.2.x released with KDevelop 2.0.x 
+match /tags/KDE/2.2.([^/])/kdevelop/
+  repository kdevelop
+  branch refs/tags/2.0.\1
+end match
+
+# KDevelop 3.0.x, x>1 was a bit messy, its always KDE patch-level+1
+# _except 3.0.0, which matches 3.2.0
+match /tags/KDE/3.2.0/kdevelop/
+  repository kdevelop
+  branch refs/tags/3.0.0
+end match
+match /tags/KDE/3.2.1/kdevelop/
+  repository kdevelop
+  branch refs/tags/3.0.2
+end match
+match /tags/KDE/3.2.2/kdevelop/
+  repository kdevelop
+  branch refs/tags/3.0.3
+end match
+match /tags/KDE/3.2.3/kdevelop/
+  repository kdevelop
+  branch refs/tags/3.0.4
+end match
+
+# KDE/3.3.x/kdevelop shipped KDevelop 3.1.x
+match /tags/KDE/3.3.([^/])/kdevelop/
+  repository kdevelop
+  branch refs/tags/3.1.\1
+end match
+
+# KDE/3.4.x/kdevelop shipped KDevelop 3.2.x
+match /tags/KDE/3.4.([^/])/kdevelop/
+  repository kdevelop
+  branch refs/tags/3.2.\1
+end match
+
+# KDE/3.5.[0-6] are equal to KDevelop 3.3.x
+match /tags/KDE/3.5.([0-6])/kdevelop/
+  repository kdevelop
+  branch refs/tags/3.3.\1
+end match
+
+# KDE 3.5.7 shipped 3.4.1 (3.4.0 was released independently)
+match /tags/KDE/3.5.7/kdevelop/
+  repository kdevelop
+  branch refs/tags/3.4.1
+end match
+
+# KDE 3.5.8 shipped 3.5.0
+match /tags/KDE/3.5.8/kdevelop/
+  repository kdevelop
+  branch refs/tags/3.5.0
+end match
+
+# KDE 3.5.10 shipped 3.5.3 which wasn't tagged separately
+# all other 3.5.x releases are tagged under tags/kdevelop
+match /tags/KDE/3.5.10/kdevelop/
+  repository kdevelop
+  branch refs/tags/3.5.3
+end match
+
+# Ignore some of the tags as they don't make any sense to keep
+match /tags/kdevelop/2-KACTION_START/
+end match
+match /tags/kdevelop/2-MERGE/
+end match
+match /tags/kdevelop/soc-teamwork-submission/
+end match
+
+# Match all other tags as they are in svn
+match /tags/kdevelop/([^/]+)/
+  repository kdevelop
+  branch refs/tags/\1
+end match
+
+#########################################################
+# KDevPlatform rules
+#
+match /trunk/KDE/kdevplatform/
+  repository kdevplatform
+  branch master
+end match
+
+match /trunk/extragear/sdk/kdevplatform/
+  repository kdevplatform
+  branch master
+end match
+
+#
+# KDevPlatform branches
+#
+match /branches/kdevelop/sublime_rework/kdevplatform/
+    repository kdevplatform
+    branch sublime_rework
+end match
+
+match /branches/kdevelop/class-generation-extraction/kdevplatform/
+    repository kdevplatform
+    branch class-generation-extraction
+end match
+
+match /branches/kdevelop/interfaces_cleanup/kdevplatform/
+    repository kdevplatform
+    branch interfaces_cleanup
+end match
+
+match /branches/kdevelop/kdevplatform_no_splitters_ui/
+    repository kdevplatform
+    branch no_splitters_ui
+end match
+
+#
+# KDevPlatform tags
+#
+# for tags that were re-created only take the last one
+match /tags/kdevplatform/0.9.85/
+  min revision 907346
+  max revision 907346
+  repository kdevplatform
+  branch refs/tags/0.9.85
+end match
+match /tags/kdevplatform/0.9.93/
+  min revision 975678
+  max revision 975678
+  repository kdevplatform
+  branch refs/tags/0.9.93
+end match
+
+# All other tags are fine
+match /tags/kdevplatform/([^/]+)/
+  repository kdevplatform
+  branch refs/tags/v\1
+  annotated true
+end match
+
+# Ignore everything else
+match /
+end match

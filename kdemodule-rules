@@ -22,7 +22,68 @@
 #
 # Create the KDE modules
 #
+
+create repository KDE/kdelibs
+end repository
+
+create repository KDE/kdebase
+end repository
+
 create repository KDE/kdeaccessibility
+end repository
+
+create repository KDE/kdeaddons
+end repository
+
+create repository KDE/kdeadmin
+end repository
+
+create repository KDE/kdeartwork
+end repository
+
+create repository KDE/kdebindings
+end repository
+
+create repository KDE/kdeedu
+end repository
+
+create repository KDE/kdegames
+end repository
+
+create repository KDE/kdegraphics
+end repository
+
+create repository KDE/kdemultimedia
+end repository
+
+create repository KDE/kdenetwork
+end repository
+
+create repository KDE/kdepim
+end repository
+
+create repository KDE/kdepimlibs
+end repository
+
+create repository KDE/kdesdk
+end repository
+
+create repository KDE/kdetoys
+end repository
+
+create repository KDE/kdeutils
+end repository
+
+create repository KDE/kdevelop
+end repository
+
+create repository KDE/kdevplatform
+end repository
+
+create repository KDE/kdewebdev
+end repository
+
+create repository KDE/kdeplasma-addons
 end repository
 
 # during this time(rev 92214 - 409202), kdeaccessibility was directly under trunk
@@ -38,80 +99,93 @@ match /
   min revision 409202
   max revision 409210
 end match
+match /branches/KDE/4.0/(kdevplatform|kdevelop|kdepim)
+  min revision 757196
+  max revision 800000
+end match
+match /tags/KDE/4.0.80/(kdevelop)
+  min revision 813323
+end match
+match /branches/KDE/4.1/(kdevelop|kdevplatform)
+  min revision 829867
+end match
+match /branches/KDE/4.1/kdeplasmoids
+  min revision 830065
+end match
+# this one was added for kdeaccessibility-rules, maybe not needed?
 match /
   min revision 411973
   max revision 411973
 end match
 
-
-match /branches/KDE_(\d+)_(\d+)_BRANCH/kdeaccessibility/
-  repository KDE/kdeaccessibility
+match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeaccessibility|kdeadmin|kdebase|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdetoys|kdeutils)/
+  repository KDE/\3
   branch KDE/\1.\2
   max revision 409202
 end match
 
-match /tags/KDE_(\d+)_(\d+)_RELEASE/kdeaccessibility/
-  repository KDE/kdeaccessibility
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdesdk|kdetoys|kdeutils|kdevelop|kdewebdev)/
+  repository KDE/\3
   branch refs/tags/KDE/\1.\2.0
   annotated true
   max revision 409202
 end match
 
-match /tags/KDE_(\d+)_(\d+)_RELEASE/kdeaccessibility/
-  repository KDE/kdeaccessibility
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdesdk|kdetoys|kdeutils|kdevelop|kdewebdev)/
+  repository KDE/\3
   branch refs/tags/KDE/\1.\2.0
   annotated true
   max revision 85028
   min revision 68154
 end match
 
-match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/kdeaccessibility/
-  repository KDE/kdeaccessibility
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdesdk|kdetoys|kdeutils|kdevelop|kdewebdev)/
+  repository KDE/\4
   branch refs/tags/KDE/\1.\2.\3
   annotated true
   max revision 409202
 end match
-match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/kdeaccessibility/
-  repository KDE/kdeaccessibility
+match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/(kdeaccessibility|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdesdk|kdetoys|kdeutils|kdevelop|kdewebdev)/
+  repository KDE/\4
   branch refs/tags/KDE/\1.\2.\3a
   annotated true
   min revision 192719
   max revision 409202
 end match
-match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/kdeaccessibility/
-  repository KDE/kdeaccessibility
+match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdeaccessibility|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdesdk|kdetoys|kdeutils|kdevelop|kdewebdev)/
+  repository KDE/\5
   branch refs/tags/KDE/\1.\2.\3-beta\4
   annotated true
   min revision 376088
   max revision 409202
 end match
 
-match /trunk/KDE/kdeaccessibility/
-  repository KDE/kdeaccessibility
+match /trunk/KDE/(kdeaccessibility)/
+  repository KDE/\1
   branch master
   min revision 409209
 end match
-match /tags/KDE/3.5.0-alpha1/kdeaccessibility/
-  repository KDE/kdeaccessibility
+match /tags/KDE/3.5.0-alpha1/(kdeaccessibility)/
+  repository KDE/\1
   branch refs/tags/KDE/3.4.90
   annotated true
   min revision 443441
   max revision 445561
 end match
-match /tags/KDE/3.5.0-beta1/kdeaccessibility/
-  repository KDE/kdeaccessibility
+match /tags/KDE/3.5.0-beta1/(kdeaccessibility)/
+  repository KDE/\1
   branch refs/tags/KDE/3.4.91
   annotated true
   min revision 459298
   max revision 460260
 end match
-match /branches/KDE/([^/]+)A/kdeaccessibility/
-  repository KDE/kdeaccessibility
+match /branches/KDE/([^/]+)A/(kdeaccessibility)/
+  repository KDE/\2
   branch KDE/\1a
   min revision 409209
 end match
-match /branches/KDE/([^/]+)/kdeaccessibility/
-  repository KDE/kdeaccessibility
+match /branches/KDE/([^/]+)/(kdeaccessibility)/
+  repository KDE/\2
   branch KDE/\1
   min revision 409209
 end match

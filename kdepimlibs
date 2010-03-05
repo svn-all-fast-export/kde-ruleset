@@ -1,0 +1,61 @@
+create repository KDE/kdepimlibs
+end repository
+
+match /
+    min revision 409202
+    max revision 409210
+end match
+match /
+    min revision 411973
+    max revision 411973
+end match
+
+match /trunk/KDE/kdepimlibs/
+    repository KDE/kdepimlibs
+    branch master
+end match
+
+# Akonadi...
+# cmake
+# doc
+# gpgme++
+match /branches/aegypten_branch/kdepim/libkdenetwork/gpgmepp/
+    repository KDE/kdepimlibs
+    branch master
+    max revision 286478
+end match
+
+#includes
+#kabc
+#kblog
+#kcal
+#kholidays
+#kimap
+#kioslave
+#kldap
+#kmime
+#kontactinterface
+#kpimidentities
+#kpimtextedit
+#kpimutils
+#kresources
+#ktnef
+#kxmlrpcclient
+#mailtransport
+#microblog
+#qgpgme
+#syndication
+
+# Single file imports
+#match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/(?!FcEngine\.cpp)
+#end match
+#match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/
+#    repository KDE/kdepimlibs
+#    branch master
+#end match
+
+# Branches...
+
+# Ignore everything else
+match /
+end match

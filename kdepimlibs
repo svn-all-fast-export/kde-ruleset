@@ -15,6 +15,11 @@ match /trunk/KDE/kdepimlibs/
     branch master
 end match
 
+# Old removed stuff...
+# libemailfinctions
+
+
+# Current submodules
 # Akonadi...
 # cmake
 # doc
@@ -33,18 +38,31 @@ end match
 #kimap
 #kioslave
 #kldap
-#kmime
-#kontactinterface
-#kpimidentities
+#kmime - disapears in r145244 only "test dir reorg" as comment
+#kontactinterface - suspect moved from kdepim/kontact/interfaces in r808489
+match /trunk/KDE/kdepim/kontact/interfaces/
+    repository KDE/kdepimlibs
+    branch master
+    max revision 808489
+end match
+#kpimidentities - trail lost in r317526
 #kpimtextedit
 #kpimutils
+
 #kresources
+
 #ktnef
+
 #kxmlrpcclient
+
 #mailtransport
+
 #microblog
+
 #qgpgme
+
 #syndication
+
 
 # Single file imports
 #match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/(?!FcEngine\.cpp)

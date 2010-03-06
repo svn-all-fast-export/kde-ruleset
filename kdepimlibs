@@ -29,7 +29,6 @@ match /branches/aegypten_branch/kdepim/libkdenetwork/gpgmepp/
     branch master
     max revision 286478
 end match
-
 #includes
 #kabc
 #kblog
@@ -47,20 +46,25 @@ match /trunk/KDE/kdepim/kontact/interfaces/
 end match
 #kpimidentities - trail lost in r317526
 #kpimtextedit
-#kpimutils
-
-#kresources
-
+#kpimutils - trail lost in r346704 (split libkdepim but without using svn mv, no history)
+#kresources - trail lost in r170699 (source manually copied from libkabc)
 #ktnef
-
+#     /lib
+#     /ktnef
+match /branches/(kroupware_branch)/kdenetwork/ktnef/(lib|ktnef)/
+    repository KDE/kdepimlibs
+    branch \1
+    max revision 200754
+end match
 #kxmlrpcclient
-
 #mailtransport
-
 #microblog
-
 #qgpgme
-
+match /branches/aegypten_branch/kdepim/libkdenetwork/qgpgme/
+    repository KDE/kdepimlibs
+    branch master
+    max revision 286478
+end match
 #syndication
 
 
@@ -73,7 +77,10 @@ end match
 #end match
 
 # Branches...
-
+match /branches/.*/([^/]+)/([^/]*kdepimlibs[^/]*)/
+    repository KDE/kdepimlibs
+    branch \1/
+end match
 # Ignore everything else
 match /
 end match

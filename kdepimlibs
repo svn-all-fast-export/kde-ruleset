@@ -1,25 +1,26 @@
 create repository KDE/kdepimlibs
 end repository
 
-match /
-    min revision 409202
-    max revision 409210
-end match
-match /
-    min revision 411973
-    max revision 411973
-end match
+##############
+# Some stuff we want to ignore
+##############
 
+##############
+# Main rules
+##############
 match /trunk/KDE/kdepimlibs/
     repository KDE/kdepimlibs
     branch master
 end match
 
+##############
 # Old removed stuff...
+##############
 # libemailfinctions
 
-
+##############
 # Current submodules
+##############
 # Akonadi...
 # cmake
 # doc
@@ -67,8 +68,9 @@ match /branches/aegypten_branch/kdepim/libkdenetwork/qgpgme/
 end match
 #syndication
 
-
+##############
 # Single file imports
+##############
 #match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/(?!FcEngine\.cpp)
 #end match
 #match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/
@@ -76,11 +78,20 @@ end match
 #    branch master
 #end match
 
+##############
 # Branches...
+##############
 match /branches/.*/([^/]+)/([^/]*kdepimlibs[^/]*)/
     repository KDE/kdepimlibs
     branch \1/
 end match
+
+##############
+# Tags
+##############
+
+##############
 # Ignore everything else
+##############
 match /
 end match

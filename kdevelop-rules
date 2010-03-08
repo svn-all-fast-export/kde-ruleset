@@ -341,6 +341,27 @@ match /tags/kdevelop/([^/]+)/
   branch refs/tags/v\1
 end match
 
+match /trunk/$
+  action recurse
+end match
+
+match /trunk/KDE/$
+  action recurse
+end match
+
+match /trunk/KDE/[^/]+/$
+  action recurse
+end match
+
+match /branches/KDE/[^/]+/$
+  action recurse
+end match
+
+match /branches/KDE_[^/]+/$
+  action recurse
+end match
+
+
 #########################################################
 # KDevPlatform rules
 #

@@ -56,21 +56,21 @@ match /trunk/(extragear/sdk/|KDE/kdewebdev/)quanta/plugins/upload/
   branch master
 end match
 
-match /trunk/(extragear/sdk/|KDE/kdewebdev/)kdevplatform/plugins/git/
+match /trunk/(extragear/sdk/|KDE/)kdevplatform/plugins/git/
   repository kdevelop-git
   branch master
 end match
 
-match /trunk/(extragear/sdk/|KDE/kdewebdev/)kdevelop/languages/(ruby|java)/
+match /trunk/(extragear/sdk/|KDE/)kdevelop/languages/(ruby|java)/
   repository kdevelop-\1
   branch master
 end match
 
-match /branches/work/kdev-pg_python_parser/
-  #subdirectory; does this work?
-  repository kdevelop-python/kdev-pg_python_parser
-  branch master
-end match
+#this belongs into a subdirectory, but that doesn't work
+#match /branches/work/kdev-pg_python_parser/
+#  repository kdevelop-python/kdev-pg_python_parser
+#  branch master
+#end match
 
 
 ### tags

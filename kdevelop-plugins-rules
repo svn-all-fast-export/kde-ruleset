@@ -1,0 +1,85 @@
+#
+# Created by Niko Sams <niko.sams@gmail.com>
+#
+
+create repository kdevelop-php
+end repository
+create repository kdevelop-php-docs
+end repository
+create repository kdevelop-upload
+end repository
+create repository kdevelop-css
+end repository
+create repository kdevelop-executescript
+end repository
+create repository kdevelop-executebrowser
+end repository
+create repository kdevelop-xdebug
+end repository
+create repository kdevelop-crossfire
+end repository
+create repository kdevelop-ruby
+end repository
+create repository kdevelop-git
+end repository
+create repository kdevelop-vcsprojectintegration
+end repository
+create repository kdevelop-controlflowgraph
+end repository
+create repository kdevelop-java
+end repository
+create repository kdevelop-python
+end repository
+
+match /trunk/extragear/sdk/kdevelop-plugins/(php|php-docs|upload)/
+  repository kdevelop-\1
+  branch master
+end match
+
+match /trunk/kdereview/kdevelop-(php|php-docs)/
+  repository kdevelop-\1
+  branch master
+end match
+
+match /trunk/kdereview/controlflowgraph/
+  repository kdevelop-controlflowgraph
+  branch master
+end match
+
+match /trunk/playground/devtools/kdevelop4-extra-plugins/(php|php-docs|css|executescript|executebrowser|xdebug|crossfire|ruby|git|vcsprojectintegration|controlflowgraph|java|python)/
+  repository kdevelop-\1
+  branch master
+end match
+
+match /trunk/(extragear/sdk/|KDE/kdewebdev/)quanta/plugins/upload/
+  repository kdevelop-upload
+  branch master
+end match
+
+match /trunk/(extragear/sdk/|KDE/kdewebdev/)kdevplatform/plugins/git/
+  repository kdevelop-git
+  branch master
+end match
+
+match /trunk/(extragear/sdk/|KDE/kdewebdev/)kdevelop/languages/(ruby|java)/
+  repository kdevelop-\1
+  branch master
+end match
+
+match /branches/work/kdev-pg_python_parser/
+  #subdirectory; does this work?
+  repository kdevelop-python/kdev-pg_python_parser
+  branch master
+end match
+
+
+### tags
+match /tags/kdevelop-plugins/([^/]+)/([^/]+)/
+  repository kdevelop-\1
+  branch refs/tags/\2
+end match
+
+
+# Ignore everything else
+match /
+end match

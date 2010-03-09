@@ -157,3 +157,7 @@ match /branches/KDE_3_2_BRANCH/quanta/
   repository quanta
   branch KDE-3.2
 end match
+
+# Ignore everything else
+match /
+end match

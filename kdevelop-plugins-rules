@@ -56,7 +56,7 @@ match /trunk/(extragear/sdk/|KDE/kdewebdev/)quanta/plugins/upload/
   branch master
 end match
 
-match /trunk/(extragear/sdk/|KDE/)kdevplatform/plugins/git/
+match /trunk/KDE/kdevplatform/plugins/git/
   repository kdevelop-git
   branch master
 end match

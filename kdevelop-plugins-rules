@@ -61,8 +61,15 @@ match /trunk/(extragear/sdk/|KDE/)kdevplatform/plugins/git/
   branch master
 end match
 
-match /trunk/(extragear/sdk/|KDE/)kdevelop/languages/(ruby|java)/
-  repository kdevelop-\1
+match /trunk/KDE/kdevelop/languages/ruby/
+  min revision 580568
+  repository kdevelop-ruby
+  branch master
+end match
+
+match /trunk/KDE/kdevelop/languages/java/
+  min revision 566151
+  repository kdevelop-java
   branch master
 end match
 

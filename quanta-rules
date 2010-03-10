@@ -79,10 +79,7 @@ match /(branches|tags)/KDE/kdewebdev/quanta/
   branch KDE/\2
   min revision 409209
 end match
-match /(branches|tags)/KDE
-  action recurse
-  min revision 757126
-end match
+
 
 
 
@@ -156,6 +153,28 @@ match /branches/KDE_3_2_BRANCH/quanta/
   max revision 350000
   repository quanta
   branch KDE-3.2
+end match
+
+
+#recurse rules
+match /trunk/$
+  action recurse
+end match
+
+match /trunk/KDE/$
+  action recurse
+end match
+
+match /trunk/KDE/[^/]+/$
+  action recurse
+end match
+
+match /branches/KDE/[^/]+/$
+  action recurse
+end match
+
+match /branches/KDE_[^/]+/$
+  action recurse
 end match
 
 # Ignore everything else

@@ -1,0 +1,119 @@
+create repository KDE/kdepim
+end repository
+
+##############
+# Some stuff we want to ignore
+##############
+# Empty directories added using "svn mv" from another
+# path -> Error (Git cannot handle dirs only files)
+# Branch will be created when files are added.
+match /
+    max revision 622809
+    min revision 622809
+end match
+
+# Translations are in svn so ignore them
+match /.*/[^/]*(i|l)10n[^/]*/
+end match
+
+##############
+# Recurse
+##############
+match /trunk/$
+    action recurse
+end match
+
+match /trunk/KDE/$
+    action recurse
+end match
+
+match /trunk/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE_[^/]+/$
+    action recurse
+end match
+
+match /tags/KDE_[^/]+/$
+    action recurse
+end match
+# Make sure all tags are included
+match /tags/KDE/[^/]/$
+    action recurse
+end match
+##############
+# Main rules
+##############
+match /trunk/KDE/kdepim/
+    repository KDE/kdepim
+    branch master
+end match
+
+##############
+# Old removed stuff...
+##############
+
+##############
+# Current submodules
+##############
+
+##############
+# Single file imports
+##############
+#match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/(?!FcEngine\.cpp)
+#end match
+#match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/
+#    repository KDE/kdepimlibs
+#    branch master
+#end match
+
+##############
+# Branches...
+##############
+match /branches/KDE_(\d+)_(\d+)_BRANCH/
+    repository KDE/kdepim
+    branch \1.\2
+end match
+match /branches/KDE/(\d+)\.(\d+)/kdepim/
+    repository KDE/kdepim
+    branch \1.\2
+end match
+match /branches/(work)/~([^/]+)/
+    repository KDE/kdepim
+    branch \1/personal/\2
+end match
+match /branches/kdepim/([^/]+)/
+    repository KDE/kdepim
+    branch \1/\2
+end match
+match /branches/(.+)/[^/]*kdepim[^/]*/
+    repository KDE/kdepim
+    branch \1
+end match
+
+##############
+# Tags
+##############
+match /tags/KDE_(\d+)_(\d+)_(\d+[a-zA-Z]?)_RELEASE/(kdepim)/
+    repository KDE/\4
+    branch tags/\1.\2.\3
+end match
+match /tags/KDE/(\d+)\.(\d+)/(kdepim)/
+    repository KDE/\3
+    branch tags/\1.\2
+end match
+match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepim)/
+    repository KDE/\4
+    branch tags/\1.\2.\3
+end match
+
+##############
+# Ignore everything else
+##############
+match /
+end match

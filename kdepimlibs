@@ -4,7 +4,49 @@ end repository
 ##############
 # Some stuff we want to ignore
 ##############
+# Empty directories added using "svn mv" from another
+# path -> Error (Git cannot handle dirs only files)
+# Branch will be created when files are added.
+match /
+    max revision 622809
+    min revision 622809
+end match
 
+# Translations are in svn so ignore them
+match /.*/l10n-kde4/
+end match
+
+# KDAB packaging subdirs.
+match /branches/(kdepim/enterprise(4)?|komo)/packaging/
+end match
+
+##############
+# Recurse
+##############
+match /trunk/$
+    action recurse
+end match
+
+match /trunk/KDE/$
+    action recurse
+end match
+
+match /trunk/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE_[^/]+/$
+    action recurse
+end match
+
+# Make sure all tags are included
+match /tags/KDE/[^/]/$
+    action recurse
+end match
 ##############
 # Main rules
 ##############
@@ -25,11 +67,11 @@ end match
 # cmake
 # doc
 # gpgme++
-match /branches/aegypten_branch/kdepim/libkdenetwork/gpgmepp/
-    repository KDE/kdepimlibs
-    branch master
-    max revision 286478
-end match
+#match /branches/aegypten_branch/kdepim/libkdenetwork/gpgmepp/
+#    repository KDE/kdepimlibs
+#    branch aegypten_branch
+#    max revision 286478
+#end match
 #includes
 #kabc
 #kblog
@@ -40,11 +82,11 @@ end match
 #kldap
 #kmime - disapears in r145244 only "test dir reorg" as comment
 #kontactinterface - suspect moved from kdepim/kontact/interfaces in r808489
-match /trunk/KDE/kdepim/kontact/interfaces/
-    repository KDE/kdepimlibs
-    branch master
-    max revision 808489
-end match
+#match /trunk/KDE/kdepim/kontact/interfaces/
+#    repository KDE/kdepimlibs
+#    branch master
+#    max revision 808489
+#end match
 #kpimidentities - trail lost in r317526
 #kpimtextedit
 #kpimutils - trail lost in r346704 (split libkdepim but without using svn mv, no history)
@@ -52,20 +94,20 @@ end match
 #ktnef
 #     /lib
 #     /ktnef
-match /branches/(kroupware_branch)/kdenetwork/ktnef/(lib|ktnef)/
-    repository KDE/kdepimlibs
-    branch \1
-    max revision 200754
-end match
+#match /branches/(kroupware_branch)/kdenetwork/ktnef/(lib|ktnef)/
+#    repository KDE/kdepimlibs
+#    branch \1
+#    max revision 200754
+#end match
 #kxmlrpcclient
 #mailtransport
 #microblog
 #qgpgme
-match /branches/aegypten_branch/kdepim/libkdenetwork/qgpgme/
-    repository KDE/kdepimlibs
-    branch master
-    max revision 286478
-end match
+#match /branches/aegypten_branch/kdepim/libkdenetwork/qgpgme/
+#    repository KDE/kdepimlibs
+#    branch master
+#    max revision 286478
+#end match
 #syndication
 
 ##############
@@ -81,14 +123,61 @@ end match
 ##############
 # Branches...
 ##############
-match /branches/.*/([^/]+)/([^/]*kdepimlibs[^/]*)/
+# Non merged branches
+match /branches/work/(akonadi-ports)/
     repository KDE/kdepimlibs
-    branch \1/
+    branch \1
 end match
+match /branches/kdepim/(enterprise)/
+    repository KDE/kdepimlibs
+    branch \1
+end match
+match /branches/kdepim/(enterprise4)/
+    repository KDE/kdepimlibs
+    branch \1
+end match
+match /branches/work/(komo)/
+    repository KDE/kdepimlibs
+    branch \1
+end match
+
+
+match /branches/KDE/(\d+)\.(\d+)/kdepimlibs/
+    repository KDE/kdepimlibs
+    branch \1.\2
+end match
+#match /branches/kdepim/(.+)/([^/]*kdepimlibs[^/]*)/
+#    repository KDE/kdepimlibs
+#    branch \1/\2
+#end match
+#match /branches/(.+)/kdepimlibs/
+#    repository KDE/kdepimlibs
+#    branch \1
+#end match
+#match /branches/(.+)/([^/]*kdepimlibs[^/]*)/
+#    repository KDE/kdepimlibs
+#    branch \1/\2
+#end match
+#match /branches/(.*)/([^/]+)/kdepimlibs/
+#    repository KDE/kdepimlibs
+#    branch \1/\2
+#end match
+#match /branches/(.*)/([^/]+)/([^/]*kdepimlibs[^/]*)/
+#    repository KDE/kdepimlibs
+#    branch \1/\2/\3
+#end match
 
 ##############
 # Tags
 ##############
+match /tags/KDE/(\d+)\.(\d+)/(kdepimlibs)/
+    repository KDE/\3
+    branch tags/\1.\2
+end match
+match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepimlibs)/
+    repository KDE/\4
+    branch tags/\1.\2.\3
+end match
 
 ##############
 # Ignore everything else

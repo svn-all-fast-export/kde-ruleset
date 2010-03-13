@@ -1,0 +1,182 @@
+create repository quanta
+end repository
+
+match /trunk/kdewebdev/quanta/
+  repository quanta
+  branch master
+  max revision 409202
+end match
+
+match /trunk/kdewebdev/quanta/
+  repository quanta
+  branch master
+  max revision 409202
+end match
+
+match /trunk/quanta/
+  repository quanta
+  branch master
+  min revision 64087
+  max revision 409202
+end match
+
+match /branches/KDE_(\d+)_(\d+)_BRANCH/kdewebdev/quanta/
+  repository quanta
+  branch KDE/\1.\2
+  max revision 409202
+end match
+
+match /tags/KDE_(\d+)_(\d+)_RELEASE/kdewebdev/quanta/
+  repository quanta
+  branch KDE/\1.\2.0
+  max revision 409202
+end match
+
+match /tags/KDE_(\d+)_(\d+)_RELEASE/kdewebdev/quanta/
+  repository quanta
+  branch KDE/\1.\2.0
+  max revision 85028
+  min revision 68154
+end match
+
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/kdewebdev/quanta/
+  repository quanta
+  branch KDE/\1.\2.\3
+  max revision 409202
+end match
+match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/kdewebdev/quanta/
+  repository quanta
+  branch KDE/\1.\2.\3a
+  min revision 192719
+  max revision 409202
+end match
+match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/kdewebdev/quanta/
+  repository quanta
+  branch KDE/\1.\2.\3-beta\4
+  min revision 376088
+  max revision 409202
+end match
+
+match /tags/KDE/3.5.0-alpha1/kdewebdev/quanta/
+  repository quanta
+  branch KDE/3.4.90
+  min revision 443441
+  max revision 445561
+end match
+match /tags/KDE/3.5.0-beta1/kdewebdev/quanta/
+  repository quanta
+  branch KDE/3.4.91
+  min revision 459298
+  max revision 460260
+end match
+match /(branches|tags)/KDE/([^/]+)A/kdewebdev/quanta/
+  repository quanta
+  branch KDE/\2a
+  min revision 409209
+end match
+match /(branches|tags)/KDE/kdewebdev/quanta/
+  repository quanta
+  branch KDE/\2
+  min revision 409209
+end match
+
+
+
+
+match /tags/(KDE/[^/]+)/quanta/
+  min revision 416394
+  max revision 416398
+  repository quanta
+  branch \1
+end match
+
+# Quanta is kdewebdev
+match /trunk/quanta/
+  repository quanta
+  branch master
+  min revision 64087
+  max revision 409202
+end match
+match /tags/QUANTA_(\d+)_(\d+)(_RELEASE)?/quanta/
+  repository quanta
+  min revision 158633
+  max revision 409202
+  branch \1.\2.0
+end match
+match /tags/QUANTA_(\d+)_(\d+)_(\d+)(_RELEASE)?/quanta/
+  repository quanta
+  min revision 158633
+  max revision 409202
+  branch \1.\2.\3
+end match
+match /branches/QUANTA_(\d+)_(\d+)_BRANCH/quanta/
+  repository quanta
+  max revision 409202
+  min revision 191620
+  branch \1.\2
+end match
+match /branches/QUANTA_3_1_BRANCH/kdewebdev/
+  # probably an artifact of server-side copying in CVS
+  min revision 191620
+  max revision 191620
+end match
+match /tags/QUANTA_3_1/kdewebdev/
+  # probably an artifact of server-side copying in CVS
+  min revision 199549
+  max revision 199549
+end match
+# Quanta 3.0-PR1 and PR2
+match /tags/QUANTA_3_0_PR(\d)/quanta/
+  min revision 169093
+  max revision 176816
+  repository quanta
+  branch 3.0.0-pr\1
+end match
+
+# Quanta 3.0-PR2A
+match /tags/QUANTA_3_0_PR2A/quanta/
+  min revision 177143
+  max revision 177143
+  repository quanta
+  branch 3.0.0-pr2a
+end match
+
+# Quanta's KDE 3.2 tags
+match /tags/KDE_3_2_(\d+)_RELEASE/quanta/
+  min revision 282533
+  max revision 316997
+  repository quanta
+  branch KDE-3.2.\1
+end match
+match /branches/KDE_3_2_BRANCH/quanta/
+  min revision 280544
+  max revision 350000
+  repository quanta
+  branch KDE-3.2
+end match
+
+
+#recurse rules
+match /trunk/$
+  action recurse
+end match
+
+match /trunk/KDE/$
+  action recurse
+end match
+
+match /trunk/KDE/[^/]+/$
+  action recurse
+end match
+
+match /branches/KDE/[^/]+/$
+  action recurse
+end match
+
+match /branches/KDE_[^/]+/$
+  action recurse
+end match
+
+# Ignore everything else
+match /
+end match

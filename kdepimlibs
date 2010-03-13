@@ -4,91 +4,96 @@ end repository
 ##############
 # Some stuff we want to ignore
 ##############
+# Empty directories added using "svn mv" from another
+# path -> Error (Git cannot handle dirs only files)
+# Branch will be created when files are added.
+match /
+    max revision 622809
+    min revision 622809
+end match
 
+# Translations are in svn so ignore them
+match /.*/[^/]*(i|l)1(0|8)n[^/]*/
+end match
+
+# KDAB packaging subdirs.
+match /branches/(kdepim/enterprise(4)?|komo)/packaging/
+end match
+
+##############
+# Recurse
+##############
+match /trunk/$
+    action recurse
+end match
+
+match /trunk/KDE/$
+    action recurse
+end match
+
+match /trunk/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE_[^/]+/$
+    action recurse
+end match
+
+# Make sure all tags are included
+match /tags/KDE/[^/]/$
+    action recurse
+end match
 ##############
 # Main rules
 ##############
-match /trunk/KDE/kdepimlibs/
-    repository KDE/kdepimlibs
+match /trunk/KDE/(kdepimlibs)/
+    repository KDE/\1
     branch master
 end match
-
-##############
-# Old removed stuff...
-##############
-# libemailfinctions
-
-##############
-# Current submodules
-##############
-# Akonadi...
-# cmake
-# doc
-# gpgme++
-match /branches/aegypten_branch/kdepim/libkdenetwork/gpgmepp/
-    repository KDE/kdepimlibs
-    branch master
-    max revision 286478
-end match
-#includes
-#kabc
-#kblog
-#kcal
-#kholidays
-#kimap
-#kioslave
-#kldap
-#kmime - disapears in r145244 only "test dir reorg" as comment
-#kontactinterface - suspect moved from kdepim/kontact/interfaces in r808489
-match /trunk/KDE/kdepim/kontact/interfaces/
-    repository KDE/kdepimlibs
-    branch master
-    max revision 808489
-end match
-#kpimidentities - trail lost in r317526
-#kpimtextedit
-#kpimutils - trail lost in r346704 (split libkdepim but without using svn mv, no history)
-#kresources - trail lost in r170699 (source manually copied from libkabc)
-#ktnef
-#     /lib
-#     /ktnef
-match /branches/(kroupware_branch)/kdenetwork/ktnef/(lib|ktnef)/
-    repository KDE/kdepimlibs
-    branch \1
-    max revision 200754
-end match
-#kxmlrpcclient
-#mailtransport
-#microblog
-#qgpgme
-match /branches/aegypten_branch/kdepim/libkdenetwork/qgpgme/
-    repository KDE/kdepimlibs
-    branch master
-    max revision 286478
-end match
-#syndication
-
-##############
-# Single file imports
-##############
-#match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/(?!FcEngine\.cpp)
-#end match
-#match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/
-#    repository KDE/kdepimlibs
-#    branch master
-#end match
 
 ##############
 # Branches...
 ##############
-match /branches/.*/([^/]+)/([^/]*kdepimlibs[^/]*)/
-    repository KDE/kdepimlibs
-    branch \1/
+# Non merged branches
+match /branches/work/(akonadi-ports)/(kdepimlibs)/
+    repository KDE/\2
+    branch \1
+end match
+
+# KDAB
+match /branches/kdepim/(enterprise)/(kdepimlibs)/
+    repository KDE/\2
+    branch \1
+end match
+match /branches/kdepim/(enterprise4)/(kdepimlibs)/
+    repository KDE/\2
+    branch \1
+end match
+match /branches/work/(komo)/(kdepimlibs)/
+    repository KDE/\2
+    branch \1
+end match
+
+match /branches/KDE/(\d+)\.(\d+)/(kdepimlibs)/
+    repository KDE/\3
+    branch \1.\2
 end match
 
 ##############
 # Tags
 ##############
+match /tags/KDE/(\d+)\.(\d+)/(kdepimlibs)/
+    repository KDE/\3
+    branch tags/\1.\2
+end match
+match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepimlibs)/
+    repository KDE/\4
+    branch tags/\1.\2.\3
+end match
 
 ##############
 # Ignore everything else

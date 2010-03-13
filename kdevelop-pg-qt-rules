@@ -1,0 +1,44 @@
+#
+# Created by Andreas Pakulat <apaku@gmx.de>
+#
+
+#
+# Create the KDevelop-PG-Qt repository
+#
+create repository kdevelop-pg-qt
+end repository
+
+# Ignore some upheaval in KDE's SVN history.
+match /
+  min revision 409202
+  max revision 409210
+end match
+match /
+  min revision 411973
+  max revision 411973
+end match
+
+
+#
+# KDevelop-PG-Qt master rules, this was born from kdevelop-pg so include that
+# history too.
+#
+match /trunk/playground/devtools/kdevelop-pg-qt/
+  repository kdevelop-pg-qt
+  branch master
+end match
+
+match /trunk/playground/devtools/kdevelop-pg/
+  repository kdevelop-pg-qt
+  branch master
+end match
+
+# this is where kdevelop-pg originated from
+match /branches/work/kdevelop-pg/
+  repository kdevelop-pg-qt
+  branch master
+end match
+
+# Ignore everything else
+match /
+end match

@@ -50,13 +50,11 @@ sub getCopyFrom($$$)
     my $cvs2svnCandidate = 0;
 
     foreach( @log ) {
-        if( /^r(\d+) \| / ) {
-            $fromRevision = $1;
-        }
         if( /\s+(?:A|R) (\/\S+) \(from (\/\S+):(\d+)\)/ ) {
             my $origPath = $2;
             my $newPath = $1;
             my $fromRev = $3;
+            $fromRevision = $fromRev;
             my @components = split( /\//, $path );
             my $subdir = pop( @components );
             my $shortPath = join( "/", @components );
@@ -117,6 +115,7 @@ sub getCopyFrom($$$)
 
                 print( "getCopyFrom:\tFound cv2svn move '$path' from '$origPath' at rev $fromRev\n" );
                 $fromPath = $origPath;
+                $fromRevision = $fromRev;
                 last;
             }
         }

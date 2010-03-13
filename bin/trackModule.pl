@@ -3,6 +3,7 @@
 
 use strict;
 use warnings;
+use Switch;
 
 
 sub listSubDirs($$$)
@@ -170,14 +171,22 @@ sub getCopyFromRecursive($$$$)
     }
 }
 
-my $repository = $ARGV[0];
-my $path = $ARGV[1];
+my $repository;
+my $path;
 my $revision = "HEAD";
-my $module = $ARGV[2];
-if( $#ARGV == 3) {
-    $revision = $ARGV[3];
-}
+my $module;
+my $argnum;
 
+for($argnum = 0; $argnum < $#ARGV; $argnum++ ) {
+    print "$ARGV[$argnum]\n";
+    switch ($ARGV[$argnum]) {
+        case "--repo"   { $repository = $ARGV[++$argnum]; }
+        case "--path"   { $path = $ARGV[++$argnum]; }
+        case "--module" { $module = $ARGV[++$argnum]; }
+        case "--rev"    { $revision = $ARGV[++$argnum]; }
+        else            { print "Unknown option: $ARGV[$argnum]\n"; exit; }
+    }
+}
 print <<EOF;
 Got:
   \$repository: $repository
@@ -185,13 +194,12 @@ Got:
   \$module:     $module
   \$revision:   $revision
 EOF
-
-if( $#ARGV < 2 || $#ARGV > 3 ) {
-    print( "Usage: trackModule.pl repository path module [revision]\n");
+if( $#ARGV < 5 || $#ARGV > 7 ) {
+    print( "Usage: trackModule.pl --repo repository --path path --module module [--rev revision]\n");
     exit;
 }
 
-my @dirs = listSubDirs( $repository, $revision, $path );
+my @dirs;# = listSubDirs( $repository, $revision, $path );
 splice( @dirs, 0, 0, $path );
 
 my %foundDirRevisions;

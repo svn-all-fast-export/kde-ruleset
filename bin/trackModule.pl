@@ -93,29 +93,31 @@ sub getCopyFrom($$$)
         }
     }
 
-    foreach( @log ) {
-        if( /\s+A\s+$path\S+\s+\(from (\S+):(\d+)\)/ ) {
-            my $origPath = $1;
-            my $fromRev = $2;
-            my @components = split( /\//, $path );
-            my $subdir = pop( @components );
-            my $shortPath = join( "/", @components );
-            my $component = "";
-            my @origComponents = split( /\//, $origPath );
-            do {
-                $component = pop( @origComponents );
-            } while( $component && $component ne $subdir );
-            $origPath = join( "/", @origComponents ) . "/" . $component;
-            #print("> ------\n");
-            #print("> \$path:         $path\n");
-            #print("> \$origPath:     $origPath\n");
-            #print("> \$fromRevision: $fromRevision\n");
-            #print("> \$subdir:       $subdir\n");
-            #print("> \shortPath:     $shortPath\n");
+    if( $cvs2svnUsed ) {
+        foreach( @log ) {
+            if( /\s+A\s+$path\S+\s+\(from (\S+):(\d+)\)/ ) {
+                my $origPath = $1;
+                my $fromRev = $2;
+                my @components = split( /\//, $path );
+                my $subdir = pop( @components );
+                my $shortPath = join( "/", @components );
+                my $component = "";
+                my @origComponents = split( /\//, $origPath );
+                do {
+                    $component = pop( @origComponents );
+                } while( $component && $component ne $subdir );
+                $origPath = join( "/", @origComponents ) . "/" . $component;
+                #print("> ------\n");
+                #print("> \$path:         $path\n");
+                #print("> \$origPath:     $origPath\n");
+                #print("> \$fromRevision: $fromRevision\n");
+                #print("> \$subdir:       $subdir\n");
+                #print("> \shortPath:     $shortPath\n");
 
-            print( "getCopyFrom:\tFound cv2svn move '$path' from '$origPath' at rev $fromRev\n" );
-            $fromPath = $origPath;
-            last;
+                print( "getCopyFrom:\tFound cv2svn move '$path' from '$origPath' at rev $fromRev\n" );
+                $fromPath = $origPath;
+                last;
+            }
         }
     }
 
@@ -189,7 +191,7 @@ if( $#ARGV < 2 || $#ARGV > 3 ) {
     exit;
 }
 
-my @dirs;# = listSubDirs( $repository, $revision, $path );
+my @dirs = listSubDirs( $repository, $revision, $path );
 splice( @dirs, 0, 0, $path );
 
 my %foundDirRevisions;

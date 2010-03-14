@@ -119,13 +119,13 @@ match /tags/KDE/([^/]+)/(quanta|kdewebdev)/quanta/
   annotated true
 end match
 
-match /tags/KDE_(\d+)_(\d+)_([^/]+)(_RELEASE)?/(quanta|kdewebdev)/quanta/
+match /tags/KDE_(\d+)_(\d+)_([^/_]+)(_RELEASE)?/(quanta|kdewebdev)/quanta/
   repository quanta
   branch refs/tags/v\1.\2.\3
   annotated true
 end match
 
-match /tags/KDE_(\d+)_(\d+)_([^/]+)_BETA_(\d+)/(quanta|kdewebdev)/quanta/
+match /tags/KDE_(\d+)_(\d+)_([^/_]+)_BETA_(\d+)/(quanta|kdewebdev)/quanta/
   repository quanta
   branch refs/tags/v\1.\2.\3-beta\4
   annotated true

@@ -1,0 +1,123 @@
+#!/usr/bin/php
+<?php
+
+//possible paths to the project in KDE (so we can skip tags that don't contain it)
+$paths = array('kdewebdev/quanta', 'quanta/quanta');
+
+//tags that should be processed
+$tagPatterns = array('QUANTA_3_1', 'KDE_');
+
+//revision where the original CVS tags as created by cvs2svn still exist
+$cvsRev = 400000;
+
+
+error_reporting(E_ALL);
+if (!isset($_SERVER['argv'][2])) {
+    echo "Usage: ".$_SERVER['argv'][0].' <svn repo> <git wc>';
+    echo "
+This script updates tags broken after a svn2git conversion. Cvs2svn's tag commits
+are always a copy of trunk and modifiying the contents. This results in broken git
+tags when a tag was created from a branch.
+This script simply finds the correct branch, the last commit that was done before
+tagging and creates that tag in the branch.
+";
+    exit(1);
+}
+
+$svn = 'file://'.realpath($_SERVER['argv'][1]);
+chdir($_SERVER['argv'][2]);
+
+
+//get all CVS tags
+$tags = array();
+foreach ($tagPatterns as $tp) {
+    $tags += explode("\n", trim(`svn ls $svn/tags@$cvsRev | grep $tp`));
+}
+
+foreach ($tags as $tag) {
+    echo "\n";
+    $tag = trim($tag, '/');
+
+    //check if path exists in tag
+    $projectPath = false;
+    foreach ($paths as $p) {
+        system("svn info $svn/tags/$tag/$p@$cvsRev >/dev/null 2>&1 ", $ret);
+        if (!$ret) {
+            $projectPath = $p;
+        }
+    }
+    if (!$projectPath) {
+        echo "/tags/$tag/ doesn't contain a path to process\n";
+        continue;
+    }
+
+    //generate tag name used for the git tag
+    //(should be the same as in svn2git rules to update the broken tags correctly)
+    if (!preg_match('#^(QUANTA|KDE)_(\d+)_(\d+)(_([^_]+))?(_BETA_(\d))?#', $tag, $m)) {
+        die("can't create a pretty tag name\n");
+    }
+    $prettyTag = "v$m[2].$m[3]";
+    if (!empty($m[5])) $prettyTag .= ".$m[5]";
+    if (!empty($m[7])) $prettyTag .= "-beta-$m[7]";
+    echo "$tag: $prettyTag\n";
+
+    //get revision for tag
+    $tagRevision = (int)simplexml_load_string(`svn info --xml $svn/tags/$tag@$cvsRev`)
+                                ->entry->commit['revision'];
+
+    //get branch, tag was created from
+    $branch = false;
+    $xml = simplexml_load_string(`svn log -c $tagRevision --xml --verbose $svn`);
+    foreach ($xml->logentry->paths->path as $path) {
+        if (substr((string)$path, 0, strlen("/tags/$tag/$projectPath")) == "/tags/$tag/$projectPath") {
+            if (isset($path['copyfrom-path']) && substr($path['copyfrom-path'], 0, 10)=='/branches/') {
+                $branch = (string)$path['copyfrom-path'];
+                $branch = substr($branch, 10, strpos($branch, '/', 10)-10);
+                break;
+            }
+        }
+    }
+    if (!$branch) {
+        echo "no special moves for tag, presumably from trunk - skipping\n";
+        continue;
+    }
+
+    //log branch starting from tag revision to get the last commit in the branch before tagging
+    //($projectPath to get only those changes)
+    $cmd = "svn log --limit=1 --xml --stop-on-copy $svn/branches/$branch/$projectPath@$tagRevision";
+    $xml = simplexml_load_string(`$cmd`);
+    $date = strtotime($xml->logentry->date);
+    $msg = (string)$xml->logentry->msg."'\n";
+    $msg = substr($msg, 0, min(strpos($msg, "\n"), strpos($msg, "'")));
+
+    //get git branch name
+    if (!preg_match('#^([^_]+)_(.*)_BRANCH$#', $branch, $m)) {
+        die("Can't figure out git branch name");
+    }
+    $gitBranch = implode('.', explode('_', $m[2])); //just a guess, depends on svn2git rules
+
+    //find git commit for that revision (look for $msg and $date in branch $gitBranch
+    $cmd = "PAGER= git log --oneline --grep='$msg' --before='".date('Y-m-d H:i:s', $date+1)
+                                               ."' --after='".date('Y-m-d H:i:s', $date)."'"
+                                               ." remotes/origin/$gitBranch";
+    $logs = array();
+    exec($cmd, $logs, $ret);
+    if ($ret) die("git log failed\n");
+    if (count($logs) > 1) {
+        echo "multiple git commits found!\n$cmd\n";
+        exit;
+    }
+    if (!$logs) {
+        echo "no git commits found!\n$cmd\n";
+        continue;
+    }
+    $commit = current(explode(' ', trim($logs[0])));
+
+    //and finally create the tag
+    $cmd = "git tag -f -a -m '$prettyTag' $prettyTag $commit";
+    echo $cmd."\n";
+    system($cmd, $ret);
+    if ($ret) die("git tag failed\n");
+    echo "Tagged $commit with $prettyTag\n";
+
+}

@@ -73,11 +73,525 @@ match /trunk/KDE/kdevelop/languages/java/
   branch master
 end match
 
-#this belongs into a subdirectory, but that doesn't work
-#match /branches/work/kdev-pg_python_parser/
-#  repository kdevelop-python/kdev-pg_python_parser
-#  branch master
-#end match
+# This is the ugly part, to get proper history for the parser which was started in svn under
+# /branches/work/kdev-pg_python_parser and then moved to kdevelop4-extra-plugins/python/parser
+# we need to match all revisions explicitly of /branches/work.
+match /branches/work/
+  min revision 681666
+  max revision 681666
+  repository kdevelop-python
+  branch master
+end match
+match /branches/work/
+  min revision 681410
+  max revision 681410
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 680915
+  max revision 680915
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 679685
+  max revision 679685
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 679648
+  max revision 679648
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 679023
+  max revision 679023
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 678582
+  max revision 678582
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 678232
+  max revision 678232
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 677699
+  max revision 677699
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 677345
+  max revision 677345
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 677268
+  max revision 677268
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 677242
+  max revision 677242
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676927
+  max revision 676927
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676926
+  max revision 676926
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676794
+  max revision 676794
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676776
+  max revision 676776
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676743
+  max revision 676743
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676738
+  max revision 676738
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676735
+  max revision 676735
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676734
+  max revision 676734
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676391
+  max revision 676391
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676107
+  max revision 676107
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676098
+  max revision 676098
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 676093
+  max revision 676093
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 675964
+  max revision 675964
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 675843
+  max revision 675843
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 675688
+  max revision 675688
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 675677
+  max revision 675677
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 675473
+  max revision 675473
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 675210
+  max revision 675210
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 675158
+  max revision 675158
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 675153
+  max revision 675153
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 675147
+  max revision 675147
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 674753
+  max revision 674753
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 674626
+  max revision 674626
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 674089
+  max revision 674089
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 673291
+  max revision 673291
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 673287
+  max revision 673287
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 673283
+  max revision 673283
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 673213
+  max revision 673213
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 673049
+  max revision 673049
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 673042
+  max revision 673042
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 672662
+  max revision 672662
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 672645
+  max revision 672645
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 672451
+  max revision 672451
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 672405
+  max revision 672405
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 672276
+  max revision 672276
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 671826
+  max revision 671826
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 671707
+  max revision 671707
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 671192
+  max revision 671192
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 671106
+  max revision 671106
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 670542
+  max revision 670542
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 669664
+  max revision 669664
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 669662
+  max revision 669662
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 669297
+  max revision 669297
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 668063
+  max revision 668063
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 667386
+  max revision 667386
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 666755
+  max revision 666755
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 666709
+  max revision 666709
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 666447
+  max revision 666447
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 666446
+  max revision 666446
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 665846
+  max revision 665846
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 665115
+  max revision 665115
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 665085
+  max revision 665085
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 665004
+  max revision 665004
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 663837
+  max revision 663837
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 662865
+  max revision 662865
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 662772
+  max revision 662772
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 662708
+  max revision 662708
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 662699
+  max revision 662699
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 662698
+  max revision 662698
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 615132
+  max revision 615132
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 615130
+  max revision 615130
+  repository kdevelop-python
+  branch master
+end match
+
+match /branches/work/
+  min revision 615128
+  max revision 615128
+  repository kdevelop-python
+  branch master
+end match
 
 
 ### tags

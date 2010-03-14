@@ -24,7 +24,7 @@ match /(trunk|tags|branches)/$
   action recurse
 end match
 
-match /trunk/(quanta|kdewebdev)/quanta/
+match /trunk/(KDE/)?(quanta|kdewebdev)/quanta/
   repository quanta
   branch master
 end match

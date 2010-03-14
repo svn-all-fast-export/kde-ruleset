@@ -53,7 +53,12 @@ end match
 # around a lot and additionally has different versions than 
 # the KDE branches it was part of
 #
-match /branches/KDEVELOP_1_4/
+match /branches/__KDEVELOP_1_1_FINAL/kdevelop/
+  repository kdevelop
+  branch 1.1
+end match
+
+match /branches/KDEVELOP_1_4/kdevelop/
   repository kdevelop
   branch 1.4
 end match
@@ -63,7 +68,7 @@ match /branches/kdevelop/1.4/
   branch 1.4
 end match
 
-match /branches/KDEVELOP_2_BRANCH/
+match /branches/KDEVELOP_2_BRANCH/kdevelop/
   repository kdevelop
   branch 2
 end match
@@ -358,6 +363,18 @@ match /branches/KDE/[^/]+/$
 end match
 
 match /branches/KDE_[^/]+/$
+  action recurse
+end match
+
+match /branches/__KDEVELOP_1_1_FINAL/$
+  action recurse
+end match
+
+match /branches/KDEVELOP_1_4/$
+  action recurse
+end match
+
+match /branches/KDEVELOP_2_BRANCH/$
   action recurse
 end match
 

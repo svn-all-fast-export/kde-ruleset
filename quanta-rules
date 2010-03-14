@@ -73,7 +73,7 @@ match /tags/QUANTA_(\d+)_(\d+)_(\d+|_PR[^/]+)/quanta/quanta/
 end match
 
 ## KDE tags
-match /tags/KDE/(3\.[89]\d\.|4\.)([^/]+)/(quanta|kdewebdev)/quanta/
+match /tags/KDE/(3\.8|3\.9|4\.)([^/]+)/(quanta|kdewebdev)/quanta/
   #ignore KDE4 tags
 end match
 

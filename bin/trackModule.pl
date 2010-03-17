@@ -190,8 +190,8 @@ my $module;
 my $argnum;
 my $subdirs = 0;
 
-for($argnum = 0; $argnum < $#ARGV; $argnum++ ) {
-    print "$ARGV[$argnum]\n";
+for($argnum = 0; $argnum <= $#ARGV; $argnum++ ) {
+    print "Argument #$argnum: $ARGV[$argnum]\n";
     switch ($ARGV[$argnum]) {
         case "--repo"   { $repository = $ARGV[++$argnum]; }
         case "--path"   { $path = $ARGV[++$argnum]; }
@@ -201,6 +201,10 @@ for($argnum = 0; $argnum < $#ARGV; $argnum++ ) {
         else            { print "Unknown option: $ARGV[$argnum]\n"; exit; }
     }
 }
+if( $#ARGV < 5 || $#ARGV > 8 ) {
+    print( "Usage: trackModule.pl --repo repository --path path --module module [--rev revision] [--subdirs]\n");
+    exit;
+}
 print <<EOF;
 Got:
   \$repository: $repository
@@ -209,10 +213,6 @@ Got:
   \$revision:   $revision
   \$subdirs:    $subdirs
 EOF
-if( $#ARGV < 5 || $#ARGV > 8 ) {
-    print( "Usage: trackModule.pl --repo repository --path path --module module [--rev revision] [--subdirs]\n");
-    exit;
-}
 
 my @dirs;
 if( $subdirs ) {

@@ -5,12 +5,14 @@ use strict;
 use warnings;
 use Switch;
 
+my @commands = ();
 
 sub listSubDirs($$$)
 {
     print("Getting a list of subdirs...");
     my ($repository, $revision, $path) = @_;
     my $cmd = "svn ls $repository/$path\@$revision";
+    push( @commands, $cmd );
 
     my @dirs;
     open( CMD, "$cmd |" ) || die "listSubDirs: Failed to run \"$cmd\": $!\n";
@@ -32,6 +34,7 @@ sub getCopyFrom($$$)
 {
     my ($repository, $revision, $path ) = @_;
     my $cmd = "svn log -v --stop-on-copy $repository$path\@$revision";
+    push( @commands, $cmd );
     my $fromRevision = 0;
     my $fromPath = "";
 
@@ -148,14 +151,14 @@ sub getCopyFromRecursive($$$$)
     my @history = ();
 
     push( @history, [$path, $revision] );
-    if( $revision ne "HEAD" ) {
-        $revision -= 1;
-    }
+    #if( $revision ne "HEAD" ) {
+    #    $revision -= 1;
+    #}
     do {
         ($revision, $path) = getCopyFrom( $repository, $revision, $path );
-        if( $revision ne "HEAD" ) {
-            $revision -= 1;
-        }
+        #if( $revision ne "HEAD" ) {
+        #    $revision -= 1;
+        #}
         if( $revision > 1) {
             push( @history, [$path, $revision] );
             #print( "getCopyFromRecursive: $path @ $revision\n" );
@@ -189,6 +192,7 @@ my $revision = "HEAD";
 my $module;
 my $argnum;
 my $subdirs = 0;
+my $showcommands = 0;
 
 for($argnum = 0; $argnum <= $#ARGV; $argnum++ ) {
     print "Argument #$argnum: $ARGV[$argnum]\n";
@@ -198,11 +202,12 @@ for($argnum = 0; $argnum <= $#ARGV; $argnum++ ) {
         case "--module" { $module = $ARGV[++$argnum]; }
         case "--rev"    { $revision = $ARGV[++$argnum]; }
         case "--subdirs"{ $subdirs = 1; }
+        case "--showcommands" { $showcommands = 1; }
         else            { print "Unknown option: $ARGV[$argnum]\n"; exit; }
     }
 }
-if( $#ARGV < 5 || $#ARGV > 8 ) {
-    print( "Usage: trackModule.pl --repo repository --path path --module module [--rev revision] [--subdirs]\n");
+if( $#ARGV < 5 || $#ARGV > 9 ) {
+    print( "Usage: trackModule.pl --repo repository --path path --module module [--rev revision] [--subdirs] [--showcommands]\n");
     exit;
 }
 print <<EOF;
@@ -228,4 +233,11 @@ foreach( @dirs )
 {
     print( "Scanning '$_'...\n" );
     getCopyFromRecursive( $repository, $module, $revision, $_ );
+}
+
+if( $showcommands ) {
+    print( "Used commands...\n" );
+    foreach( @commands ) {
+        print( "$_\n" );
+    }
 }

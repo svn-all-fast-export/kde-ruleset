@@ -13,7 +13,7 @@ match /
 end match
 
 # Translations are in svn so ignore them
-match /.*/[^/]*(i|l)10n[^/]*/
+match /.*/[^/]*(i|l)1(0|8)n[^/]*/
 end match
 
 # -runtime is in a separate repository

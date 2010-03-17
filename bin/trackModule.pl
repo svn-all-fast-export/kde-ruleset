@@ -49,8 +49,12 @@ sub getCopyFrom($$$)
 
     my $cvs2svnUsed = 0;
     my $cvs2svnCandidate = 0;
+    my $currentRev = 0;
 
     foreach( @log ) {
+        if( /^r(\d+) \| / ) {
+            $currentRev = $1;
+        }
         if( /\s+(?:A|R) (\/\S+) \(from (\/\S+):(\d+)\)/ ) {
             my $origPath = $2;
             my $newPath = $1;
@@ -69,14 +73,14 @@ sub getCopyFrom($$$)
 
             # case 1: the dir is moved/replaced
             if( $newPath =~ /$path$/ ) {
-                print( "getCopyFrom:\tFound '$newPath' from '$origPath' at rev $fromRev\n" );
+                print( "getCopyFrom:\t\@r$currentRev: Found '$newPath' from '$origPath' at rev $fromRev\n" );
                 $fromPath = $origPath;
                 last;
             }
 
             # case 2: A parent is moved/replaced
             if( $shortPath eq $newPath ) {
-                print( "getCopyFrom:\tFound parent move '$shortPath' from '$origPath' at rev $fromRev\n" );
+                print( "getCopyFrom:\t\@r$currentRev: Found parent move '$shortPath' from '$origPath' at rev $fromRev\n" );
                 $fromPath = "$origPath/$subdir";
                 last;
             }
@@ -95,6 +99,9 @@ sub getCopyFrom($$$)
 
     if( $cvs2svnUsed ) {
         foreach( @log ) {
+            if( /^r(\d+) \| / ) {
+                $currentRev = $1;
+            }
             if( /\s+A\s+$path\S+\s+\(from (\S+):(\d+)\)/ ) {
                 my $origPath = $1;
                 my $fromRev = $2;
@@ -107,14 +114,19 @@ sub getCopyFrom($$$)
                     $component = pop( @origComponents );
                 } while( $component && $component ne $subdir );
                 $origPath = join( "/", @origComponents ) . "/" . $component;
-                #print("> ------\n");
-                #print("> \$path:         $path\n");
-                #print("> \$origPath:     $origPath\n");
-                #print("> \$fromRevision: $fromRevision\n");
-                #print("> \$subdir:       $subdir\n");
-                #print("> \shortPath:     $shortPath\n");
 
-                print( "getCopyFrom:\tFound cv2svn move '$path' from '$origPath' at rev $fromRev\n" );
+                if( $origPath eq "/" ) {
+                    print( "\n==========================\n" );
+                    print( "Unable to determine the source of the move, aborting this operation.\n" );
+                    print( "To manually track this start with \"svn log -v -c$currentRev $repository\"\n" );
+                    print( "You may then restart this tool with the new parameters or you can do it manually.\n" );
+                    print( "Sorry for the extra trouble!\n" );
+                    print( "==========================\n" );
+                    my @returnValue = (0,"");
+                    return @returnValue;
+                }
+
+                print( "getCopyFrom:\t\@r$currentRev: Found cv2svn move '$path' from '$origPath' at rev $fromRev\n" );
                 $fromPath = $origPath;
                 $fromRevision = $fromRev;
                 last;

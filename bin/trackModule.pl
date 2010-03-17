@@ -180,8 +180,8 @@ sub getCopyFromRecursive($$$$)
         print( "match @$historyPart[0]/\n");
         print( "    repository KDE/$module\n");
         print( "    branch master\n");
-        print( "    max-revision @$historyPart[1]\n") if( @$historyPart[1] ne "HEAD" );
-        print( "    min-revision @$historyPart[2]\n" ) if( @$historyPart[2] != 0 );
+        print( "    max revision @$historyPart[1]\n") if( @$historyPart[1] ne "HEAD" );
+        print( "    min revision @$historyPart[2]\n" ) if( @$historyPart[2] != 0 );
         print( "end match\n");
     }
 }

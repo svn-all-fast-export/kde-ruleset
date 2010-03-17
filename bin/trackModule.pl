@@ -8,6 +8,7 @@ use Switch;
 
 sub listSubDirs($$$)
 {
+    print("Getting a list of subdirs...");
     my ($repository, $revision, $path) = @_;
     my $cmd = "svn ls $repository/$path\@$revision";
 
@@ -23,7 +24,7 @@ sub listSubDirs($$$)
         }
     }
     close( CMD );
-
+    print(" done\n");
     return @dirs;
 }
 
@@ -175,6 +176,7 @@ my $path;
 my $revision = "HEAD";
 my $module;
 my $argnum;
+my $subdirs = 0;
 
 for($argnum = 0; $argnum < $#ARGV; $argnum++ ) {
     print "$ARGV[$argnum]\n";
@@ -183,6 +185,7 @@ for($argnum = 0; $argnum < $#ARGV; $argnum++ ) {
         case "--path"   { $path = $ARGV[++$argnum]; }
         case "--module" { $module = $ARGV[++$argnum]; }
         case "--rev"    { $revision = $ARGV[++$argnum]; }
+        case "--subdirs"{ $subdirs = 1; }
         else            { print "Unknown option: $ARGV[$argnum]\n"; exit; }
     }
 }
@@ -192,19 +195,25 @@ Got:
   \$path:       $path
   \$module:     $module
   \$revision:   $revision
+  \$subdirs:    $subdirs
 EOF
-if( $#ARGV < 5 || $#ARGV > 7 ) {
-    print( "Usage: trackModule.pl --repo repository --path path --module module [--rev revision]\n");
+if( $#ARGV < 5 || $#ARGV > 8 ) {
+    print( "Usage: trackModule.pl --repo repository --path path --module module [--rev revision] [--subdirs]\n");
     exit;
 }
 
-my @dirs;# = listSubDirs( $repository, $revision, $path );
+my @dirs;
+if( $subdirs ) {
+    my @subdirs = listSubDirs( $repository, $revision, $path );
+    push( @dirs, @subdirs );
+}
+
 splice( @dirs, 0, 0, $path );
 
 my %foundDirRevisions;
 
 foreach( @dirs )
 {
-    #print( "Scanning '$_'...\n" );
+    print( "Scanning '$_'...\n" );
     getCopyFromRecursive( $repository, $module, $revision, $_ );
 }

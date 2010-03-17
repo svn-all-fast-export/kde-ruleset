@@ -1,0 +1,238 @@
+create repository KDE/kdepim
+end repository
+
+##############
+# Some stuff we want to ignore
+##############
+# Empty directories added using "svn mv" from another
+# path -> Error (Git cannot handle dirs only files)
+# Branch will be created when files are added.
+match /
+    max revision 622809
+    min revision 622809
+end match
+
+# Translations are in svn so ignore them
+match /.*/[^/]*(i|l)10n[^/]*/
+end match
+
+# -runtime is in a separate repository
+match /trunk/KDE/kdepim/runtime/
+end match
+##############
+# Recurse
+##############
+match /trunk/$
+    action recurse
+end match
+
+match /trunk/KDE/$
+    action recurse
+end match
+
+match /trunk/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE_[^/]+/$
+    action recurse
+end match
+
+match /tags/KDE_[^/]+/$
+    action recurse
+end match
+# Make sure all tags are included
+match /tags/KDE/[^/]/$
+    action recurse
+end match
+##############
+# Main rules
+##############
+match /trunk/KDE/kdepim/
+    repository KDE/kdepim
+    branch master
+    min-revision 455549
+end match
+match /branches/KDE/3.5/kdepim/
+    repository KDE/kdepim
+    branch master
+    max-revision 455549
+    min-revision 438980
+end match
+match /trunk/KDE/kdepim/
+    repository KDE/kdepim
+    branch master
+    max-revision 438980
+    min-revision 409201
+end match
+match /trunk/kdepim/
+    repository KDE/kdepim
+    branch master
+    max-revision 409201
+end match
+
+##############
+# Old removed stuff...
+##############
+
+##############
+# Current submodules
+##############
+match /trunk/kdereview/blogilo/
+    repository KDE/kdepim
+    rootdir /trunk/kdereview/
+    branch master
+    max-revision 1028587
+    min-revision 1027732
+end match
+match /trunk/playground/pim/blogilo/
+    repository KDE/kdepim
+    rootdir /trunk/playground/pim/
+    branch master
+    max-revision 1027732
+end match
+
+match /trunk/kdenetwork/certmanager/
+    repository KDE/kdepim
+    rootdir /trunk/kdenetwork/
+    branch master
+    max-revision 200753
+end match
+
+match /trunk/kdenetwork/kmail/
+    repository KDE/kdepim
+    rootdir /trunk/kdenetwork/
+    branch master
+    max-revision 200751
+end match
+
+match /trunk/kdenetwork/kmailcvt/
+    repository KDE/kdepim
+    rootdir /trunk/kdenetwork/
+    branch master
+    max-revision 200752
+end match
+
+match /trunk/kdenetwork/knode/
+    repository KDE/kdepim
+    rootdir /trunk/kdenetwork/
+    branch master
+    max-revision 200752
+end match
+
+match /trunk/kdeutils/knotes/
+    repository KDE/kdepim
+    rootdir /trunk/kdeutils/
+    branch master
+    max-revision 120750
+end match
+
+match /trunk/kdeutils/karm/
+    repository KDE/kdepim
+    rootdir /trunk/kdeutils/
+    branch master
+    max-revision 112128
+end match
+
+match /trunk/KDE/kdepimlibs/kleo/
+    repository KDE/kdepim
+    rootdir /trunk/KDE/kdepimlibs/
+    branch master
+    max-revision 690810
+    min-revision 687073
+end match
+
+match /trunk/KDE/kdepimlibs/kpgp/
+    repository KDE/kdepim
+    rootdir /trunk/kdepimlibs/
+    branch master
+    max-revision 683947
+    min-revision 681818
+end match
+
+#####################################
+match /trunk/playground/pim/mailreader/src/
+end match
+match /trunk/playground/pim/mailreader/src/lib/
+    repository KDE/kdepim
+    rootdir /trunk/playground/pim/
+    branch master
+    max-revision 994097
+end match
+###################################
+##############
+# Single file imports
+##############
+#match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/(?!FcEngine\.cpp)
+#end match
+#match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/
+#    repository KDE/kdepimlibs
+#    branch master
+#end match
+
+##############
+# Branches...
+##############
+match /branches/KDE_(\d+)_(\d+)_BRANCH/
+    repository KDE/kdepim
+    branch \1.\2
+end match
+match /branches/KDE/(\d+)\.(\d+)/kdepim/
+    repository KDE/kdepim
+    branch \1.\2
+end match
+match /branches/(work)/~([^/]+)/
+    repository KDE/kdepim
+    branch \1/personal/\2
+end match
+match /branches/kdepim/([^/]+)/
+    repository KDE/kdepim
+    branch \1/\2
+end match
+match /branches/(.+)/[^/]*kdepim[^/]*/
+    repository KDE/kdepim
+    branch \1
+end match
+
+match /branches/work/(akonadi-ports)/(kdepim)/
+    repository KDE/\2
+    branch \1
+end match
+match /branches/kdepim/(enterprise|enterprise4)/(kdepim)/
+    repository KDE/\2
+    branch \1
+end match
+match /branches/work/(komo)/(kdepim)
+    repository KDE/\2
+    branch \1
+end match
+match /branches/work/(kdepim)-(3.5.5\+)/
+    repository KDE/\1
+    branch \1-\2
+end match
+
+##############
+# Tags
+##############
+match /tags/KDE_(\d+)_(\d+)_(\d+[a-zA-Z]?)_RELEASE/(kdepim)/
+    repository KDE/\4
+    branch tags/\1.\2.\3
+end match
+match /tags/KDE/(\d+)\.(\d+)/(kdepim)/
+    repository KDE/\3
+    branch tags/\1.\2
+end match
+match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepim)/
+    repository KDE/\4
+    branch tags/\1.\2.\3
+end match
+
+##############
+# Ignore everything else
+##############
+match /
+end match

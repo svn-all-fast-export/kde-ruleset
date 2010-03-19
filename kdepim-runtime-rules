@@ -1,0 +1,271 @@
+create repository KDE/kdepim-runtime
+end repository
+
+##############
+# Some stuff we want to ignore
+##############
+# Empty directories added using "svn mv" from another
+# path -> Error (Git cannot handle dirs only files)
+# Branch will be created when files are added.
+match /
+    max revision 622809
+    min revision 622809
+end match
+
+# Translations are in svn so ignore them
+match /.*/[^/]*(i|l)1(0|8)n[^/]*/
+end match
+
+# KDAB packaging subdirs.
+match /branches/(kdepim/enterprise(4)?|komo)/packaging/
+end match
+
+##############
+# Recurse
+##############
+match /trunk/$
+    action recurse
+end match
+
+match /trunk/KDE/$
+    action recurse
+end match
+
+match /trunk/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE_[^/]+/$
+    action recurse
+end match
+
+# Make sure all tags are included
+match /tags/KDE/[^/]/$
+    action recurse
+end match
+match /branches/work/(akonadi-ports)/(kdepim/runtime)/$
+    action recurse
+end match
+
+# KDAB
+match /branches/kdepim/(enterprise)/(kdepim/runtime)/$
+    action recurse
+end match
+match /branches/kdepim/(enterprise4)/(kdepim/runtime)/$
+    action recurse
+end match
+match /branches/work/(komo)/(kdepim/runtime)/$
+    action recurse
+end match
+
+match /branches/KDE/(\d+)\.(\d+)/(kdepim/runtime)/$
+    action recurse
+end match
+
+##############
+# Main rules
+##############
+match /trunk/KDE/kdepim/runtime/
+    repository KDE/kdepim-runtime
+    branch master
+    min revision 1061321
+end match
+match /trunk/KDE/kdepim/akonadi/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/agents/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/cmake/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/defaultsetup/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/doc/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/kcm/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/kioslave/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/kresources/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+    min revision 982988
+end match
+match /trunk/KDE/kdepim/kresources/akonadi/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 982988
+    min revision 772772
+end match
+match /trunk/playground/pim/akonadi-kres/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 772772
+end match
+
+match /trunk/KDE/kdepim/akonadi/libkdepim-copy/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+    min revision 982582
+end match
+match /trunk/KDE/kdepim/libkdepim/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 982582
+    min revision 455550
+end match
+match /branches/KDE/3.5/kdepim/libkdepim/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 455550
+    min revision 438981
+end match
+match /trunk/KDE/kdepim/libkdepim/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 438981
+    min revision 409202
+end match
+match /trunk/kdepim/libkdepim/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 409202
+end match
+
+match /trunk/KDE/kdepim/akonadi/migration/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/opensync/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/plugins/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/resources/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+    min revision 559016
+end match
+match /trunk/KDE/kdepim/akonadiresources/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 559016
+end match
+
+match /trunk/KDE/kdepim/akonadi/resourcetester/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/tray/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+end match
+
+match /trunk/KDE/kdepim/akonadi/xml/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 1061321
+    min revision 946339
+end match
+match /trunk/playground/pim/akonadi/xml/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 946339
+    min revision 939440
+end match
+match /trunk/playground/pim/libakonadi-xml/
+    repository KDE/kdepim-runtime
+    branch master
+    max revision 939440
+end match
+##############
+# Branches...
+##############
+# Non merged branches
+match /branches/work/(akonadi-ports)/(kdepim/runtime)/
+    repository KDE/kdepim-runtime
+    branch \1
+end match
+
+# KDAB
+match /branches/kdepim/(enterprise)/(kdepim/runtime)/
+    repository KDE/kdepim-runtime
+    branch \1
+end match
+match /branches/kdepim/(enterprise4)/(kdepim/runtime)/
+    repository KDE/kdepim-runtime
+    branch \1
+end match
+match /branches/work/(komo)/(kdepim/runtime)/
+    repository KDE/kdepim-runtime
+    branch \1
+end match
+
+match /branches/KDE/(\d+)\.(\d+)/(kdepim/runtime)/
+    repository KDE/kdepim-runtime
+    branch \1.\2
+end match
+
+##############
+# Tags
+##############
+match /tags/KDE/(\d+)\.(\d+)/(kdepim/runtime)/
+    repository KDE/kdepim-runtime
+    branch tags/\1.\2
+end match
+match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepim/runtime)/
+    repository KDE/kdepim-runtime
+    branch tags/\1.\2.\3
+end match
+
+##############
+# Ignore everything else
+##############
+match /
+end match
+

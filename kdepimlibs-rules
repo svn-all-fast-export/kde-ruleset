@@ -13,11 +13,11 @@ match /
 end match
 
 # Translations are in svn so ignore them
-match /.*/[^/]*(i|l)1(0|8)n[^/]*/
+match /.*/[^/]*(i|l)1(0|8)n[^/]*
 end match
 
 # KDAB packaging subdirs.
-match /branches/(kdepim/enterprise(4)?|komo)/packaging/
+match /branches/(kdepim/enterprise(4)?|komo)/packaging
 end match
 
 ##############
@@ -69,10 +69,26 @@ end match
 ##############
 # Main rules
 ##############
-match /trunk/KDE/(kdepimlibs)/
-    repository KDE/\1
+#match /trunk/KDE/kdepimlibs/akonadi/
+#    repository KDE/kdepimlibs
+#    branch master
+#    min revision 788161
+#end match
+match /trunk/KDE/kdepim/akonadi/libakonadi/
+    repository KDE/kdepimlibs
     branch master
+    rootdir /trunk/KDE/kdepim/akonadi/
+    max revision 788161
+    min revision 559105
 end match
+match /trunk/KDE/kdepim/libakonadi/
+    repository KDE/kdepimlibs
+    rootdir /trunk/KDE/kdepim/
+    branch master
+    max revision 559105
+end match
+
+#kpimutils??
 
 match /trunk/KDE/kdelibs/kabc/
     repository KDE/kdepimlibs
@@ -93,6 +109,7 @@ match /trunk/kdepim/kabc/
     rootdir /trunk/kdepim/
     branch master
     max revision 121329
+#   min revision 115211
 end match
 
 match /trunk/playground/pim/kblog/
@@ -130,19 +147,19 @@ match /trunk/kdepim/libkcal/
     max revision 409202
 end match
 
+match /trunk/KDE/kdepim/kioslaves(/|$)
+    repository KDE/kdepimlibs
+    rootdir /trunk/KDE/kdepim/
+    branch master
+    max revision 461310
+    min revision 455550
+end match
 match /trunk/KDE/kdepim/kioslave/
     repository KDE/kdepimlibs
     rootdir /trunk/KDE/kdepim/
     branch master
-    max revision 710601
-    min revision 461307
-end match
-match /trunk/KDE/kdepim/kioslaves/
-    repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
-    branch master
-    max revision 461307
-    min revision 455550
+    max revision 710657
+    min revision 461309
 end match
 match /branches/KDE/3.5/kdepim/kioslaves/
     repository KDE/kdepimlibs
@@ -200,6 +217,7 @@ match /trunk/kdepim/libkmime/
     max revision 409202
 end match
 
+# 540252 -> 1002059
 match /trunk/KDE/kdepim/kontactinterfaces/
     repository KDE/kdepimlibs
     rootdir /trunk/KDE/kdepim/
@@ -207,39 +225,39 @@ match /trunk/KDE/kdepim/kontactinterfaces/
     max revision 1023819
 end match
 
-match /branches/work/libkpimidentities/
+match /branches/work/libkpimidentities(/|$)
     repository KDE/kdepimlibs
     rootdir /branches/work/
     branch master
-    max revision 680647
-    min revision 679297
+    max revision 681676
+    min revision 680577
 end match
-match /trunk/KDE/kdepim/libkpimidentities/
+match /trunk/KDE/kdepim/libkpimidentities(/|$)
     repository KDE/kdepimlibs
     rootdir /trunk/KDE/kdepim/
     branch master
-    max revision 679297
-    min revision 455550
+    max revision 680577
+    min revision 455551
 end match
-match /branches/KDE/3.5/kdepim/libkpimidentities/
+match /branches/KDE/3.5/kdepim/libkpimidentities(/|$)
     repository KDE/kdepimlibs
     rootdir /branches/KDE/3.5/kdepim/
     branch master
-    max revision 455550
-    min revision 438981
+    max revision 455551
+    min revision 438982
 end match
-match /trunk/KDE/kdepim/libkpimidentities/
+match /trunk/KDE/kdepim/libkpimidentities(/|$)
     repository KDE/kdepimlibs
     rootdir /trunk/KDE/kdepim/
     branch master
-    max revision 438981
+    max revision 438982
     min revision 409202
 end match
-match /trunk/kdepim/libkpimidentities/
+match /trunk/kdepim/libkpimidentities(/|$)
     repository KDE/kdepimlibs
     rootdir /trunk/kdepim/
     branch master
-    max revision 409202
+    max revision 409203
 end match
 
 match /trunk/KDE/kdelibs/kresources/
@@ -256,11 +274,11 @@ match /trunk/kdelibs/kresources/
     max revision 409202
     min revision 197389
 end match
-match /trunk/kdepim/libkdepim/resources/
+match /trunk/kdepim/libkdepim($|/resources(/|$))
     repository KDE/kdepimlibs
     rootdir /trunk/kdepim/
     branch master
-    max revision 197388
+    max revision 197389
 end match
 
 match /trunk/KDE/kdepim/mailtransport/
@@ -270,14 +288,14 @@ match /trunk/KDE/kdepim/mailtransport/
     max revision 656305
 end match
 
-match /trunk/KDE/kdepim/qgpgme/
+match /trunk/KDE/kdepim/(q)?gpgme(++)/
     repository KDE/kdepimlibs
     rootdir /trunk/KDE/kdepim/
     branch master
     max revision 681577
     min revision 495458
 end match
-match /trunk/KDE/kdepim/libkdenetwork/qgpgme/
+match /trunk/KDE/kdepim/libkdenetwork/(q)?gpgme(++)?/
     repository KDE/kdepimlibs
     rootdir /trunk/KDE/kdepim/libkdenetwork/
     branch master
@@ -297,6 +315,12 @@ match /trunk/KDE/kdepim/akregator/src/libsyndication/
     branch master
     max revision 529887
 end match
+
+match /trunk/KDE/(kdepimlibs)/
+    repository KDE/\1
+    branch master
+end match
+
 ##############
 # Branches...
 ##############
@@ -330,11 +354,13 @@ end match
 ##############
 match /tags/KDE/(\d+)\.(\d+)/(kdepimlibs)/
     repository KDE/\3
-    branch tags/\1.\2
+    branch refs/tags/\1.\2
+    annotated true
 end match
 match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepimlibs)/
     repository KDE/\4
-    branch tags/\1.\2.\3
+    branch refs/tags/\1.\2.\3
+    annotated true
 end match
 
 ##############

@@ -72,16 +72,23 @@ end match
 #match /trunk/KDE/kdepimlibs/akonadi/
 #    repository KDE/kdepimlibs
 #    branch master
-#    min revision 788161
+#    min revision 788342
 #end match
-match /trunk/KDE/kdepim/akonadi/libakonadi/
+match /trunk/KDE/kdepim/akonadi/libakonadi
     repository KDE/kdepimlibs
     branch master
     rootdir /trunk/KDE/kdepim/akonadi/
-    max revision 788161
+    min revision 788412
+    max revision 788412
+end match
+match /trunk/KDE/kdepim/akonadi/libakonadi(/|$)
+    repository KDE/kdepimlibs
+    branch master
+    rootdir /trunk/KDE/kdepim/akonadi/
+    max revision 788342
     min revision 559105
 end match
-match /trunk/KDE/kdepim/libakonadi/
+match /trunk/KDE/kdepim/libakonadi(/|$)
     repository KDE/kdepimlibs
     rootdir /trunk/KDE/kdepim/
     branch master

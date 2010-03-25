@@ -51,8 +51,6 @@ match /tags/KDE/[^/]/$
 end match
 match /branches/(work)/~([^/]+)/([^/]*kdepim[^/]*)/$
     action recurse
-    repository KDE/kdepim
-    branch \1/personal/\2
 end match
 match /branches/(.+)/[^/]*kdepim[^/]*/$
     action recurse
@@ -77,22 +75,15 @@ match /trunk/KDE/kdepim/
     repository KDE/kdepim
     branch master
 end match
-match /branches/KDE/3.5/kdepim/
-    repository KDE/kdepim
-    branch master
-end match
-match /trunk/KDE/kdepim/
-    repository KDE/kdepim
-    branch master
-end match
+#match /branches/KDE/3.5/kdepim/
+#    repository KDE/kdepim
+#    branch master
+#    max revision
+#end match
 match /trunk/kdepim/
     repository KDE/kdepim
     branch master
 end match
-
-##############
-# Old removed stuff...
-##############
 
 ##############
 # Current submodules
@@ -240,11 +231,13 @@ end match
 #end match
 match /tags/KDE/(\d+)\.(\d+)/(kdepim)/
     repository KDE/\3
-    branch tags/\1.\2
+    branch refs/tags/\1.\2
+    annotated true
 end match
 match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepim)/
     repository KDE/\4
-    branch tags/\1.\2.\3
+    branch refs/tags/\1.\2.\3
+    annotated true
 end match
 
 ##############

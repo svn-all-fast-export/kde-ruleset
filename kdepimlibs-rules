@@ -69,11 +69,8 @@ end match
 ##############
 # Main rules
 ##############
-#match /trunk/KDE/kdepimlibs/akonadi/
-#    repository KDE/kdepimlibs
-#    branch master
-#    min revision 788342
-#end match
+# Missing r516046 -> 788288
+# Error is r788342 where no copy is detected
 match /trunk/KDE/kdepim/akonadi/libakonadi
     repository KDE/kdepimlibs
     branch master

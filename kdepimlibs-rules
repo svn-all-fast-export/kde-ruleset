@@ -21,52 +21,6 @@ match /branches/(kdepim/enterprise(4)?|komo)/packaging
 end match
 
 ##############
-# Recurse
-##############
-match /trunk/$
-    action recurse
-end match
-
-match /trunk/KDE/$
-    action recurse
-end match
-
-match /trunk/KDE/[^/]+/$
-    action recurse
-end match
-
-match /branches/KDE/[^/]+/$
-    action recurse
-end match
-
-match /branches/KDE_[^/]+/$
-    action recurse
-end match
-
-# Make sure all tags are included
-match /tags/KDE/[^/]/$
-    action recurse
-end match
-match /branches/work/(akonadi-ports)/(kdepimlibs)/$
-    action recurse
-end match
-
-# KDAB
-match /branches/kdepim/(enterprise)/(kdepimlibs)/$
-    action recurse
-end match
-match /branches/kdepim/(enterprise4)/(kdepimlibs)/$
-    action recurse
-end match
-match /branches/work/(komo)/(kdepimlibs)/$
-    action recurse
-end match
-
-match /branches/KDE/(\d+)\.(\d+)/(kdepimlibs)/$
-    action recurse
-end match
-
-##############
 # Main rules
 ##############
 # Missing r516046 -> 788288
@@ -292,6 +246,7 @@ match /trunk/KDE/kdepim/mailtransport/
     max revision 656305
 end match
 
+# r516046 -> r675859
 match /trunk/KDE/kdepim/(q)?gpgme(++)/
     repository KDE/kdepimlibs
     rootdir /trunk/KDE/kdepim/
@@ -365,6 +320,52 @@ match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepimlibs)/
     repository KDE/\4
     branch refs/tags/\1.\2.\3
     annotated true
+end match
+
+##############
+# Recurse
+##############
+match /trunk/$
+    action recurse
+end match
+
+match /trunk/KDE/$
+    action recurse
+end match
+
+match /trunk/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE_[^/]+/$
+    action recurse
+end match
+
+# Make sure all tags are included
+match /tags/KDE/[^/]/$
+    action recurse
+end match
+match /branches/work/(akonadi-ports)/(kdepimlibs)/$
+    action recurse
+end match
+
+# KDAB
+match /branches/kdepim/(enterprise)/(kdepimlibs)/$
+    action recurse
+end match
+match /branches/kdepim/(enterprise4)/(kdepimlibs)/$
+    action recurse
+end match
+match /branches/work/(komo)/(kdepimlibs)/$
+    action recurse
+end match
+
+match /branches/KDE/(\d+)\.(\d+)/(kdepimlibs)/$
+    action recurse
 end match
 
 ##############

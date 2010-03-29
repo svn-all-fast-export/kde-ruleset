@@ -322,6 +322,12 @@ match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepimlibs)/
     annotated true
 end match
 
+match /tags/kdepim/enterprise(\d+).(\d+).(\d+).(\d+)/(kdepimlibs)/
+    repository KDE/\5
+    branch refs/tags/enterprise\1.\2.\3.\4
+    annotated true
+end match
+
 ##############
 # Recurse
 ##############
@@ -350,6 +356,9 @@ match /tags/KDE/[^/]/$
     action recurse
 end match
 match /branches/work/(akonadi-ports)/(kdepimlibs)/$
+    action recurse
+end match
+match /tags/kdepim/enterprise(\d+).(\d+).(\d+).(\d+)/(kdepimlibs)/
     action recurse
 end match
 

@@ -20,55 +20,6 @@ end match
 match /trunk/KDE/kdepim/runtime/
 end match
 ##############
-# Recurse
-##############
-match /trunk/$
-    action recurse
-end match
-
-match /trunk/KDE/$
-    action recurse
-end match
-
-match /trunk/KDE/[^/]+/$
-    action recurse
-end match
-
-match /branches/KDE/[^/]+/$
-    action recurse
-end match
-
-match /branches/KDE_[^/]+/$
-    action recurse
-end match
-
-match /tags/KDE_[^/]+/$
-    action recurse
-end match
-# Make sure all tags are included
-match /tags/KDE/[^/]/$
-    action recurse
-end match
-match /branches/(work)/~([^/]+)/([^/]*kdepim[^/]*)/$
-    action recurse
-end match
-match /branches/(.+)/[^/]*kdepim[^/]*/$
-    action recurse
-end match
-
-match /branches/work/(akonadi-ports)/(kdepim)/$
-    action recurse
-end match
-match /branches/kdepim/(enterprise|enterprise4)/(kdepim)/$
-    action recurse
-end match
-match /branches/work/(komo)/(kdepim)/$
-    action recurse
-end match
-match /branches/work/(kdepim)-(3.5.5\+)/$
-    action recurse
-end match
-##############
 # Main rules
 ##############
 match /trunk/KDE/kdepim/
@@ -238,6 +189,60 @@ match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepim)/
     repository KDE/\4
     branch refs/tags/\1.\2.\3
     annotated true
+end match
+match /tags/kdepim/enterprise(\d+).(\d+).(\d+).(\d+)/(kdepim)/
+    repository KDE/\5
+    branch refs/tags/enterprise\1.\2.\3.\4
+    annotated true
+end match
+##############
+# Recurse
+##############
+match /trunk/$
+    action recurse
+end match
+
+match /trunk/KDE/$
+    action recurse
+end match
+
+match /trunk/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE_[^/]+/$
+    action recurse
+end match
+
+match /tags/KDE_[^/]+/$
+    action recurse
+end match
+# Make sure all tags are included
+match /tags/KDE/[^/]/$
+    action recurse
+end match
+match /branches/(work)/~([^/]+)/([^/]*kdepim[^/]*)/$
+    action recurse
+end match
+match /branches/(.+)/[^/]*kdepim[^/]*/$
+    action recurse
+end match
+
+match /branches/work/(akonadi-ports)/(kdepim)/$
+    action recurse
+end match
+match /branches/kdepim/(enterprise|enterprise4)/(kdepim)/$
+    action recurse
+end match
+match /branches/work/(komo)/(kdepim)/$
+    action recurse
+end match
+match /branches/work/(kdepim)-(3.5.5\+)/$
+    action recurse
 end match
 
 ##############

@@ -95,19 +95,19 @@ match /trunk/kdeutils/karm/
     max revision 112128
 end match
 
-match /trunk/KDE/kdepimlibs/kleo/
+match /trunk/KDE/kdepimlibs/kleo(/|$)
     repository KDE/kdepim
     rootdir /trunk/KDE/kdepimlibs/
     branch master
-    max revision 690810
+    max revision 691083
     min revision 687073
 end match
 
-match /trunk/KDE/kdepimlibs/kpgp/
+match /trunk/KDE/kdepimlibs/kpgp(/|$)
     repository KDE/kdepim
     rootdir /trunk/KDE/kdepimlibs/
     branch master
-    max revision 684900
+    max revision 684901
     min revision 681873
 end match
 

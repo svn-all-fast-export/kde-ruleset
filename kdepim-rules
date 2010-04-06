@@ -80,6 +80,18 @@ match /trunk/kdenetwork/knode/
     branch master
     max revision 200752
 end match
+match /trunk/kdenetwork/doc/knode/
+    repository KDE/kdepim
+    rootdir /trunk/kdenetwork/
+    branch master
+    max revision 213465
+end match
+match /trunk/kdepim/doc/knode/
+    repository KDE/kdepim
+    rootdir /trunk/kdepim/
+    branch master
+    min revision 213465
+end match
 
 match /trunk/kdeutils/knotes/
     repository KDE/kdepim

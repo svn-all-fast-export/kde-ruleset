@@ -22,20 +22,6 @@ end match
 ##############
 # Main rules
 ##############
-match /trunk/KDE/kdepim/
-    repository KDE/kdepim
-    branch master
-end match
-#match /branches/KDE/3.5/kdepim/
-#    repository KDE/kdepim
-#    branch master
-#    max revision
-#end match
-match /trunk/kdepim/
-    repository KDE/kdepim
-    branch master
-end match
-
 ##############
 # Current submodules
 ##############
@@ -133,6 +119,21 @@ match /trunk/playground/pim/mailreader/src/lib/
     max revision 994097
 end match
 ###################################
+match /trunk/KDE/kdepim/
+    repository KDE/kdepim
+    branch master
+end match
+match /branches/KDE/3.5/kdepim/
+    repository KDE/kdepim
+    branch master
+    max revision 455551
+    min revision 438981
+end match
+match /trunk/kdepim/
+    repository KDE/kdepim
+    branch master
+end match
+
 ##############
 # Single file imports
 ##############
@@ -159,10 +160,6 @@ match /branches/(work)/~([^/]+)/([^/]*kdepim[^/]*)/
     branch \1/personal/\2
 end match
 #match /branches/kdepim/([^/]+)/
-#    repository KDE/kdepim
-#    branch \1
-#end match
-#match /branches/(.+)/[^/]*kdepim[^/]*/
 #    repository KDE/kdepim
 #    branch \1
 #end match

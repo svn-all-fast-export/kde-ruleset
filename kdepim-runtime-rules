@@ -127,7 +127,7 @@ match /trunk/KDE/kdepim/libkdepim/
     min revision 409202
 end match
 match /trunk/kdepim/libkdepim/
-    rootdir /trunk/KDE/kdepim/
+    rootdir /trunk/kdepim/
     repository KDE/kdepim-runtime
     branch master
     max revision 409202

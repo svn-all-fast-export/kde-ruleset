@@ -25,77 +25,107 @@ end match
 ##############
 # Current submodules
 ##############
+match /trunk/korganizer/doc/
+    repository KDE/kdepim
+    prefix doc/korganizer/
+    branch master
+    max revision 47447
+end match
+match /trunk/korganizer/
+    repository KDE/kdepim
+    prefix korganizer/
+    branch master
+    max revision 41240
+end match
+match /trunk/kdeutils/doc/karm/
+    repository KDE/kdepim
+    prefix doc/karm/
+    branch master
+    max revision 113098
+end match
 match /trunk/kdereview/blogilo/
     repository KDE/kdepim
-    rootdir /trunk/kdereview/
+    prefix blogilo/
     branch master
     max revision 1028587
     min revision 1027732
 end match
 match /trunk/playground/pim/blogilo/
     repository KDE/kdepim
-    rootdir /trunk/playground/pim/
+    prefix blogilo/
     branch master
     max revision 1027732
 end match
 
 match /trunk/kdenetwork/certmanager/
     repository KDE/kdepim
-    rootdir /trunk/kdenetwork/
+    prefix certmanager/
     branch master
     max revision 200753
 end match
 
 match /trunk/kdenetwork/kmail/
     repository KDE/kdepim
-    rootdir /trunk/kdenetwork/
+    prefix kmail/
     branch master
     max revision 200751
+end match
+match /trunk/kdenetwork/doc/kmail/
+    repository KDE/kdepim
+    prefix doc/kmail/
+    branch master
+    max revision 204756
 end match
 
 match /trunk/kdenetwork/kmailcvt/
     repository KDE/kdepim
-    rootdir /trunk/kdenetwork/
+    prefix kmailcvt/
     branch master
     max revision 200752
 end match
 
 match /trunk/kdenetwork/knode/
     repository KDE/kdepim
-    rootdir /trunk/kdenetwork/
+    prefix knode/
     branch master
     max revision 200752
 end match
 match /trunk/kdenetwork/doc/knode/
     repository KDE/kdepim
-    rootdir /trunk/kdenetwork/
+    prefix doc/knode/
     branch master
     max revision 213465
 end match
 match /trunk/kdepim/doc/knode/
     repository KDE/kdepim
-    rootdir /trunk/kdepim/
+    prefix doc/knode/
     branch master
     min revision 213465
 end match
 
+match /trunk/kdeutils/doc/knotes/
+    repository KDE/kdepim
+    prefix doc/knotes/
+    branch master
+    max revision 120752
+end match
 match /trunk/kdeutils/knotes/
     repository KDE/kdepim
-    rootdir /trunk/kdeutils/
+    prefix knotes/
     branch master
-    max revision 120750
+    max revision 120752
 end match
 
 match /trunk/kdeutils/karm/
     repository KDE/kdepim
-    rootdir /trunk/kdeutils/
+    prefix karm/
     branch master
     max revision 112128
 end match
 
 match /trunk/KDE/kdepimlibs/kleo(/|$)
     repository KDE/kdepim
-    rootdir /trunk/KDE/kdepimlibs/
+    prefix kleo/
     branch master
     max revision 691083
     min revision 687073
@@ -103,7 +133,7 @@ end match
 
 match /trunk/KDE/kdepimlibs/kpgp(/|$)
     repository KDE/kdepim
-    rootdir /trunk/KDE/kdepimlibs/
+    prefix kpgp/
     branch master
     max revision 684901
     min revision 681873
@@ -114,9 +144,15 @@ match /trunk/playground/pim/mailreader/src/
 end match
 match /trunk/playground/pim/mailreader/src/lib/
     repository KDE/kdepim
-    rootdir /trunk/playground/pim/
+    prefix mailreader/src/lib/
     branch master
     max revision 994097
+end match
+match /trunk/kdebase/kaddressbook/
+    repository KDE/kdepim
+    prefix kaddressbook/
+    branch master
+    max revision 163594
 end match
 ###################################
 match /trunk/KDE/kdepim/
@@ -159,10 +195,10 @@ match /branches/(work)/~([^/]+)/([^/]*kdepim[^/]*)/
     repository KDE/kdepim
     branch \1/personal/\2
 end match
-#match /branches/kdepim/([^/]+)/
-#    repository KDE/kdepim
-#    branch \1
-#end match
+match /branches/kdepim/([^~][^/]+)/
+    repository KDE/kdepim
+    branch \1
+end match
 
 match /branches/work/(akonadi-ports)/(kdepim)/
     repository KDE/\2
@@ -180,14 +216,18 @@ match /branches/work/(kdepim)-(3.5.5\+)/
     repository KDE/\1
     branch \1-\2
 end match
-
+match /branches/work/(kdab-post-4.0)/(kdepim)/
+    repository KDE/\2
+    branch \1
+end match
 ##############
 # Tags
 ##############
 # Should be regenerated from cvs directly into git
 #match /tags/KDE_(\d+)_(\d+)_(\d+[a-zA-Z]?)_RELEASE/(kdepim)/
 #    repository KDE/\4
-#    branch tags/\1.\2.\3
+#    branch refs/tags/\1.\2.\3
+#    annotated true
 #end match
 match /tags/KDE/(\d+)\.(\d+)/(kdepim)/
     repository KDE/\3

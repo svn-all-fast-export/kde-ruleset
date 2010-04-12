@@ -29,175 +29,207 @@ match /trunk/KDE/kdepim/runtime/
     min revision 1061321
 end match
 match /trunk/KDE/kdepim/akonadi/
-    rootdir /trunk/KDE/kdepim/
+    prefix akonadi/
+#    rootdir /trunk/KDE/kdepim/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/agents/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix agents/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/cmake/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix cmake/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/defaultsetup/
-    rootdir /trunk/KDE/kdepim/akonadi/
+#    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix defaultsetup/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/doc/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix doc/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/kcm/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix kcm/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/kioslave/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix kioslave/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/kresources/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix kresources/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
     min revision 982988
 end match
 match /trunk/KDE/kdepim/kresources/akonadi/
-    rootdir /trunk/KDE/kdepim/
+    prefix kresources/akonadi/
+#    rootdir /trunk/KDE/kdepim/
     repository KDE/kdepim-runtime
     branch master
     max revision 982988
     min revision 772772
 end match
 match /trunk/playground/pim/akonadi-kres/
-    rootdir /trunk/playground/pim/
+    prefix akonadi-kres/
+#    rootdir /trunk/playground/pim/
     repository KDE/kdepim-runtime
     branch master
     max revision 772772
 end match
 
 match /trunk/KDE/kdepim/akonadi/libkdepim-copy/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix libkdepim-copy/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
     min revision 982582
 end match
 match /trunk/KDE/kdepim/libkdepim/
-    rootdir /trunk/KDE/kdepim/
+    prefix libkdepim/
+#    rootdir /trunk/KDE/kdepim/
     repository KDE/kdepim-runtime
     branch master
     max revision 982582
     min revision 455550
 end match
 match /branches/KDE/3.5/kdepim/libkdepim/
-    rootdir /branches/KDE/3.5/kdepim/
+    prefix libkdepim/
+#    rootdir /branches/KDE/3.5/kdepim/
     repository KDE/kdepim-runtime
     branch master
     max revision 455550
     min revision 438981
 end match
 match /trunk/KDE/kdepim/libkdepim/
-    rootdir /trunk/KDE/kdepim/
+    prefix libkdepim/
+#    rootdir /trunk/KDE/kdepim/
     repository KDE/kdepim-runtime
     branch master
     max revision 438981
     min revision 409202
 end match
 match /trunk/kdepim/libkdepim/
-    rootdir /trunk/kdepim/
+    prefix libkdepim/
+#    rootdir /trunk/kdepim/
     repository KDE/kdepim-runtime
     branch master
     max revision 409202
 end match
 
 match /trunk/KDE/kdepim/akonadi/migration/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix migration/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/opensync/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix opensync/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/plugins/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix plugins/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/resources/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix resources/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
     min revision 559016
 end match
 match /trunk/KDE/kdepim/akonadiresources/
-    rootdir /trunk/KDE/kdepim/
+    prefix akonadiresources/
+#    rootdir /trunk/KDE/kdepim/
     repository KDE/kdepim-runtime
     branch master
     max revision 559016
 end match
 
+match /trunk/playground/pim/openxchange/
+    repository KDE/kdepim-runtime
+    prefix resources/openxchange/
+    branch master
+    max revision 1079550
+end match
+
 match /trunk/KDE/kdepim/akonadi/resourcetester/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix resourcetester/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/tray/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix tray/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
 end match
 
 match /trunk/KDE/kdepim/akonadi/xml/
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix xml/
+#    rootdir /trunk/KDE/kdepim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 1061321
     min revision 946339
 end match
 match /trunk/playground/pim/akonadi/xml/
-    rootdir /trunk/playground/pim/akonadi/
+    prefix xml/
+#    rootdir /trunk/playground/pim/akonadi/
     repository KDE/kdepim-runtime
     branch master
     max revision 946339
     min revision 939440
 end match
 match /trunk/playground/pim/libakonadi-xml/
-    rootdir /trunk/playground/pim/
+    prefix libakonadi-xml/
+#    rootdir /trunk/playground/pim/
     repository KDE/kdepim-runtime
     branch master
     max revision 939440

@@ -28,20 +28,20 @@ end match
 match /trunk/KDE/kdepim/akonadi/libakonadi
     repository KDE/kdepimlibs
     branch master
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix libakonadi/
     min revision 788412
     max revision 788412
 end match
 match /trunk/KDE/kdepim/akonadi/libakonadi(/|$)
     repository KDE/kdepimlibs
     branch master
-    rootdir /trunk/KDE/kdepim/akonadi/
+    prefix libakonadi/
     max revision 788342
     min revision 559105
 end match
 match /trunk/KDE/kdepim/libakonadi(/|$)
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix libakonadi/
     branch master
     max revision 559105
 end match
@@ -50,21 +50,21 @@ end match
 
 match /trunk/KDE/kdelibs/kabc/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdelibs/
+    prefix kabc/
     branch master
     max revision 556927
     min revision 409202
 end match
 match /trunk/kdelibs/kabc/
     repository KDE/kdepimlibs
-    rootdir /trunk/kdelibs/
+    prefix kabc/
     branch master
     max revision 409202
     min revision 121329
 end match
 match /trunk/kdepim/kabc/
     repository KDE/kdepimlibs
-    rootdir /trunk/kdepim/
+    prefix kabc/
     branch master
     max revision 121329
 #   min revision 115211
@@ -72,105 +72,105 @@ end match
 
 match /trunk/playground/pim/kblog/
     repository KDE/kdepimlibs
-    rootdir /trunk/playground/pim/
+    prefix kblog/
     branch master
     max revision 645603
 end match
 
 match /trunk/KDE/kdepim/libkcal/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix libkcal/
     branch master
     max revision 562294
     min revision 455550
 end match
 match /branches/KDE/3.5/kdepim/libkcal/
     repository KDE/kdepimlibs
-    rootdir /branches/KDE/3.5/kdepim/
+    prefix libkcal/
     branch master
     max revision 455550
     min revision 438981
 end match
 match /trunk/KDE/kdepim/libkcal/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix libkcal/
     branch master
     max revision 438981
     min revision 409202
 end match
 match /trunk/kdepim/libkcal/
     repository KDE/kdepimlibs
-    rootdir /trunk/kdepim/
+    prefix libkcal/
     branch master
     max revision 409202
 end match
 
 match /trunk/KDE/kdepim/kioslaves(/|$)
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix kioslaves/
     branch master
     max revision 461310
     min revision 455550
 end match
 match /trunk/KDE/kdepim/kioslave/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix kioslave/
     branch master
     max revision 710657
     min revision 461309
 end match
 match /branches/KDE/3.5/kdepim/kioslaves/
     repository KDE/kdepimlibs
-    rootdir /branches/KDE/3.5/kdepim/
+    prefix kioslaves/
     branch master
     max revision 455550
     min revision 438981
 end match
 match /trunk/KDE/kdepim/kioslaves/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix kioslaves/
     branch master
     max revision 438981
     min revision 409202
 end match
 match /trunk/kdepim/kioslaves/
     repository KDE/kdepimlibs
-    rootdir /trunk/kdepim/
+    prefix kioslaves/
     branch master
     max revision 409202
     min revision 200753
 end match
 match /trunk/kdenetwork/kioslaves/
     repository KDE/kdepimlibs
-    rootdir /trunk/kdenetwork/
+    prefix kioslaves/
     branch master
     max revision 200753
 end match
 
 match /trunk/KDE/kdepim/libkmime/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix libkmime/
     branch master
     max revision 601060
     min revision 455550
 end match
 match /branches/KDE/3.5/kdepim/libkmime/
     repository KDE/kdepimlibs
-    rootdir /branches/KDE/3.5/kdepim/
+    prefix libkmime/
     branch master
     max revision 455550
     min revision 438981
 end match
 match /trunk/KDE/kdepim/libkmime/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix libkmime/
     branch master
     max revision 438981
     min revision 409202
 end match
 match /trunk/kdepim/libkmime/
     repository KDE/kdepimlibs
-    rootdir /trunk/kdepim/
+    prefix libkmime/
     branch master
     max revision 409202
 end match
@@ -178,99 +178,118 @@ end match
 # 540252 -> 1002059
 match /trunk/KDE/kdepim/kontactinterfaces/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix kontactinterfaces/
     branch master
     max revision 1023819
 end match
 
 match /branches/work/libkpimidentities(/|$)
     repository KDE/kdepimlibs
-    rootdir /branches/work/
+    prefix libpimidentities/
     branch master
     max revision 681676
     min revision 680577
 end match
 match /trunk/KDE/kdepim/libkpimidentities(/|$)
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix libkpimidentities/
     branch master
     max revision 680577
     min revision 455551
 end match
 match /branches/KDE/3.5/kdepim/libkpimidentities(/|$)
     repository KDE/kdepimlibs
-    rootdir /branches/KDE/3.5/kdepim/
+    prefix libkpimidentities/
     branch master
     max revision 455551
     min revision 438982
 end match
 match /trunk/KDE/kdepim/libkpimidentities(/|$)
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix libkpimidentities/
     branch master
     max revision 438982
     min revision 409202
 end match
 match /trunk/kdepim/libkpimidentities(/|$)
     repository KDE/kdepimlibs
-    rootdir /trunk/kdepim/
+    prefix libkpimidentities/
     branch master
     max revision 409203
 end match
 
 match /trunk/KDE/kdelibs/kresources/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdelibs/
+    prefix kresources/
     branch master
     max revision 556964
     min revision 409202
 end match
 match /trunk/kdelibs/kresources/
     repository KDE/kdepimlibs
-    rootdir /trunk/kdelibs/
+    prefix kresources/
     branch master
     max revision 409202
     min revision 197389
 end match
-match /trunk/kdepim/libkdepim($|/resources(/|$))
+match /trunk/kdepim/libkdepim/resources(/|$)
     repository KDE/kdepimlibs
-    rootdir /trunk/kdepim/
+    prefix libkdepim/resources/
+    branch master
+    max revision 197389
+end match
+match /trunk/kdepim/libkdepim($|/)
+    repository KDE/kdepimlibs
+    prefix libkdepim/
     branch master
     max revision 197389
 end match
 
 match /trunk/KDE/kdepim/mailtransport/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix mailtransport/
     branch master
     max revision 656305
 end match
 
 # r516046 -> r675859
-match /trunk/KDE/kdepim/(q)?gpgme(++)/
+match /trunk/KDE/kdepim/gpgme++/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix gpgme++/
     branch master
     max revision 681577
     min revision 495458
 end match
-match /trunk/KDE/kdepim/libkdenetwork/(q)?gpgme(++)?/
+match /trunk/KDE/kdepim/libkdenetwork/gpgme++/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/libkdenetwork/
+    prefix gpgme++/
+    branch master
+    max revision 495458
+end match
+match /trunk/KDE/kdepim/qgpgme/
+    repository KDE/kdepimlibs
+    prefix qgpgme/
+    branch master
+    max revision 681577
+    min revision 495458
+end match
+match /trunk/KDE/kdepim/libkdenetwork/qgpgme/
+    repository KDE/kdepimlibs
+    prefix qgpgme/
     branch master
     max revision 495458
 end match
 
 match /trunk/KDE/kdepim/libsyndication/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/
+    prefix libsyndication/
     branch master
     max revision 571178
     min revision 529887
 end match
 match /trunk/KDE/kdepim/akregator/src/libsyndication/
     repository KDE/kdepimlibs
-    rootdir /trunk/KDE/kdepim/akregator/src/
+    prefix libsyndication/
     branch master
     max revision 529887
 end match

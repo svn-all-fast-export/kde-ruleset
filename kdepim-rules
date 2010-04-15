@@ -158,6 +158,12 @@ end match
 match /trunk/KDE/kdepim/
     repository KDE/kdepim
     branch master
+    min revision 455551
+end match
+match /trunk/KDE/kdepim/
+    repository KDE/kdepim
+    branch master
+    max revision 438981
 end match
 match /branches/KDE/3.5/kdepim/
     repository KDE/kdepim

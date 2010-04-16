@@ -261,7 +261,10 @@ match /branches/KDE/(\d+)\.(\d+)/(kdepim/runtime)/
     repository KDE/kdepim-runtime
     branch \1.\2
 end match
-
+match /branches/(work)/(arzie_akonadi)/
+    repository KDE/kdepim-runtime
+    branch \1/\2
+end match
 ##############
 # Tags
 ##############
@@ -322,6 +325,9 @@ match /branches/KDE/(\d+)\.(\d+)/(kdepim/runtime)/$
     action recurse
 end match
 
+match /branches/(work)/(arzie_akonadi)/$
+    action recurse
+end match
 ##############
 # Ignore everything else
 ##############

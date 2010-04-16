@@ -331,6 +331,22 @@ match /branches/(work)/(libkpimidentities)/
     repository KDE/kdepimlibs
     branch \1.\2
 end match
+match /branches/(work)/~(ervin)/(zanshin)/
+    repository KDE/kdepimlibs
+    branch \1/\2/\3
+end match
+match /branches/(work)/(kdab-post-4.0)/(kdepimlibs)/
+    repository KDE/kdepimlibs
+    branch \1/\2
+end match
+match /branches/(work)/(libkpimidentities)/
+    repository KDE/kdepimlibs
+    branch \1/\2
+end match
+match /branches/(work)/~(vkrause)/(polymorphic-payload)/
+    repository KDE/kdepimlibs
+    branch \1/\2/\3
+end match
 ##############
 # Tags
 ##############
@@ -400,6 +416,21 @@ match /branches/KDE/(\d+)\.(\d+)/(kdepimlibs)/$
     action recurse
 end match
 
+match /branches/(work)/(libkpimidentities)/$
+    action recurse
+end match
+match /branches/(work)/~(ervin)/(zanshin)/$
+    action recurse
+end match
+match /branches/(work)/(kdab-post-4.0)/(kdepimlibs)/$
+    action recurse
+end match
+match /branches/(work)/(libkpimidentities)/$
+    action recurse
+end match
+match /branches/(work)/~(vkrause)/(polymorphic-payload)/$
+    action recurse
+end match
 ##############
 # Ignore everything else
 ##############

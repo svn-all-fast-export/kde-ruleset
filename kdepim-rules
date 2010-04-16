@@ -201,6 +201,10 @@ match /branches/(work)/~([^/]+)/([^/]*kdepim[^/]*)/
     repository KDE/kdepim
     branch \1/personal/\2
 end match
+match /branches/(work)/~([^/]+)/([^/]+)/([^/]*kdepim[^/]*)/
+    repository KDE/kdepim
+    branch \1/personal/\2/\3
+end match
 match /branches/kdepim/([^~][^/]+)/
     repository KDE/kdepim
     branch \1
@@ -225,6 +229,14 @@ end match
 match /branches/work/(kdab-post-4.0)/(kdepim)/
     repository KDE/\2
     branch \1
+end match
+match /branches/work/(akregator)/(onlinesync)/
+    repository KDE/kdepim
+    branch \1/\2
+end match
+match /branches/(work)/(soc-gtd)/
+    repository KDE/kdepim
+    branch \1/\2
 end match
 ##############
 # Tags
@@ -297,6 +309,15 @@ match /branches/work/(komo)/(kdepim)/$
     action recurse
 end match
 match /branches/work/(kdepim)-(3.5.5\+)/$
+    action recurse
+end match
+match /branches/work/(kdab-post-4.0)/(kdepim)/$
+    action recurse
+end match
+match /branches/work/(akregator)/(onlinesync)/$
+    action recurse
+end match
+match /branches/(work)/(soc-gtd)/$
     action recurse
 end match
 

@@ -189,7 +189,7 @@ end match
 ##############
 # Branches...
 ##############
-match /branches/KDE_(\d+)_(\d+)_BRANCH/
+match /branches/KDE_(\d+)_(\d+)_BRANCH/kdepim/
     repository KDE/kdepim
     branch \1.\2
 end match

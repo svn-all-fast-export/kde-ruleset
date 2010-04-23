@@ -1,0 +1,58 @@
+#                                                                                           
+# Created by Mehrdad Momeny <mehrdad.momeny@gmail.com>                                   
+#                                                                                           
+
+#
+# Create the choqok repository
+#
+create repository choqok
+end repository
+
+# Choqok from playground
+match /trunk/playground/network/choqok/
+  repository choqok
+  branch master
+end match
+
+match /trunk/kdereview/choqok/
+  repository choqok
+  branch master
+end match
+
+match /trunk/extragear/network/choqok/
+  repository choqok
+  branch master
+end match
+
+## Tags:
+
+match /tags/choqok/0.6.1/choqok/
+  repository choqok
+  branch refs/tags/v0.6.1
+end match
+
+match /tags/choqok/0.6.6/choqok/
+  repository choqok
+  branch refs/tags/v0.6.6
+end match
+
+match /tags/choqok/0.9.1/choqok/
+  repository choqok
+  branch refs/tags/v0.9.1
+end match
+
+match /tags/choqok/0.9.4/choqok/
+  repository choqok
+  branch refs/tags/v0.9.4
+end match
+
+match /tags/choqok/0.9.55/choqok/
+  repository choqok
+  branch refs/tags/v0.9.55
+end match
+
+# Ignore everything else
+# Do we need this always!?
+match /
+end match
+

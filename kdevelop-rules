@@ -14,6 +14,17 @@
 # GIT_COMITTER_DATE="<original date of the tag-creation>" git tag -f -a <tagname> <commit>
 # The commit message should be "kdevelop <version number>"
 #
+# The usual way of finding the commit info is: svn log -v --stop-on-copy file:///<repo>/tags/<tag-location>
+# check where the tag originated from
+# svn log -v --stop-on-copy file:///<repo>/<original path>@<original rev>
+# find the latest commit from the branch/trunk which was used in the tag for /kdevelop/*
+# get the commit info from that commit
+#
+# for the cvs2svn generated tags the following can help to find the highest svn rev the commit used
+# svn log -v --stop-on-copy file:///<repodir>/tags/<tag>@rev | grep ".*RELEASE/kdevelop/.*(from.*/kdevelop/.*)" | grep -v "doc" | sed 's/.*(from .*:\([0-9]\+\))$/\1/' | sort -n -u
+# After obtaining the number make sure it really is a commit to kdevelop's
+# sources and not some mismatch due to poor regexps.
+#
 
 #
 # Create the KDevelop/KDevPlatform modules

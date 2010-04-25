@@ -1,3 +1,7 @@
+#
+# When using a gitorious git-hosting the repository should go into the KDevelop project
+# 
+
 create repository quanta
 end repository
 

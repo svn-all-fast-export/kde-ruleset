@@ -193,18 +193,6 @@ match /branches/KDE_(\d+)_(\d+)_BRANCH/korganizer/
     branch \1.\2
     max revision 409202
 end match
-match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/korganizer/
-    prefix korganizer/
-    repository KDE/kdepim
-    branch \1.\2.\3
-    max revision 409202
-end match
-match /tags/KDE_(\d+)_(\d+)_RELEASE/korganizer/
-    prefix korganizer/
-    repository KDE/kdepim
-    branch \1.\2.0
-    max revision 16583
-end match
 
 match /branches/KDE_(\d+)_(\d+)_BRANCH/kdepim/
     repository KDE/kdepim
@@ -273,6 +261,20 @@ match /tags/KDE/3.4.3/(kdepim)/
     max revision 467549
 end match
 # Should be regenerated from cvs directly into git
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/korganizer/
+    prefix korganizer/
+    repository KDE/kdepim
+    branch \1.\2.\3
+    max revision 409202
+    annotated true
+end match
+match /tags/KDE_(\d+)_(\d+)_RELEASE/korganizer/
+    prefix korganizer/
+    repository KDE/kdepim
+    branch \1.\2.0
+    max revision 16583
+    annotated true
+end match
 match /tags/KDE_(\d+)_(\d+)_(\d+[a-zA-Z]?)_RELEASE/(kdepim)/
     repository KDE/\4
     branch refs/tags/v\1.\2.\3
@@ -287,7 +289,7 @@ match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdepim)/
     max revision 409202
 end match
 match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdepim)/
-    repository KDE/\4
+    repository KDE/kdepim
     branch refs/tags/v\1.\2.0
     annotated true
     max revision 409202

@@ -235,6 +235,12 @@ match /tags/KDE/2.1.1/kdevelop/
   branch refs/tags/v1.4.1
 end match
 
+# KDE 2.2 released with KDevelop 2.0.x 
+match /tags/KDE/2.2/kdevelop/
+  repository kdevelop
+  branch refs/tags/v2.0
+end match
+
 # KDE 2.2.x released with KDevelop 2.0.x 
 match /tags/KDE/2.2.([^/])/kdevelop/
   repository kdevelop

@@ -223,7 +223,7 @@ match /tags/kdevelop/3.9.93/
   branch refs/tags/v3.9.93
 end match
 
-# KDE 2.1.1 release KDevelop 1.4.1
+# KDE 2.1 release KDevelop 1.4
 match /tags/KDE/2.1/kdevelop/
   repository kdevelop
   branch refs/tags/v1.4

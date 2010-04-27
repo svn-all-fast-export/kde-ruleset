@@ -69,7 +69,7 @@
 # tag v2.1.4   from (r186721) "- logged the modified patch of Tim Adleys" by falkbr 2002-10-31 22:37:14 +0100
 # tag v2.1.3   from (r168728) "changes" by harald 2002-07-25 20:30:17 +0200
 # tag v2.1.2   from (r163093) "* bugfix for #44111: CFLAGS and CPPFLAGS" by tasin 2002-06-25 16:59:59 +0200
-# tag v2.1.1   from (r153418) "removed version 2 from Qt and KDE strings" by falkbr 20020-05-03 00:08:59 +0200
+# tag v2.1.1   from (r153418) "removed version 2 from Qt and KDE strings" by falkbr 2002-05-03 00:08:59 +0200
 # tag v2.1     from (r145111) "argh... QDialog::show is now nonmodal, use ::exec instead..." by harald 2002-03-25 19:21:30 +0100
 # tag v2.0.2   from (r121162) "* "make dist" didn't work correctly, because admin/" by tasin 2001-11-07 17:08:09 +0100
 # tag v2.0.1   from (r113144) "N'Sync with the latest original QextMDI cvs version" by falkbr 2001-09-03 11:00:06 +0200

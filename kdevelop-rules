@@ -4,6 +4,28 @@
 
 # When using a gitorious git-hosting these should go into a KDevelop project
 
+# Authors missing from the account map (as of 2010-04-27) but existing in
+# kdevelops history have been added manually to account-map
+#
+# arichardson Alexander Richardson   alex.richardson@gmx.de
+# chcouder    Christian Couder       chcouder@club-internet.fr
+# denis       Denis Pershin          dyp@inetlab.com
+# erbsland    Tobias Erbsland        drzoom@profzone.ch
+# givi        Omid Givi              omid@givi.nl
+# hawkes      Ivan Hawkes            linuxgroupie@ivanhawkes.com
+# hvarotto    Hugo Varotto           hugo@varotto-usa.com
+# johnzed     John R. Zedlewski      zedlwski@princeton.edu
+# jonasno     Jonas Nordin           jonas.nordin@cenacle.se
+# jorgen      Jorgen Olson           jorgen@cenacle.net
+# kervel      Frank Dekervel         Frank.dekervel@student.kuleuven.ac.Be
+# koss        Matt Koss              koss@napri.sk
+# lliehu      Lasse Liehu            lliehu@kolumbus.fi
+# mcbride     Mike McBride           mpmcbride@email.com
+# olivierjg   Olivier Jean de Gaalon olivier.jg@gmail.com
+# pascalk     Pascal Krahmer         pascal@beast.de
+# sdmanson    Scott Manson           sdmanson@alltel.net
+# wynnw       Wynn Wilkes            wynnw@calderasystems.com
+
 # The following two tags needed manual redoing them as svn2git is not able to
 # find the right commit for a tag, it always takes the last commit on the
 # branch for creating a tag

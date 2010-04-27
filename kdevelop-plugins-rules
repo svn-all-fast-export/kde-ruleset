@@ -2,10 +2,13 @@
 # Created by Niko Sams <niko.sams@gmail.com>
 #
 
+# When using a gitorious git-hosting these two should go into a KDevelop project
 create repository kdevelop-php
 end repository
 create repository kdevelop-php-docs
 end repository
+
+# The rest should go into separate projects
 create repository kdevelop-upload
 end repository
 create repository kdevelop-css

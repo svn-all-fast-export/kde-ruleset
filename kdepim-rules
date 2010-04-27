@@ -11,7 +11,11 @@ match /
     max revision 622809
     min revision 622809
 end match
-
+# ignore the SVN-adjusting commits
+match /
+    min revision 409202
+    max revision 409209
+end match
 # Translations are in svn so ignore them
 match /.*/[^/]*(i|l)1(0|8)n[^/]*/
 end match
@@ -177,21 +181,23 @@ match /trunk/kdepim/
 end match
 
 ##############
-# Single file imports
-##############
-#match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/(?!FcEngine\.cpp)
-#end match
-#match /branches/KDE/4.2/kdebase/workspace/kcontrol/kfontinst/lib/
-#    repository KDE/kdepimlibs
-#    branch master
-#end match
-
-##############
 # Branches...
 ##############
-match /branches/KDE_(\d+)_(\d+)_BRANCH/
+match /branches/kdepim/(enterprise|enterprise4)/kde(pimlibs|base|libs)/
+end match
+
+# KOrganizer is kdepim
+match /branches/KDE_(\d+)_(\d+)_BRANCH/korganizer/
+    prefix korganizer/
     repository KDE/kdepim
     branch \1.\2
+    max revision 409202
+end match
+
+match /branches/KDE_(\d+)_(\d+)_BRANCH/kdepim/
+    repository KDE/kdepim
+    branch \1.\2
+    max revision 409202
 end match
 match /branches/KDE/(\d+)\.(\d+)/kdepim/
     repository KDE/kdepim
@@ -205,7 +211,7 @@ match /branches/(work)/~([^/]+)/([^/]+)/([^/]*kdepim[^/]*)/
     repository KDE/kdepim
     branch \1/personal/\2/\3
 end match
-match /branches/kdepim/([^~][^/]+)/
+match /branches/kdepim/([^~][^/]+)/kdepim/
     repository KDE/kdepim
     branch \1
 end match
@@ -241,20 +247,78 @@ end match
 ##############
 # Tags
 ##############
+# Ignore the first tagging try...
+match /tags/KDE/4.4.1/(kdepim)/
+    max revision 1096480
+end match
+match /tags/KDE/3.5.5/(kdepim)/
+    max revision 591451
+end match
+match /tags/KDE/3.5.2/(kdepim)/
+    max revision 519806
+end match
+match /tags/KDE/3.4.3/(kdepim)/
+    max revision 467549
+end match
 # Should be regenerated from cvs directly into git
-#match /tags/KDE_(\d+)_(\d+)_(\d+[a-zA-Z]?)_RELEASE/(kdepim)/
-#    repository KDE/\4
-#    branch refs/tags/\1.\2.\3
-#    annotated true
-#end match
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/korganizer/
+    prefix korganizer/
+    repository KDE/kdepim
+    branch \1.\2.\3
+    max revision 409202
+    annotated true
+end match
+match /tags/KDE_(\d+)_(\d+)_RELEASE/korganizer/
+    prefix korganizer/
+    repository KDE/kdepim
+    branch \1.\2.0
+    max revision 16583
+    annotated true
+end match
+match /tags/KDE_(\d+)_(\d+)_(\d+[a-zA-Z]?)_RELEASE/(kdepim)/
+    repository KDE/\4
+    branch refs/tags/v\1.\2.\3
+    annotated true
+    max revision 409202
+end match
+match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdepim)/
+    repository KDE/\5
+    branch refs/tags/v\1.\2.\3-beta\4
+    annotated true
+    min revision 376088
+    max revision 409202
+end match
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdepim)/
+    repository KDE/kdepim
+    branch refs/tags/v\1.\2.0
+    annotated true
+    max revision 409202
+end match
+match /tags/KDE/3.5.0-alpha1/(kdepim)/
+    repository KDE/\1
+    branch v3.4.90
+    min revision 443441
+    max revision 445561
+end match
+match /tags/KDE/3.5.0-beta1/(kdepim)/
+    repository KDE/\1
+    branch v3.4.91
+    min revision 459298
+    max revision 460260
+end match
+match /(branches|tags)/KDE/([^/]+)A/(kdepim)/
+    repository KDE/\3
+    branch \2a
+    min revision 409209
+end match
 match /tags/KDE/(\d+)\.(\d+)/(kdepim)/
     repository KDE/\3
-    branch refs/tags/\1.\2
+    branch refs/tags/v\1.\2
     annotated true
 end match
 match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepim)/
     repository KDE/\4
-    branch refs/tags/\1.\2.\3
+    branch refs/tags/v\1.\2.\3
     annotated true
 end match
 match /tags/kdepim/enterprise(\d+).(\d+).(\d+).(\d+)/(kdepim)/
@@ -288,17 +352,16 @@ end match
 match /tags/KDE_[^/]+/$
     action recurse
 end match
-# Make sure all tags are included
 match /tags/KDE/[^/]/$
     action recurse
 end match
+
 match /branches/(work)/~([^/]+)/([^/]*kdepim[^/]*)/$
     action recurse
 end match
 match /branches/(.+)/[^/]*kdepim[^/]*/$
     action recurse
 end match
-
 match /branches/work/(akonadi-ports)/(kdepim)/$
     action recurse
 end match

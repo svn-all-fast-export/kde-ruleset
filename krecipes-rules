@@ -1,0 +1,15 @@
+#
+# Create the krecipes' repository
+#
+create repository krecipes
+end repository
+
+# master branch
+match /trunk/extragear/utils/krecipes/
+  repository krecipes
+  branch master
+end match
+
+# Ignore everything else
+match /
+end match

@@ -1,0 +1,100 @@
+#
+# Created by Andreas Pakulat <apaku@gmx.de>
+#
+
+# When using a gitorious git-hosting these should go into a KDevelop project
+
+# The following two tags needed manual redoing them as svn2git is not able to
+# find the right commit for a tag, it always takes the last commit on the
+# branch for creating a tag
+#
+# KDevplatform: 0.10.2 from r1115445 "Prepare RC3." by apaku 2010-04-16 15:47:10 +0200
+#
+
+#
+# Create the KDevPlatform modules
+#
+create repository kdevplatform
+end repository
+
+# Ignore some upheaval in KDE's SVN history.
+match /
+  min revision 409202
+  max revision 409210
+end match
+match /
+  min revision 411973
+  max revision 411973
+end match
+
+#########################################################
+# KDevPlatform rules
+#
+match /trunk/KDE/kdevplatform/
+  repository kdevplatform
+  branch master
+end match
+
+match /trunk/extragear/sdk/kdevplatform/
+  repository kdevplatform
+  branch master
+end match
+
+#
+# KDevPlatform branches
+#
+match /branches/kdevelop/sublime_rework/kdevplatform/
+    repository kdevplatform
+    branch sublime_rework
+end match
+
+match /branches/kdevelop/class-generation-extraction/kdevplatform/
+    repository kdevplatform
+    branch class-generation-extraction
+end match
+
+match /branches/kdevelop/interfaces_cleanup/kdevplatform/
+    repository kdevplatform
+    branch interfaces_cleanup
+end match
+
+match /branches/kdevelop/kdevplatform_no_splitters_ui/
+    repository kdevplatform
+    branch no_splitters_ui
+end match
+
+#
+# KDevPlatform tags
+#
+# for tags that were re-created only take the last one
+match /tags/kdevplatform/0.9.85/
+  min revision 907191
+  max revision 907345
+end match
+match /tags/kdevplatform/0.9.85/
+  min revision 907346
+  max revision 907346
+  repository kdevplatform
+  branch refs/tags/v0.9.85
+end match
+match /tags/kdevplatform/0.9.93/
+  min revision 972084
+  max revision 975676
+end match
+match /tags/kdevplatform/0.9.93/
+  min revision 975678
+  max revision 975678
+  repository kdevplatform
+  branch refs/tags/v0.9.93
+end match
+
+# All other tags are fine
+match /tags/kdevplatform/([^/]+)/
+  repository kdevplatform
+  branch refs/tags/v\1
+  annotated true
+end match
+
+# Ignore everything else
+match /
+end match

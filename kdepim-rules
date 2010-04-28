@@ -244,6 +244,10 @@ match /branches/(work)/(soc-gtd)/
     repository KDE/kdepim
     branch \1/\2
 end match
+match /branches/(work)/(soc-pim)/kdepim/
+    repository KDE/kdepim
+    branch \1/\2
+end match
 ##############
 # Tags
 ##############

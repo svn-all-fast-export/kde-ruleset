@@ -347,6 +347,10 @@ match /branches/(work)/~(vkrause)/(polymorphic-payload)/
     repository KDE/kdepimlibs
     branch \1/\2/\3
 end match
+match /branches/(work)/(soc-pim)/kdepimlibs/
+    repository KDE/kdepimlibs
+    branch \1/\2
+end match
 ##############
 # Tags
 ##############
@@ -354,6 +358,9 @@ match /tags/KDE/(\d+)\.(\d+)/(kdepimlibs)/
     repository KDE/\3
     branch refs/tags/\1.\2
     annotated true
+end match
+match /tags/KDE/4.4.1/(kdepimlibs)/
+    max revision 1096480
 end match
 match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepimlibs)/
     repository KDE/\4

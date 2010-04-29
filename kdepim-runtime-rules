@@ -265,6 +265,10 @@ match /branches/(work)/(arzie_akonadi)/
     repository KDE/kdepim-runtime
     branch \1/\2
 end match
+match /branches/(work)/(soc-pim)/kdepim/runtime/
+    repository KDE/kdepim-runtime
+    branch \1/\2
+end match
 ##############
 # Tags
 ##############
@@ -272,6 +276,9 @@ match /tags/KDE/(\d+)\.(\d+)/(kdepim/runtime)/
     repository KDE/kdepim-runtime
     branch refs/tags/\1.\2
     annotated true
+end match
+match /tags/KDE/4.4.1/(kdepim/runtime)/
+    max revision 1096480
 end match
 match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepim/runtime)/
     repository KDE/kdepim-runtime

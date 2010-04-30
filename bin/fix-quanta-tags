@@ -99,7 +99,7 @@ foreach ($tags as $tag) {
     //find git commit for that revision (look for $msg and $date in branch $gitBranch
     $cmd = "PAGER= git log --oneline --grep='$msg' --before='".date('Y-m-d H:i:s', $date+1)
                                                ."' --after='".date('Y-m-d H:i:s', $date)."'"
-                                               ." remotes/origin/$gitBranch";
+                                               ." $gitBranch";
     $logs = array();
     exec($cmd, $logs, $ret);
     if ($ret) die("git log failed\n");

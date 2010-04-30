@@ -33,6 +33,10 @@ match /trunk/(KDE/)?(quanta|kdewebdev)/quanta/
   branch master
 end match
 
+match /trunk/extragear/sdk/quanta/
+  repository quanta
+  branch master
+end match
 
 # Quanta branches
 match /branches/QUANTA_(\d+)_(\d+)_BRANCH/quanta/quanta/

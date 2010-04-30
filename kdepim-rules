@@ -21,7 +21,7 @@ match /.*/[^/]*(i|l)1(0|8)n[^/]*/
 end match
 
 # -runtime is in a separate repository
-match /(trunk|branches|tags)/.*/kdepim/runtime/
+match /trunk/KDE/kdepim/runtime/
 end match
 ##############
 # Main rules

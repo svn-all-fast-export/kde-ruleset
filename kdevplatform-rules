@@ -75,6 +75,7 @@ match /tags/kdevplatform/0.9.85/
   min revision 907346
   max revision 907346
   repository kdevplatform
+  annotated true
   branch refs/tags/v0.9.85
 end match
 match /tags/kdevplatform/0.9.93/
@@ -85,6 +86,7 @@ match /tags/kdevplatform/0.9.93/
   min revision 975678
   max revision 975678
   repository kdevplatform
+  annotated true
   branch refs/tags/v0.9.93
 end match
 

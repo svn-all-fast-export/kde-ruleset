@@ -1,6 +1,12 @@
 #
 # When using a gitorious git-hosting the repository should go into the KDevelop project
 # 
+# Users found in the history that weren't in the account-map yet
+# dyp Denis Pershin <dyp@inetlab.com>
+# pdima Dmitry Poplavsky <dima@linuxfan.com>
+# tanghus Thomas Tanghus Olsen <tanghus@kde.org>
+# yshurik Alexander Yakovlev <yshurik@penguinpowered.com>
+#
 
 create repository quanta
 end repository

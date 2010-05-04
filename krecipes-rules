@@ -1,14 +1,30 @@
 #
 # Create the krecipes' repository
+# Just FYI krecipes development starts at commit 226097
 #
 create repository krecipes
 end repository
 
+
 # master branch
-match /trunk/extragear/utils/krecipes/
+match /trunk/(extragear/utils|kdeextragear-3)/krecipes/
   repository krecipes
   branch master
 end match
+
+
+# 1.1 branch
+match /branches/extragear/kde3/utils/krecipes/
+  repository krecipes
+  branch 1.1
+end match
+
+match /branches/extragear/kde3/utils
+  min revision 670725
+  max revision 670725
+  action recurse
+end match
+
 
 # Ignore everything else
 match /

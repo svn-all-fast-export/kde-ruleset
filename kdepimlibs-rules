@@ -356,7 +356,7 @@ end match
 ##############
 match /tags/KDE/(\d+)\.(\d+)/(kdepimlibs)/
     repository KDE/\3
-    branch refs/tags/\1.\2
+    branch refs/tags/v\1.\2.0
     annotated true
 end match
 match /tags/KDE/4.4.1/(kdepimlibs)/
@@ -364,7 +364,7 @@ match /tags/KDE/4.4.1/(kdepimlibs)/
 end match
 match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepimlibs)/
     repository KDE/\4
-    branch refs/tags/\1.\2.\3
+    branch refs/tags/v\1.\2.\3
     annotated true
 end match
 

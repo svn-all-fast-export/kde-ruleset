@@ -268,14 +268,14 @@ end match
 match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/korganizer/
     prefix korganizer/
     repository KDE/kdepim
-    branch refs/tags/\1.\2.\3
+    branch refs/tags/v\1.\2.\3
     max revision 409202
     annotated true
 end match
 match /tags/KDE_(\d+)_(\d+)_RELEASE/korganizer/
     prefix korganizer/
     repository KDE/kdepim
-    branch refs/tags/\1.\2.0
+    branch refs/tags/v\1.\2.0
     max revision 16583
     annotated true
 end match

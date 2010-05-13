@@ -24,11 +24,13 @@ end match
 # history too.
 #
 match /trunk/playground/devtools/kdevelop-pg-qt/
+  max revision 1125941
   repository kdevelop-pg-qt
   branch master
 end match
 
 match /trunk/playground/devtools/kdevelop-pg/
+  max revision 740708
   repository kdevelop-pg-qt
   branch master
 end match

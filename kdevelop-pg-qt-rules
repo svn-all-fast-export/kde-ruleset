@@ -41,6 +41,13 @@ match /branches/work/kdevelop-pg/
   branch master
 end match
 
+# The 0.9.0 tag
+match /tags/kdevelop-pg-qt/0.9.0/
+  repository kdevelop-pg-qt
+  branch refs/tags/v0.9.0
+  annotated true
+end match
+
 # Ignore everything else
 match /
 end match

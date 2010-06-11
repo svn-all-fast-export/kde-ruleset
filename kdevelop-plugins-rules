@@ -13,6 +13,12 @@ create repository kdevelop-upload
 end repository
 create repository kdevelop-css
 end repository
+create repository kdevelop-sql
+end repository
+create repository kdevelop-xml
+end repository
+create repository kdevelop-phpformatter
+end repository
 create repository kdevelop-executescript
 end repository
 create repository kdevelop-executebrowser
@@ -49,7 +55,7 @@ match /trunk/kdereview/controlflowgraph/
   branch master
 end match
 
-match /trunk/playground/devtools/kdevelop4-extra-plugins/(php|php-docs|css|executescript|executebrowser|xdebug|crossfire|ruby|git|vcsprojectintegration|controlflowgraph|java|python)/
+match /trunk/playground/devtools/kdevelop4-extra-plugins/(php|php-docs|css|executescript|executebrowser|xdebug|crossfire|ruby|git|vcsprojectintegration|controlflowgraph|java|python|sql|xml|phpformatter)/
   repository kdevelop-\1
   branch master
 end match

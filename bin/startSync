@@ -1,6 +1,8 @@
 #!/bin/bash
 
+rsync -avP rsync://rsync.kde.org/svnmirror/ svn/
+
 # the '-n' is dry run
-rsync -navP rsync://rsync.kde.org/svnmirror/ svn/
-rsync -navP --exclude=db/current rsync://rsync.kde.org/svnmirror/ svn/
+#rsync -navP rsync://rsync.kde.org/svnmirror/ svn/
+#rsync -navP --exclude=db/current rsync://rsync.kde.org/svnmirror/ svn/
 

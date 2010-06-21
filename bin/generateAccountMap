@@ -18,5 +18,6 @@ function process_file {
 
 process_file accounts.tmp
 process_file disabled.tmp
+cat account-map-extra >> account-map
 
 rm -f accounts.tmp disabled.tmp

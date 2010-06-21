@@ -8,7 +8,8 @@ IFS="
 echo -n > account-map
 
 for person in `cat accounts.tmp`; do
-	LINE=`echo $person | sed -e "s/[[:graph:]]*@[[:graph:]]*/<&>/" -`
+	LINE=`echo $person | sed -e "s/\>[[:blank:]]*\</ /g;\
+		s/[[:graph:]]*@[[:graph:]]*/<&>/" -`
 	echo $LINE >> account-map
 done
 

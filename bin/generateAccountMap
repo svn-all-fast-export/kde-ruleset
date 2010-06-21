@@ -1,16 +1,22 @@
 #!/bin/sh
 
 svn export -q  svn://anonsvn.kde.org/home/kde/trunk/kde-common/accounts accounts.tmp
+svn export -q  svn://anonsvn.kde.org/home/kde/trunk/kde-common/disabled-accounts disabled.tmp
 
 IFS="
 "
 
 echo -n > account-map
 
-for person in `cat accounts.tmp`; do
-	LINE=`echo $person | sed -e "s/\>[[:blank:]]*\</ /g;\
-		s/[[:graph:]]*@[[:graph:]]*/<&>/" -`
-	echo $LINE >> account-map
-done
+function process_file {
+	for person in `cat $1`; do
+		LINE=`echo $person | sed -e "s/\>[[:blank:]]*\</ /g;\
+			s/[[:graph:]]*@[[:graph:]]*/<&>/" -`
+		echo $LINE >> account-map
+	done
+}
 
-rm -f accounts.tmp
+process_file accounts.tmp
+process_file disabled.tmp
+
+rm -f accounts.tmp disabled.tmp

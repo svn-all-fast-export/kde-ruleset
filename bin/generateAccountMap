@@ -2,7 +2,6 @@
 
 svn export -q  svn://anonsvn.kde.org/home/kde/trunk/kde-common/accounts accounts.tmp
 
-PREVIFS=IFS
 IFS="
 "
 

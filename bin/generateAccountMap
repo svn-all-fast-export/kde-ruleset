@@ -1,0 +1,16 @@
+#!/bin/sh
+
+svn export -q  svn://anonsvn.kde.org/home/kde/trunk/kde-common/accounts accounts.tmp
+
+PREVIFS=IFS
+IFS="
+"
+
+echo > account-map
+
+for person in `cat accounts.tmp`; do
+	LINE=`echo $person | sed -e "s/[[:graph:]]*@[[:graph:]]*/<&>/" -`
+	echo $LINE >> account-map
+done
+
+rm -f accounts.tmp

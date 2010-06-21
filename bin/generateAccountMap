@@ -5,7 +5,7 @@ svn export -q  svn://anonsvn.kde.org/home/kde/trunk/kde-common/accounts accounts
 IFS="
 "
 
-echo > account-map
+echo -n > account-map
 
 for person in `cat accounts.tmp`; do
 	LINE=`echo $person | sed -e "s/[[:graph:]]*@[[:graph:]]*/<&>/" -`

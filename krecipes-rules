@@ -26,6 +26,24 @@ match /branches/extragear/kde3/utils
 end match
 
 
+# 1.0 branch
+match /branches/krecipes/1.0-betas/utils/krecipes/
+  repository krecipes
+  branch 1.0
+end match
+
+match /branches/krecipes/1.0-betas
+  min revision 580863
+  max revision 580863
+  action recurse
+end match
+
+match /tags/krecipes/1.0-beta1/utils/krecipes/
+  repository krecipes
+  branch 1.0
+end match
+
+
 # Ignore everything else
 match /
 end match

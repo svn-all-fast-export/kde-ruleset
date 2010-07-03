@@ -44,6 +44,18 @@ match /tags/krecipes/1.0-beta1/utils/krecipes/
 end match
 
 
+# 0.9 branch
+match /branches/krecipes/0.9/
+  repository krecipes
+  branch 0.9
+end match
+
+match /tags/krecipes/0.9/
+  repository krecipes
+  branch 0.9
+end match
+
+
 # Ignore everything else
 match /
 end match

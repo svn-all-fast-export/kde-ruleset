@@ -56,6 +56,18 @@ match /tags/krecipes/0.9/
 end match
 
 
+# 0.8 branch
+match /branches/krecipes/0.8beta/
+  repository krecipes
+  branch 0.8
+end match
+
+match /tags/krecipes/krecipes_beta_0_8/
+  repository krecipes
+  branch 0.8
+end match
+
+
 # Ignore everything else
 match /
 end match

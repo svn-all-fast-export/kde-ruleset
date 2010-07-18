@@ -68,6 +68,19 @@ match /tags/krecipes/krecipes_beta_0_8/
 end match
 
 
+# 0.7 branch 
+#match /branches/beta_0_7_branch/kdeextragear-3/krecipes/ 
+#  repository krecipes
+#  branch 0.7
+#end match
+#
+#match /branches/beta_0_7_branch/
+#  min revision 386536
+#  max revision 386536
+#  action recurse
+#end match
+
+
 # Ignore everything else
 match /
 end match

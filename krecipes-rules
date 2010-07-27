@@ -74,6 +74,12 @@ match /branches/beta_0_7_branch/kdeextragear-3/krecipes/
   branch 0.7
 end match
 
+match /branches/beta_0_7_branch/kdeextragear-3/$
+  min revision 386536
+  max revision 386536
+  action recurse
+end match
+
 match /branches/beta_0_7_branch/$
   min revision 386536
   max revision 386536
@@ -87,9 +93,34 @@ match /branches/beta_0_6_branch/kdeextragear-3/krecipes/
   branch 0.6
 end match
 
+match /branches/beta_0_6_branch/kdeextragear-3/$
+  min revision 349866
+  max revision 349866
+  action recurse
+end match
+
 match /branches/beta_0_6_branch/$
   min revision 349866
   max revision 349866
+  action recurse
+end match
+
+
+# 0.4 branch
+match /branches/alpha_0_4_branch/kdeextragear-3/krecipes/
+  repository krecipes
+  branch 0.4
+end match
+
+match /branches/alpha_0_4_branch/kdeextragear-3/$
+  min revision 267383
+  max revision 267383
+  action recurse
+end match
+
+match /branches/alpha_0_4_branch/$
+  min revision 267383
+  max revision 267383
   action recurse
 end match
 

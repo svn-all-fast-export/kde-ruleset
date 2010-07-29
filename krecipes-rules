@@ -125,6 +125,14 @@ match /branches/alpha_0_4_branch/$
 end match
 
 
+# Tags
+match /tags/krecipes/([^/]+)/
+  repository krecipes
+  branch refs/tags/v\1
+  annotated true
+end match
+
+
 # Ignore everything else
 match /
 end match

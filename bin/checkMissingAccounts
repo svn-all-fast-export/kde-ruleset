@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -z $1 ]; then
+    echo usage: $0 git_repo_directory
+    exit
+fi
+
+OLDPWD=`pwd`
+GITREPO=$1
+
+cd $GITREPO; git log --format='%aN <%aE>' | sort -u | grep "@localhost>$"
+cd $OLDPWD
+

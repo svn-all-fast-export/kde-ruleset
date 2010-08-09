@@ -12,6 +12,15 @@ match /trunk/(extragear/utils|kdeextragear-3)/krecipes/
   branch master
 end match
 
+match /branches/krecipes/work/krecipes-rating-support/
+  repository krecipes
+  branch master
+end match
+
+match /branches/krecipes/work/krecipes-new-layout/
+  repository krecipes
+  branch master
+end match
 
 # 1.1 branch
 match /branches/extragear/kde3/utils/krecipes/

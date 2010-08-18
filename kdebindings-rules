@@ -1,0 +1,142 @@
+#
+# Created by Arno Rehn <arno@arnorehn.de>
+#
+
+create repository KDE/kdebindings
+end repository
+
+match /trunk/kdebindings/
+    repository KDE/kdebindings
+    branch master
+    max revision 409202
+end match
+
+match /trunk/KDE/kdebindings/
+    repository KDE/kdebindings
+    branch master
+    min revision 409209
+end match
+
+#
+# kdejava is kdebindings
+#
+match /trunk/kdejava/
+  prefix kdejava/
+  repository KDE/kdebindings
+  branch master
+  max revision 409202
+end match
+
+#
+# smoke2 work branch
+# this branch was not properly branched off kdebindings. so it
+# won't have a connection to master when viewed in gitk or qgit.
+#
+match /branches/work/kdebindings-smoke2/
+    repository KDE/kdebindings
+    branch smoke2
+    min revision 688684
+    max revision 806920
+end match
+
+#
+# recursion
+#
+match /branches/KDE/([^/]+)/$
+    action recurse
+end match
+
+#
+# branches
+#
+
+# svn
+
+match /branches/KDE/([^/]+)A/kdebindings/
+    repository KDE/kdebindings
+    branch KDE/\1a
+end match
+
+match /branches/KDE/([^/]+)/kdebindings/
+    repository KDE/kdebindings
+    branch KDE/\1
+end match
+
+# cvs
+
+match /branches/KDE_(\d+)_(\d+)_BRANCH/kdebindings/
+  repository KDE/kdebindings
+  branch KDE/\1.\2
+  max revision 409202
+end match
+
+#
+# tags
+#
+
+# cvs time
+
+match /tags/KDE_(\d+)_(\d+)_RELEASE/kdebindings/
+  repository KDE/kdebindings
+  branch KDE/\1.\2.0
+  max revision 409202
+end match
+
+match /tags/KDE_(\d+)_(\d+)_RELEASE/kdebindings/
+  repository KDE/kdebindings
+  branch KDE/\1.\2.0
+  max revision 85028
+  min revision 68154
+end match
+
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/kdebindings/
+  repository KDE/kdebindings
+  branch KDE/\1.\2.\3
+  max revision 409202
+end match
+
+match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/kdebindings/
+  repository KDE/kdebindings
+  branch KDE/\1.\2.\3a
+  min revision 192719
+  max revision 409202
+end match
+
+match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/kdebindings/
+  repository KDE/kdebindings
+  branch KDE/\1.\2.\3-beta\4
+  min revision 376088
+  max revision 409202
+end match
+
+# svn time
+
+match /tags/KDE/([^/]+)A/kdebindings/
+    repository KDE/kdebindings
+    branch refs/tags/v\1a
+end match
+
+match /tags/KDE/([^/]+)/kdebindings/
+    repository KDE/kdebindings
+    branch refs/tags/v\1
+end match
+
+match /tags/KDE/3.5.0-alpha1/kdebindings/
+  repository KDE/kdebindings
+  branch KDE/3.4.90
+  min revision 443441
+  max revision 445561
+end match
+
+match /tags/KDE/3.5.0-beta1/kdebindings/
+  repository KDE/kdebindings
+  branch KDE/3.4.91
+  min revision 459298
+  max revision 460260
+end match
+
+#
+# ignore everything else
+#
+match /
+end match

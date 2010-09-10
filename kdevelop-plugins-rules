@@ -39,6 +39,8 @@ create repository kdevelop-java
 end repository
 create repository kdevelop-python
 end repository
+create repository kdevelop-okteta
+end repository
 
 match /trunk/extragear/sdk/kdevelop-plugins/(php|php-docs|upload)/
   repository kdevelop-\1
@@ -50,12 +52,17 @@ match /trunk/kdereview/kdevelop-(php|php-docs)/
   branch master
 end match
 
+match /trunk/kdereview/okteta-kdevelop4-plugin/
+  repository kdevelop-okteta
+  branch master
+end match
+
 match /trunk/kdereview/controlflowgraph/
   repository kdevelop-controlflowgraph
   branch master
 end match
 
-match /trunk/playground/devtools/kdevelop4-extra-plugins/(php|php-docs|css|executescript|executebrowser|xdebug|crossfire|ruby|git|vcsprojectintegration|controlflowgraph|java|python|sql|xml|phpformatter)/
+match /trunk/playground/devtools/kdevelop4-extra-plugins/(php|php-docs|css|executescript|executebrowser|xdebug|crossfire|ruby|git|vcsprojectintegration|controlflowgraph|java|python|sql|xml|phpformatter|okteta)/
   repository kdevelop-\1
   branch master
 end match

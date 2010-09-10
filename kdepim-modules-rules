@@ -1,9 +1,9 @@
-match /trunk/KDE/${module}/
-    repository KDE/${module}
+match /trunk/KDE/${MODULE}/
+    repository KDE/${MODULE}
     branch master
 end match
-match /trunk/${module}/
-    repository KDE/${module}
+match /trunk/${MODULE}/
+    repository KDE/${MODULE}
     branch master
     max revision 409202
 end match

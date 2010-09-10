@@ -1,0 +1,10 @@
+match /trunk/KDE/${module}/
+    repository KDE/${module}
+    branch master
+end match
+match /trunk/${module}/
+    repository KDE/${module}
+    branch master
+    max revision 409202
+end match
+

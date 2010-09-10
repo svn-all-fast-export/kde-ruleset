@@ -1,184 +1,214 @@
-create repository KDE/kdepim
+declare MODULE=kdepim
+declare REPO=KDE/kdepim
+
+create repository ${REPO}
 end repository
 
 ##############
 # Some stuff we want to ignore
 ##############
-# Empty directories added using "svn mv" from another
-# path -> Error (Git cannot handle dirs only files)
-# Branch will be created when files are added.
-match /
-    max revision 622809
-    min revision 622809
-end match
-# ignore the SVN-adjusting commits
-match /
-    min revision 409202
-    max revision 409209
-end match
-# Translations are in svn so ignore them
-match /.*/[^/]*(i|l)1(0|8)n[^/]*/
+include kdepim-common-ignore-rules
+# -runtime is in a separate repository
+match /trunk/${MODULE}/runtime/
 end match
 
-# -runtime is in a separate repository
-match /trunk/KDE/kdepim/runtime/
-end match
 ##############
 # Main rules
 ##############
-##############
-# Current submodules
-##############
 match /trunk/korganizer/doc/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix doc/korganizer/
     branch master
     max revision 47447
 end match
 match /trunk/korganizer/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix korganizer/
     branch master
     max revision 41240
 end match
 match /trunk/kdeutils/doc/karm/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix doc/karm/
     branch master
     max revision 113098
 end match
 match /trunk/kdereview/blogilo/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix blogilo/
-    branch master
-    max revision 1028587
-    min revision 1027732
+    branch kdereview
 end match
 match /trunk/playground/pim/blogilo/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix blogilo/
-    branch master
-    max revision 1027732
+    branch playground
 end match
 
 match /trunk/kdenetwork/certmanager/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix certmanager/
     branch master
-    max revision 200753
+    max revision 200754
 end match
 
 match /trunk/kdenetwork/kmail/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix kmail/
     branch master
     max revision 200751
 end match
 match /trunk/kdenetwork/doc/kmail/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix doc/kmail/
     branch master
     max revision 204756
 end match
 
 match /trunk/kdenetwork/kmailcvt/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix kmailcvt/
     branch master
     max revision 200752
 end match
 
 match /trunk/kdenetwork/knode/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix knode/
     branch master
     max revision 200752
 end match
 match /trunk/kdenetwork/doc/knode/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix doc/knode/
     branch master
-    max revision 213465
+    max revision 213464
 end match
 match /trunk/kdepim/doc/knode/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix doc/knode/
     branch master
     min revision 213465
 end match
 
 match /trunk/kdeutils/doc/knotes/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix doc/knotes/
     branch master
     max revision 120752
 end match
 match /trunk/kdeutils/knotes/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix knotes/
     branch master
     max revision 120752
 end match
 
 match /trunk/kdeutils/karm/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix karm/
     branch master
     max revision 112128
 end match
 
-match /trunk/KDE/kdepimlibs/kleo(/|$)
-    repository KDE/kdepim
-    prefix kleo/
+match /trunk/${REPO}libs/kleo(/|$)
+    repository ${REPO}
+    prefix libkleo/
     branch master
-    max revision 691083
-    min revision 687073
+    max revision 691085
+    min revision 687486
 end match
 
-match /trunk/KDE/kdepimlibs/kpgp(/|$)
-    repository KDE/kdepim
-    prefix kpgp/
+match /trunk/${REPO}libs/kpgp(/|$)
+    repository ${REPO}
+    prefix libkpgp/
     branch master
     max revision 684901
     min revision 681873
 end match
 
-#####################################
-match /trunk/playground/pim/mailreader/src/
+match /trunk/playground/pim/akonadi/akonadi_next/
+    repository ${REPO}
+    prefix akonadi/akonadi_next/
+    branch playground
 end match
-match /trunk/playground/pim/mailreader/src/lib/
-    repository KDE/kdepim
-    prefix mailreader/src/lib/
-    branch master
-    max revision 994097
+match /trunk/playground/pim/kjotsrewrite/akonadi_next/
+    repository ${REPO}
+    prefix kjots/akonadi_next/
+    branch playground
+end match
+match /trunk/playground/pim/kjotsrewrite/ #(collection|entity|model)
+    repository ${REPO}
+    prefix kjots
+    branch playground
+end match
+match /trunk/playground/pim/mailreader/
+    repository ${REPO}
+    prefix mailreader/
+    branch playground
 end match
 match /trunk/kdebase/kaddressbook/
-    repository KDE/kdepim
+    repository ${REPO}
     prefix kaddressbook/
     branch master
     max revision 163594
 end match
+
+match /branches/work/akregator/onlinesync/ #akregator/
+    repository ${REPO}
+    branch work/akregator/onlinesync
+end match
+
+match /trunk/playground/pim/calendarviews/
+    repository ${REPO}
+    prefix calendarviews/
+    branch playground
+end match
+
+match /trunk/kdereview/kabcclient/
+    repository ${REPO}
+    prefix kabcclient/
+    branch kdereview
+end match
+
+match /trunk/kdereview/doc/blogilo/
+    repository ${REPO}
+    prefix doc/blogilo/
+    branch kdereview
+end match
+match /trunk/playground/pim/doc/blogilo/
+    repository ${REPO}
+    prefix doc/blogilo/
+    branch playground
+end match
+
+match /trunk/KDE/kdeutils/doc/kjots/
+    repository ${REPO}
+    prefix doc/kjots/
+    branch master
+    max revision 808838
+end match
+
+match /trunk/playground/pim/microblog/demoapp/
+    repository ${REPO}
+    prefix akonadi/resources/microblog/demoapp/
+    branch playground
+end match
+
+match /trunk/playground/pim/mailreader/ #src/
+    repository ${REPO}
+    prefix mailreader/
+    branch playground
+end match
+
+match /branches/work/akonadi-ports/kdepimlibs/messagecomposer/
+    repository ${REPO}
+    prefix messagecomposer/
+    branch work/akonadi-ports
+end match
+
+
 ###################################
-match /trunk/KDE/kdepim/
-    repository KDE/kdepim
-    branch master
-    min revision 455551
-end match
-match /trunk/KDE/kdepim/
-    repository KDE/kdepim
-    branch master
-    max revision 438981
-end match
-match /branches/KDE/3.5/kdepim/
-    repository KDE/kdepim
-    branch master
-    max revision 455551
-    min revision 438981
-end match
-match /trunk/kdepim/
-    repository KDE/kdepim
-    branch master
-end match
+include kdepim-modules-rules
 
 ##############
 # Branches...
@@ -187,204 +217,53 @@ match /branches/kdepim/(enterprise|enterprise4)/kde(pimlibs|base|libs)/
 end match
 
 # KOrganizer is kdepim
-match /branches/KDE_(\d+)_(\d+)_BRANCH/korganizer/
+match /branches/(?:__)?KDE_(\d+)_(\d+)_BRANCH/korganizer/
     prefix korganizer/
-    repository KDE/kdepim
+    repository ${REPO}
     branch \1.\2
     max revision 409202
 end match
 
-match /branches/KDE_(\d+)_(\d+)_BRANCH/kdepim/
-    repository KDE/kdepim
-    branch \1.\2
-    max revision 409202
-end match
-match /branches/KDE/(\d+)\.(\d+)/kdepim/
-    repository KDE/kdepim
-    branch \1.\2
-end match
-match /branches/(work)/~([^/]+)/([^/]*kdepim[^/]*)/
-    repository KDE/kdepim
-    branch \1/personal/\2
-end match
-match /branches/(work)/~([^/]+)/([^/]+)/([^/]*kdepim[^/]*)/
-    repository KDE/kdepim
-    branch \1/personal/\2/\3
-end match
-match /branches/kdepim/([^~][^/]+)/kdepim/
-    repository KDE/kdepim
-    branch \1
-end match
-
-match /branches/work/(akonadi-ports)/(kdepim)/
-    repository KDE/\2
-    branch \1
-end match
-match /branches/kdepim/(enterprise|enterprise4)/(kdepim)/
-    repository KDE/\2
-    branch \1
-end match
-match /branches/work/(komo)/(kdepim)/
-    repository KDE/\2
-    branch \1
-end match
 match /branches/work/(kdepim)-(3.5.5\+)/
     repository KDE/\1
     branch \1-\2
 end match
-match /branches/work/(kdab-post-4.0)/(kdepim)/
-    repository KDE/\2
-    branch \1
-end match
+
 match /branches/work/(akregator)/(onlinesync)/
-    repository KDE/kdepim
+    repository ${REPO}
     branch \1/\2
 end match
+
 match /branches/(work)/(soc-gtd)/
-    repository KDE/kdepim
+    repository ${REPO}
     branch \1/\2
 end match
-match /branches/(work)/(soc-pim)/kdepim/
-    repository KDE/kdepim
-    branch \1/\2
-end match
+
+include kdepim-branches-rules
 ##############
 # Tags
 ##############
-# Ignore the first tagging try...
-match /tags/KDE/4.4.1/(kdepim)/
-    max revision 1096480
-end match
-match /tags/KDE/3.5.5/(kdepim)/
-    max revision 591451
-end match
-match /tags/KDE/3.5.2/(kdepim)/
-    max revision 519806
-end match
-match /tags/KDE/3.4.3/(kdepim)/
-    max revision 467549
-end match
 # Should be regenerated from cvs directly into git
-match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/korganizer/
+match /tags/(?:__)?KDE_(\d+)_(\d+)_(\d+)_RELEASE/korganizer/
     prefix korganizer/
-    repository KDE/kdepim
+    repository ${REPO}
     branch refs/tags/v\1.\2.\3
     max revision 409202
     annotated true
 end match
-match /tags/KDE_(\d+)_(\d+)_RELEASE/korganizer/
+match /tags/(?:__)?KDE_(\d+)_(\d+)_RELEASE/korganizer/
     prefix korganizer/
-    repository KDE/kdepim
+    repository ${REPO}
     branch refs/tags/v\1.\2.0
     max revision 16583
     annotated true
 end match
-match /tags/KDE_(\d+)_(\d+)_(\d+[a-zA-Z]?)_RELEASE/(kdepim)/
-    repository KDE/\4
-    branch refs/tags/v\1.\2.\3
-    annotated true
-    max revision 409202
-end match
-match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdepim)/
-    repository KDE/\5
-    branch refs/tags/v\1.\2.\3-beta\4
-    annotated true
-    min revision 376088
-    max revision 409202
-end match
-match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdepim)/
-    repository KDE/kdepim
-    branch refs/tags/v\1.\2.0
-    annotated true
-    max revision 409202
-end match
-match /tags/KDE/3.5.0-alpha1/(kdepim)/
-    repository KDE/\1
-    branch refs/tags/v3.4.90
-    annotated true
-    min revision 443441
-    max revision 445561
-end match
-match /tags/KDE/3.5.0-beta1/(kdepim)/
-    repository KDE/\1
-    branch refs/tags/v3.4.91
-    annotated true
-    min revision 459298
-    max revision 460260
-end match
-match /tags/KDE/(\d+)\.(\d+)/(kdepim)/
-    repository KDE/\3
-    branch refs/tags/v\1.\2.0
-    annotated true
-end match
-match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepim)/
-    repository KDE/\4
-    branch refs/tags/v\1.\2.\3
-    annotated true
-end match
-match /tags/kdepim/enterprise(\d+).(\d+).(\d+).(\d+)/(kdepim)/
-    repository KDE/\5
-    branch refs/tags/enterprise\1.\2.\3.\4
-    annotated true
-end match
+
+include kdepim-tags-rules
 ##############
 # Recurse
 ##############
-match /trunk/$
-    action recurse
-end match
-
-match /trunk/KDE/$
-    action recurse
-end match
-
-match /trunk/KDE/[^/]+/$
-    action recurse
-end match
-
-match /branches/KDE/[^/]+/$
-    action recurse
-end match
-
-match /branches/KDE_[^/]+/$
-    action recurse
-end match
-
-match /tags/KDE_[^/]+/$
-    action recurse
-end match
-match /tags/KDE/[^/]/$
-    action recurse
-end match
-
-match /branches/(work)/~([^/]+)/([^/]*kdepim[^/]*)/$
-    action recurse
-end match
-match /branches/(.+)/[^/]*kdepim[^/]*/$
-    action recurse
-end match
-match /branches/work/(akonadi-ports)/(kdepim)/$
-    action recurse
-end match
-match /branches/kdepim/(enterprise|enterprise4)/(kdepim)/$
-    action recurse
-end match
-match /branches/work/(komo)/(kdepim)/$
-    action recurse
-end match
-match /branches/work/(kdepim)-(3.5.5\+)/$
-    action recurse
-end match
-match /branches/work/(kdab-post-4.0)/(kdepim)/$
-    action recurse
-end match
-match /branches/work/(akregator)/(onlinesync)/$
-    action recurse
-end match
-match /branches/(work)/(soc-gtd)/$
-    action recurse
-end match
-
+include kdepim-recurse-rules
 ##############
 # Ignore everything else
 ##############

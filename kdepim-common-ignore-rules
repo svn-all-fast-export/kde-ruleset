@@ -1,0 +1,22 @@
+# Empty directories added using "svn mv" from another
+# path -> Error (Git cannot handle dirs only files)
+# Branch will be created when files are added.
+match /
+    max revision 622809
+    min revision 622809
+end match
+# ignore the SVN-adjusting commits (cvs <= r409201, svn >= 409202)
+# r409202 -> r409210
+# r409203 - /trunk/modules -> /trunk/KDE/modules
+match /
+    min revision 409203
+    max revision 409203
+end match
+# r409205 - branch renaming
+match /
+    min revision 409205
+    max revision 409205
+end match
+# Translations are in svn so ignore them
+match /.*/[^/]*(i|l)1(0|8)n[^/]*/
+end match

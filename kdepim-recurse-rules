@@ -1,0 +1,85 @@
+match /trunk/$
+    action recurse
+end match
+
+match /trunk/KDE/$
+    action recurse
+end match
+
+match /trunk/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/KDE/[^/]+/$
+    action recurse
+end match
+
+match /branches/(?:__)?KDE_[^/]+/$
+    action recurse
+end match
+
+match /branches/(?:__)?KDE_[^/]+/[^/]+/$
+    action recurse
+end match
+
+match /tags/(?:__)?KDE_[^/]+/$
+    action recurse
+end match
+
+match /tags/(?:__)?KDE_[^/]+/[^/]+/$
+    action recurse
+end match
+
+match /tags/KDE/[^/]/$
+    action recurse
+end match
+
+match /tags/KDE/[^/]/[^/]+/$
+    action recurse
+end match
+
+match /branches/(work)/~([^/]+)/([^/]*kdepim[^/]*)/$
+    action recurse
+end match
+
+match /branches/(.+)/[^/]*kdepim[^/]*/$
+    action recurse
+end match
+
+match /branches/kdepim/(.+)/[^/]*kdepim[^/]*/$
+    action recurse
+end match
+
+match /branches/work/(akonadi-ports)/(kdepim|kdepimlibs)/$
+    action recurse
+end match
+
+match /branches/kdepim/(enterprise|enterprise4)/(kdepim|kdepimlibs)/$
+    action recurse
+end match
+
+match /branches/work/(komo)/(kdepim|kdepimlibs)/$
+    action recurse
+end match
+
+match /branches/work/(kdepim)-(3.5.5\+)/$
+    action recurse
+end match
+
+match /branches/work/(kdab-post-4.0)/(kdepim|kdepimlibs)/$
+    action recurse
+end match
+
+match /branches/work/(akregator)/(onlinesync)/$
+    action recurse
+end match
+
+match /branches/(work)/(soc-gtd)/$
+    action recurse
+end match
+
+#################################3
+# cvs2svn mess (all revisions < 409202)
+match /branches/(osnabrueck_branch|proko2)/$
+    action recurse
+end match

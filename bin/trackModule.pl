@@ -1,11 +1,14 @@
-#!/bin/env perl
+#!/usr/bin/env perl
 #
 
 use strict;
 use warnings;
 use Switch;
 
+$| = 1;
+
 my @commands = ();
+my $firstrev = 9999999;
 
 sub listSubDirs($$$)
 {
@@ -15,17 +18,18 @@ sub listSubDirs($$$)
     push( @commands, $cmd );
 
     my @dirs;
-    open( CMD, "$cmd |" ) || die "listSubDirs: Failed to run \"$cmd\": $!\n";
+    open( my $CMD, "$cmd |" ) || die "listSubDirs: Failed to run \"$cmd\": $!\n";
 
     print( "listSubDirs: Getting subdirs of '$repository/$path\@$revision'\n" );
-    while( <CMD> ) {
+    while( <$CMD> ) {
         chomp;
         if( /(\S+)\/$/ ) {
             print( "listSubDirs:\tFound subdir: '$_'\n" );
             push( @dirs, "$path/$1" );
+            push( @dirs, listSubDirs($repository, $revision, "$path/$1") );
         }
     }
-    close( CMD );
+    close( $CMD );
     print(" done\n");
     return @dirs;
 }
@@ -41,7 +45,7 @@ sub getCopyFrom($$$)
     my @log = ();
 
     open( CMD, "$cmd |" ) || die "getCopyFrom: Failed to run \"$cmd\": $!\n";
-    #print( "getCopyFrom: Getting origin of '$repository $path @ $revision'\n");
+    print( "\ngetCopyFrom: Getting origin of '$repository $path @ $revision'...");
     while( <CMD> ) {
         chomp;
         if( /^r(\d+) \| / ) {
@@ -50,6 +54,8 @@ sub getCopyFrom($$$)
         push( @log, $_ );
     }
 
+	print( " log - done" );
+
     my $cvs2svnUsed = 0;
     my $cvs2svnCandidate = 0;
     my $currentRev = 0;
@@ -57,6 +63,9 @@ sub getCopyFrom($$$)
     foreach( @log ) {
         if( /^r(\d+) \| / ) {
             $currentRev = $1;
+            if($currentRev < $firstrev) {
+                $firstrev = $currentRev;
+            }
         }
         if( /\s+(?:A|R) (\/\S+) \(from (\/\S+):(\d+)\)/ ) {
             my $origPath = $2;
@@ -76,14 +85,14 @@ sub getCopyFrom($$$)
 
             # case 1: the dir is moved/replaced
             if( $newPath =~ /$path$/ ) {
-                print( "getCopyFrom:\t\@r$currentRev: Found '$newPath' from '$origPath' at rev $fromRev\n" );
+                print( "\ngetCopyFrom:\t\@r$currentRev: Found '$newPath' from '$origPath' at rev $fromRev\n" );
                 $fromPath = $origPath;
                 last;
             }
 
             # case 2: A parent is moved/replaced
             if( $shortPath eq $newPath ) {
-                print( "getCopyFrom:\t\@r$currentRev: Found parent move '$shortPath' from '$origPath' at rev $fromRev\n" );
+                print( "\ngetCopyFrom:\t\@r$currentRev: Found parent move '$shortPath' from '$origPath' at rev $fromRev\n" );
                 $fromPath = "$origPath/$subdir";
                 last;
             }
@@ -129,7 +138,7 @@ sub getCopyFrom($$$)
                     return @returnValue;
                 }
 
-                print( "getCopyFrom:\t\@r$currentRev: Found cv2svn move '$path' from '$origPath' at rev $fromRev\n" );
+                print( "\ngetCopyFrom:\t\@r$currentRev: Found cvs2svn move '$path' from '$origPath' at rev $fromRev\n" );
                 $fromPath = $origPath;
                 $fromRevision = $fromRev;
                 last;
@@ -164,9 +173,9 @@ sub getCopyFromRecursive($$$$)
             #print( "getCopyFromRecursive: $path @ $revision\n" );
         }
     } while( $revision > 0 );
-
-    print("===================================\n");
-    print(" Directory rules (skeleton)...\n\n");
+    open(FILE, ">>$module-rules-auto");
+    print(FILE "#===================================\n");
+    print(FILE "# Directory rules (skeleton)...\n\n");
     my $minRevision = 0;
     for my $historyPart ( reverse( @history ) ) {
         #print( "\t[ @$historyPart ]\n");
@@ -177,13 +186,15 @@ sub getCopyFromRecursive($$$$)
     for my $historyPart (@history) {
         #print( "\t[ @$historyPart ]\n");
 
-        print( "match @$historyPart[0]/\n");
-        print( "    repository KDE/$module\n");
-        print( "    branch master\n");
-        print( "    max revision @$historyPart[1]\n") if( @$historyPart[1] ne "HEAD" );
-        print( "    min revision @$historyPart[2]\n" ) if( @$historyPart[2] != 0 );
-        print( "end match\n");
+        print(FILE  "match @$historyPart[0]/\n");
+        print(FILE  "    repository KDE/$module\n");
+        print(FILE  "	prefix \n" ) if();
+        print(FILE  "    branch master\n");
+        print(FILE  "    max revision @$historyPart[1]\n") if( @$historyPart[1] ne "HEAD" );
+        print(FILE  "    min revision @$historyPart[2]\n" ) if( @$historyPart[2] != 0 );
+        print(FILE  "end match\n");
     }
+    close(FILE);
 }
 
 my $repository;
@@ -236,8 +247,12 @@ foreach( @dirs )
 }
 
 if( $showcommands ) {
-    print( "Used commands...\n" );
+    open(FILE, ">>$module-rules-auto");
+    print(FILE "Used commands...\n" );
     foreach( @commands ) {
-        print( "$_\n" );
+        print(FILE "$_\n" );
     }
+    close(FILE);
 }
+
+print( "First revision used: $firstrev" );

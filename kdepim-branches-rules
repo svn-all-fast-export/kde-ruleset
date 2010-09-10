@@ -1,0 +1,47 @@
+match /branches/(?:__)?KDE_(\d+)_(\d+)_BRANCH/${MODULE}/
+    repository ${REPO}
+    branch \1.\2
+    max revision 409201
+end match
+match /branches/KDE/(\d+)\.(\d+)/${MODULE}/
+    repository ${REPO}
+    branch \1.\2
+end match
+match /branches/(work)/~([^/]+)/([^/]*${MODULE}[^/]*)/
+    repository ${REPO}
+    branch \1/personal/\2
+end match
+match /branches/(work)/~([^/]+)/([^/]+)/([^/]*${MODULE}[^/]*)/
+    repository ${REPO}
+    branch \1/personal/\2/\3
+end match
+match /branches/kdepim/([^~][^/]+)/${MODULE}/
+    repository ${REPO}
+    branch \1
+end match
+
+match /branches/work/(akonadi-ports)/(${MODULE})/
+    repository ${REPO}
+    branch work/\1
+end match
+match /branches/kdepim/(enterprise|enterprise4)/(${MODULE})/
+    repository ${REPO}
+    branch \1
+end match
+match /branches/work/(komo)/(${MODULE})/
+    repository ${REPO}
+    branch \1
+end match
+match /branches/work/(kdab-post-4.0)/(${MODULE})/
+    repository ${REPO}
+    branch \1
+end match
+match /branches/(work)/(soc-pim)/${MODULE}/
+    repository ${REPO}
+    branch \1/\2
+end match
+match /branches/([^/]+)/(${MODULE})/
+    repository ${REPO}
+    branch \1
+end match
+

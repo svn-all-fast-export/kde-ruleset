@@ -749,9 +749,6 @@ end repository
 create repository extragear/uiextractor
 end repository
 
-create repository extragear/marble
-end repository
-
 create repository extragear/kblog
 end repository
 
@@ -1990,18 +1987,28 @@ match /(branches|tags)/KDE/([^/]+)/kdeplasmoids/
 end match
 
 # kdeedu
-match /trunk/kdeedu/([^/]+)/
-  repository KDE/kdeedu/\1
+match /trunk/(kdeedu)/([^/]+)/
+  repository KDE/(\1)/\2
   branch master
   max revision 409202
 end match
 
-match /branches/KDE_(\d+)_(\d+)_BRANCH/kdeedu/([^/]+)/
-  repository KDE/kdeedu/\3
+match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeedu)/([^/]+)/
+  repository KDE/\3/\4
   branch KDE/\1.\2
   max revision 409202
 end match
 
+match /trunk/playground/[^/]+/(marble)/
+  repository KDE/kdeedu/\1
+  branch master
+  min revision 409209
+end match
+
+match /trunk/kdereview/(marble)/
+  repository KDE/kdeedu/\1
+  branch master
+end match
 
 #
 # Main KDE modules

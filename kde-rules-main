@@ -285,9 +285,6 @@ end repository
 create repository extragear/datakiosk
 end repository
 
-create repository extragear/ksimon
-end repository
-
 create repository extragear/kast
 end repository
 
@@ -457,9 +454,6 @@ create repository extragear/kopete_skype
 end repository
 
 create repository extragear/klabelbrowser
-end repository
-
-create repository extragear/blinken
 end repository
 
 create repository extragear/eclipse
@@ -2005,9 +1999,20 @@ match /trunk/playground/[^/]+/(marble)/
   min revision 409209
 end match
 
-match /trunk/kdereview/(marble)/
+match /trunk/kdereview/(marble|blinken)/
   repository KDE/kdeedu/\1
   branch master
+end match
+
+match /trunk/kdereview/ksimon/
+  repository KDE/kdeedu/blinken
+  branch master
+end match
+
+match /trunk/(playground/edu|kdeplayground-edu)/ksimon/
+  repository KDE/kdeedu/blinken
+  branch master
+  min revision 409209
 end match
 
 #

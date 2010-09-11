@@ -1999,7 +1999,7 @@ match /trunk/playground/[^/]+/(marble)/
   min revision 409209
 end match
 
-match /trunk/kdereview/(marble|blinken)/
+match /trunk/kdereview/(marble|blinken|cantor)/
   repository KDE/kdeedu/\1
   branch master
 end match
@@ -2014,6 +2014,18 @@ match /trunk/(playground/edu|kdeplayground-edu)/ksimon/
   branch master
   min revision 409209
 end match
+
+match /trunk/kdereview/mathematik/
+  repository KDE/kdeedu/cantor
+  branch master
+end match
+
+match /trunk/playground/edu/mathematik/
+  repository KDE/kdeedu/cantor
+  branch master
+  min revision 409209
+end match
+
 
 #
 # Main KDE modules

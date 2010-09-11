@@ -869,9 +869,6 @@ end repository
 create repository extragear/dragonplayer
 end repository
 
-create repository extragear/kalgebra
-end repository
-
 create repository kdesupport/decibel
 end repository
 
@@ -1993,13 +1990,13 @@ match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeedu)/([^/]+)/
   max revision 409202
 end match
 
-match /trunk/playground/[^/]+/(marble)/
+match /trunk/playground/[^/]+/(marble|kalgebra)/
   repository KDE/kdeedu/\1
   branch master
   min revision 409209
 end match
 
-match /trunk/kdereview/(marble|blinken|cantor)/
+match /trunk/kdereview/(marble|blinken|cantor|kalgebra)/
   repository KDE/kdeedu/\1
   branch master
 end match

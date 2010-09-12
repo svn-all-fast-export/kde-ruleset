@@ -1,0 +1,24 @@
+#
+# Created by Frederik Schwarzer <schwarzerf@gmail.com>
+#
+
+# Kannasaver was imported to the KDE SVN with r1036191
+# so svn2git can be run with --resume-from option
+
+# Kannasaver was never branched or tagged, so this is
+# straight-forward.
+
+# Create the kannasaver repository
+create repository kannasaver
+end repository
+
+# Kannasaver from playground
+match /trunk/playground/artwork/kannasaver/
+  repository kannasaver
+  branch master
+end match
+
+# Ignore the rest
+match /
+end match
+

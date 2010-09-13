@@ -827,9 +827,6 @@ end repository
 create repository extragear/plastik-focus
 end repository
 
-create repository extragear/step
-end repository
-
 create repository extragear/kttt
 end repository
 
@@ -1991,13 +1988,13 @@ match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeedu)/([^/]+)/
   max revision 409202
 end match
 
-match /trunk/playground/[^/]+/(marble|kalgebra|kanagram|kgeography)/
+match /trunk/playground/[^/]+/(marble|kalgebra|kanagram|kgeography|step)/
   repository KDE/kdeedu/\1
   branch master
   min revision 409209
 end match
 
-match /trunk/kdereview/(marble|blinken|cantor|kalgebra|kanagram|kgeography|rocs)/
+match /trunk/kdereview/(marble|blinken|cantor|kalgebra|kanagram|kgeography|rocs|step)/
   repository KDE/kdeedu/\1
   branch master
 end match

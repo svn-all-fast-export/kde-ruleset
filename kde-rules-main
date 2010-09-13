@@ -100,7 +100,7 @@ end repository
 create repository KDE/kdeedu/step
 end repository
 
-create repository KDE/kdeedu/cmake
+create repository KDE/kdeedu/kdeeducmake
 end repository
 
 create repository KDE/kdeedu/kdeedudata
@@ -1971,6 +1971,11 @@ end match
 # kdeedu
 match /trunk/KDE/kdeedu/data/
   repository KDE/kdeedu/kdeedudata
+  branch master
+end match
+
+match /trunk/KDE/kdeedu/cmake/
+  repository KDE/kdeedu/kdeeducmake
   branch master
 end match
 

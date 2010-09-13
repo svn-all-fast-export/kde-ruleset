@@ -405,9 +405,6 @@ end repository
 create repository extragear/chinchilla
 end repository
 
-create repository extragear/kanagram
-end repository
-
 create repository extragear/hiq
 end repository
 
@@ -1997,13 +1994,13 @@ match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeedu)/([^/]+)/
   max revision 409202
 end match
 
-match /trunk/playground/[^/]+/(marble|kalgebra)/
+match /trunk/playground/[^/]+/(marble|kalgebra|kanagram)/
   repository KDE/kdeedu/\1
   branch master
   min revision 409209
 end match
 
-match /trunk/kdereview/(marble|blinken|cantor|kalgebra)/
+match /trunk/kdereview/(marble|blinken|cantor|kalgebra|kanagram)/
   repository KDE/kdeedu/\1
   branch master
 end match

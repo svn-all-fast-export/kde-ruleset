@@ -2334,11 +2334,11 @@ match /tags/KOOKA_(\d+)_(\d+)/
 end match
 
 # Kig 0.1
-match /tags/KIG_0_1/kdeedu
+match /tags/KIG_0_1/kdeedu/kig/
   min revision 175053
   max revision 175053
-  repository KDE/kdeedu
-  branch kig/0.1.0
+  repository KDE/kdeedu/kig
+  branch 0.1.0
 end match
 
 # KPovModeler 1.1

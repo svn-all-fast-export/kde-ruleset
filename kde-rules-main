@@ -1997,8 +1997,13 @@ match /trunk/playground/[^/]+/(marble|kalgebra|kanagram|kgeography)/
   min revision 409209
 end match
 
-match /trunk/kdereview/(marble|blinken|cantor|kalgebra|kanagram|kgeography)/
+match /trunk/kdereview/(marble|blinken|cantor|kalgebra|kanagram|kgeography|rocs)/
   repository KDE/kdeedu/\1
+  branch master
+end match
+
+match /trunk/playground/edu/Rocs/
+  repository KDE/kdeedu/rocs
   branch master
 end match
 

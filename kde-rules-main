@@ -2280,11 +2280,11 @@ match /tags/KMAG_0_8_0_RELEASE/kdeaccessibility/
 end match
 
 # Kiten 0.5.0
-match /tags/KITEN_0_5_RELEASE/kdeedu/
+match /tags/KITEN_0_5_RELEASE/kdeedu/kiten/
   min revision 121771
   max revision 121771
-  repository KDE/kdeedu
-  branch kiten/0.5.0
+  repository KDE/kdeedu/kiten
+  branch 0.5.0
 end match
 
 # KView 3

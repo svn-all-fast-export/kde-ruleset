@@ -103,7 +103,7 @@ end repository
 create repository KDE/kdeedu/cmake
 end repository
 
-create repository KDE/kdeedu/data
+create repository KDE/kdeedu/kdeedudata
 end repository
 
 create repository KDE/kdeedu/libkdeedu
@@ -1969,6 +1969,10 @@ match /(branches|tags)/KDE/([^/]+)/kdeplasmoids/
 end match
 
 # kdeedu
+match /trunk/KDE/kdeedu/data/
+  repository KDE/kdeedu/kdeedudata
+  branch master
+end match
 
 match /trunk/KDE/(kdeedu)/([^/]+)/
   repository KDE/\1/\2

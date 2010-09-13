@@ -324,9 +324,6 @@ end repository
 create repository extragear/kdissert
 end repository
 
-create repository extragear/kgeography
-end repository
-
 create repository extragear/kio_sql
 end repository
 
@@ -1994,13 +1991,13 @@ match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeedu)/([^/]+)/
   max revision 409202
 end match
 
-match /trunk/playground/[^/]+/(marble|kalgebra|kanagram)/
+match /trunk/playground/[^/]+/(marble|kalgebra|kanagram|kgeography)/
   repository KDE/kdeedu/\1
   branch master
   min revision 409209
 end match
 
-match /trunk/kdereview/(marble|blinken|cantor|kalgebra|kanagram)/
+match /trunk/kdereview/(marble|blinken|cantor|kalgebra|kanagram|kgeography)/
   repository KDE/kdeedu/\1
   branch master
 end match
@@ -2027,6 +2024,10 @@ match /trunk/playground/edu/mathematik/
   min revision 409209
 end match
 
+match /trunk/kdenonbeta/kgeography/
+  repository KDE/kdeedu/kgeography
+  branch master
+end match
 
 #
 # Main KDE modules

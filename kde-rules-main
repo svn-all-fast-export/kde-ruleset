@@ -2003,6 +2003,12 @@ match /(branches|tags)/KDE/([^/]+)/(kdeedu)/kvoctrain/
   branch KDE/\2
   min revision 409209
 end match
+match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeedu)/kvoctrain/
+  repository KDE/kdeedu/parley
+  branch KDE/\1.\2
+  max revision 409202
+end match
+
 
 #skip older tags, more rules would be needed for them
 match /tags/([^/]+)/(kdeedu)/(kvoctrain)/

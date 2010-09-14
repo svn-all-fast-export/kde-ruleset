@@ -2468,7 +2468,7 @@ end match
 
 # Juk 1.0
 match /branches/JUK_1_BRANCH/kdemultimedia/
-  min revision 207649
+  min revision 207648
   max revision 250000
   repository KDE/kdemultimedia
   branch juk/1.0

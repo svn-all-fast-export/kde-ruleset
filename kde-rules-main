@@ -2013,6 +2013,16 @@ match /trunk/(KDE/)?kdeedu/kvoctrain/
   branch master
 end match
 
+match /(branches|tags)/KDE/([^/]+)/(kdeedu)/kvoctrain/
+  repository KDE/kdeedu/parley
+  branch KDE/\2
+  min revision 409209
+end match
+
+#skip older tags, more rules would be needed for them
+match /tags/([^/]+)/(kdeedu)/(kvoctrain)/
+end match
+
 match /trunk/kdeedu/[^/]+$
 end match
 
@@ -2075,6 +2085,60 @@ end match
 match /trunk/kdenonbeta/kgeography/
   repository KDE/kdeedu/kgeography
   branch master
+end match
+
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeedu)/([^/]+)/
+  repository KDE/\3/\4
+  branch KDE/\1.\2.0
+  max revision 409202
+end match
+
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeedu)/([^/]+)/
+  repository KDE/\3/\4
+  branch KDE/\1.\2.0
+  max revision 85028
+  min revision 68154
+end match
+
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/(kdeedu)/([^/]+)/
+  repository KDE/\4/\5
+  branch KDE/\1.\2.\3
+  max revision 409202
+end match
+match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/(kdeedu)/([^/]+)/
+  repository KDE/\4/\5
+  branch KDE/\1.\2.\3a
+  min revision 192719
+  max revision 409202
+end match
+match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdeedu)/([^/]+)/
+  repository KDE/\5/\6
+  branch KDE/\1.\2.\3-beta\4
+  min revision 376088
+  max revision 409202
+end match
+
+match /tags/KDE/3.5.0-alpha1/(kdeedu)/([^/]+)/
+  repository KDE/\1/\2
+  branch KDE/3.4.90
+  min revision 443441
+  max revision 445561
+end match
+match /tags/KDE/3.5.0-beta1/(kdeedu)/([^/]+)/
+  repository KDE/\1/\2
+  branch KDE/3.4.91
+  min revision 459298
+  max revision 460260
+end match
+match /(branches|tags)/KDE/([^/]+)A/(kdeedu)/([^/]+)/
+  repository KDE/\3/\4
+  branch KDE/\2a
+  min revision 409209
+end match
+match /(branches|tags)/KDE/([^/]+)/(kdeedu)/([^/]+)/
+  repository KDE/\3/\4
+  branch KDE/\2
+  min revision 409209
 end match
 
 

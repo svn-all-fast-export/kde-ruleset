@@ -119,6 +119,8 @@ end repository
 #abandoned for KDE 4.0 due to lack of maintainer
 create repository KDE/kdeedu/keduca
 end repository
+create repository KDE/kdeedu/klatin
+end repository
 
 create repository KDE/kdegames
 end repository

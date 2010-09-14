@@ -125,6 +125,8 @@ create repository KDE/kdeedu/kgeo
 end repository
 create repository KDE/kdeedu/kpercentage
 end repository
+create repository KDE/kdeedu/kverbos
+end repository
 
 create repository KDE/kdegames
 end repository
@@ -378,9 +380,6 @@ create repository extragear/kard
 end repository
 
 create repository extragear/kfeedbackwizard
-end repository
-
-create repository extragear/kverbos
 end repository
 
 create repository extragear/ksniffer
@@ -2035,7 +2034,7 @@ match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeedu)/([^/]+)/
   max revision 409202
 end match
 
-match /trunk/playground/[^/]+/(marble|kalgebra|kanagram|kgeography|step|keduca)/
+match /trunk/playground/[^/]+/(marble|kalgebra|kanagram|kgeography|step|keduca|kverbos)/
   repository KDE/kdeedu/\1
   branch master
   min revision 409209

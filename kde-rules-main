@@ -127,6 +127,12 @@ create repository KDE/kdeedu/kpercentage
 end repository
 create repository KDE/kdeedu/kverbos
 end repository
+create repository KDE/kdeedu/flashkard
+end repository
+create repository KDE/kdeedu/knorskverbs
+end repository
+create repository KDE/kdeedu/kmathtool
+end repository
 
 create repository KDE/kdegames
 end repository

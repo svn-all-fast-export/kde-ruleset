@@ -109,6 +109,9 @@ end repository
 create repository KDE/kdeedu/libkdeedu
 end repository
 
+create repository KDE/kdeedu/kdeedudoc
+end repository
+
 #got replaced by kanagram
 create repository KDE/kdeedu/kmessedwords
 end repository
@@ -1983,6 +1986,11 @@ end match
 
 match /trunk/KDE/kdeedu/data/
   repository KDE/kdeedu/kdeedudata
+  branch master
+end match
+
+match /trunk/(KDE/)?kdeedu/doc/
+  repository KDE/kdeedu/kdeedudoc
   branch master
 end match
 

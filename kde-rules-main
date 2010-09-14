@@ -109,6 +109,10 @@ end repository
 create repository KDE/kdeedu/libkdeedu
 end repository
 
+#got replaced by kanagram
+create repository KDE/kdeedu/kmessedwords
+end repository
+
 create repository KDE/kdegames
 end repository
 

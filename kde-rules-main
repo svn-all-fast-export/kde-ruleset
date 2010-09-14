@@ -1990,7 +1990,7 @@ match /trunk/KDE/(kdeedu)/([^/]+)/
 end match
 
 match /trunk/(kdeedu)/([^/]+)/
-  repository KDE/(\1)/\2
+  repository KDE/\1/\2
   branch master
   max revision 409202
 end match

@@ -2021,11 +2021,11 @@ match /tags/([^/]+)/(kdeedu)/(kvoctrain)/
 end match
 
 #skip files direclty in kdeedu
-match /trunk/kdeedu/[^/]+$
+match /(trunk|(branches|tags)/[^/]+)/kdeedu/[^/]+$
 end match
 
-#skip this one, not sure if it will be needed (matches in all trunk, tags and branches)
-match /kdeedu/debian/
+#skip this one, not sure if it will be needed
+match /(trunk|(branches|tags)/[^/]+)/kdeedu/debian/
 end match
 
 match /trunk/KDE/(kdeedu)/([^/]+)/

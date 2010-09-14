@@ -1955,7 +1955,7 @@ match /tags/QUANTA_(\d+)_(\d+)(_RELEASE)?/quanta/
   max revision 409202
   branch quanta/\1.\2.0
 end match
-match /tags/QUANTA_(\d+)_(\d+)_(\d+)(_RELEASE)?/quanta/
+match /tags/QUANTA_(\d+)_(\d+)_(\d+)(_RELEASE)?/(quanta|kdewebdev)/
   repository KDE/kdewebdev
   min revision 158633
   max revision 409202

@@ -1986,6 +1986,10 @@ match /trunk/(KDE/)?kdeedu/$
   action recurse
 end match
 
+match /(branches|tags)/(KDE/)?[^/]+/kdeedu/$
+  action recurse
+end match
+
 match /trunk/KDE/kdeedu/data/
   repository KDE/kdeedu/kdeedudata
   branch master

@@ -121,6 +121,10 @@ create repository KDE/kdeedu/keduca
 end repository
 create repository KDE/kdeedu/klatin
 end repository
+create repository KDE/kdeedu/kgeo
+end repository
+create repository KDE/kdeedu/kpercentage
+end repository
 
 create repository KDE/kdegames
 end repository

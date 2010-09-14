@@ -1969,7 +1969,7 @@ match /(branches|tags)/KDE/([^/]+)/kdeplasmoids/
 end match
 
 # kdeedu
-match /trunk/KDE/kdeedu/$
+match /trunk/(KDE/)?kdeedu/$
   action recurse
 end match
 

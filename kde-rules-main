@@ -113,6 +113,10 @@ end repository
 create repository KDE/kdeedu/kmessedwords
 end repository
 
+#abandoned for KDE 4.0 due to lack of maintainer
+create repository KDE/kdeedu/keduca
+end repository
+
 create repository KDE/kdegames
 end repository
 
@@ -2008,7 +2012,7 @@ match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeedu)/([^/]+)/
   max revision 409202
 end match
 
-match /trunk/playground/[^/]+/(marble|kalgebra|kanagram|kgeography|step)/
+match /trunk/playground/[^/]+/(marble|kalgebra|kanagram|kgeography|step|keduca)/
   repository KDE/kdeedu/\1
   branch master
   min revision 409209

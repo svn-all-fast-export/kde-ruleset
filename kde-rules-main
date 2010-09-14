@@ -2053,43 +2053,43 @@ end match
 #
 # Main KDE modules
 #
-match /trunk/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /trunk/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\1
   branch master
   max revision 409202
 end match
 
-match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\3
   branch KDE/\1.\2
   max revision 409202
 end match
 
-match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\3
   branch KDE/\1.\2.0
   max revision 409202
 end match
 
-match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\3
   branch KDE/\1.\2.0
   max revision 85028
   min revision 68154
 end match
 
-match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\4
   branch KDE/\1.\2.\3
   max revision 409202
 end match
-match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\4
   branch KDE/\1.\2.\3a
   min revision 192719
   max revision 409202
 end match
-match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\5
   branch KDE/\1.\2.\3-beta\4
   min revision 376088

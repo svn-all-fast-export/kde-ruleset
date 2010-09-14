@@ -2072,7 +2072,6 @@ end match
 match /trunk/(playground/edu|kdeplayground-edu)/ksimon/
   repository KDE/kdeedu/blinken
   branch master
-  min revision 409209
 end match
 
 match /trunk/kdereview/mathematik/

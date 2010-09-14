@@ -1987,6 +1987,9 @@ match /trunk/KDE/kdeedu/cmake/
   branch master
 end match
 
+match /trunk/kdeedu/[^/]+$
+end match
+
 match /trunk/KDE/(kdeedu)/([^/]+)/
   repository KDE/\1/\2
   branch master

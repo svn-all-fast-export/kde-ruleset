@@ -1991,6 +1991,11 @@ match /trunk/KDE/kdeedu/cmake/
   branch master
 end match
 
+match /trunk/(KDE/)?kdeedu/kvoctrain/
+  repository KDE/kdeedu/parley
+  branch master
+end match
+
 match /trunk/kdeedu/[^/]+$
 end match
 
@@ -2055,11 +2060,6 @@ match /trunk/kdenonbeta/kgeography/
   branch master
 end match
 
-match /trunk/(KDE/)?kdeedu/kvoctrain/
-  repository KDE/kdeedu/parley
-  branch master
-  min revision 409209
-end match
 
 #
 # Main KDE modules

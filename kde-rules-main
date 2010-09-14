@@ -2603,6 +2603,10 @@ match /tags/KNETWORKCONF_0_6/kdereview/          # knetworkconf/
   min revision 336544
   max revision 336544
 end match
+match /tags/KNETWORKCONF_0_6_1/kdereview/          # knetworkconf/
+  min revision 391899
+  max revision 391899
+end match
 
 match /trunk/kdereview/phonon/
   min revision 753484

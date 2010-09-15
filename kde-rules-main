@@ -2027,7 +2027,7 @@ match /(trunk|(branches|tags)/(KDE/)?[^/]+)/kdeedu/[^/]+$
 end match
 
 #skip this one, not sure if it will be needed
-match /(trunk|(branches|tags)/[^/]+)/kdeedu/debian/
+match /(trunk(/KDE)?|(branches|tags)(/KDE)?/[^/]+)/kdeedu/debian/
 end match
 
 match /trunk/KDE/(kdeedu)/([^/]+)/

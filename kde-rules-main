@@ -2027,7 +2027,7 @@ match /tags/([^/]+)/(kdeedu)/(kvoctrain)/
 end match
 
 #skip files direclty in kdeedu
-match /(trunk|(branches|tags)/(KDE/)?[^/]+)/kdeedu/[^/]+$
+match /(trunk(/KDE)?|(branches|tags)/(KDE/)?[^/]+)/kdeedu/[^/]+$
 end match
 
 #skip this one, not sure if it will be needed

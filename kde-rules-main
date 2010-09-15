@@ -1997,7 +1997,11 @@ match /trunk/(KDE/)?kdeedu/$
   action recurse
 end match
 
-match /(branches|tags)/(KDE/)?[^/]+/kdeedu/$
+match /branches/work/kde4/kdeedu/$
+  action recurse
+end match
+
+match /(branches(/work)?|tags)/(KDE/)?[^/]+/kdeedu/$
   action recurse
 end match
 
@@ -2027,7 +2031,7 @@ match /(trunk|(branches|tags)/(KDE/)?[^/]+)/kdeedu/[^/]+$
 end match
 
 #skip this one, not sure if it will be needed
-match /(trunk(/KDE)?|(branches|tags)(/KDE)?/[^/]+)/kdeedu/debian/
+match /(trunk(/KDE)?|(branches(/work)?|tags)(/KDE)?/[^/]+)/kdeedu/(debian|admin)/
 end match
 
 match /trunk/KDE/(kdeedu)/([^/]+)/
@@ -2142,6 +2146,13 @@ match /(branches|tags)/KDE/([^/]+)/(kdeedu)/([^/]+)/
   repository KDE/\3/\4
   branch KDE/\2
   min revision 409209
+end match
+
+match /branches/work/kde4/(keedu)/([^/]+)/
+  min revision 411284
+  max revision 450000
+  repository KDE/\1/\2
+  branch kde4-work
 end match
 
 
@@ -2969,7 +2980,7 @@ match /branches/work/kde4/(kde-common|unsermake|[^/]+$)
   min revision 411069
   max revision 628065
 end match
-match /branches/work/kde4/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdeedu|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /branches/work/kde4/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdenetwork|kdepim|kdepimlibs|kdesdk|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
   min revision 411284
   max revision 450000
   repository KDE/\1

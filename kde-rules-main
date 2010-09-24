@@ -135,6 +135,10 @@ create repository KDE/kdeedu/kmathtool
 end repository
 create repository KDE/kdeedu/applnk
 end repository
+create repository KDE/kdeedu/menus
+end repository
+create repository KDE/kdeedu/plasma
+end repository
 
 create repository KDE/kdegames
 end repository

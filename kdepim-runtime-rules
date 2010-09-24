@@ -1,340 +1,178 @@
-create repository KDE/kdepim-runtime
+declare MODULE=kdepim/runtime
+declare REPO=KDE/kdepim-runtime
+
+create repository ${REPO}
 end repository
 
 ##############
 # Some stuff we want to ignore
 ##############
-# Empty directories added using "svn mv" from another
-# path -> Error (Git cannot handle dirs only files)
-# Branch will be created when files are added.
-match /
-    max revision 622809
-    min revision 622809
-end match
-
-# Translations are in svn so ignore them
-match /.*/[^/]*(i|l)1(0|8)n[^/]*/
-end match
-
-# KDAB packaging subdirs.
-match /branches/(kdepim/enterprise(4)?|komo)/packaging/
-end match
+include kdepim-common-ignore-rules
 
 ##############
 # Main rules
 ##############
 match /trunk/KDE/kdepim/runtime/
-    repository KDE/kdepim-runtime
+    repository ${REPO}
     branch master
-    min revision 1061321
+#    min revision 1061321
 end match
 match /trunk/KDE/kdepim/akonadi/
+    repository ${REPO}
+    branch master
     prefix akonadi/
-#    rootdir /trunk/KDE/kdepim/
-    repository KDE/kdepim-runtime
-    branch master
     max revision 1061321
 end match
 
-match /trunk/KDE/kdepim/akonadi/agents/
-    prefix agents/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
+match /branches/work/(toma-akonadi-account-wizard-ghns-integration)/accountwizard/
+    repository ${REPO}
+    branch work/\1
+    prefix accountwizard/
+end match
+match /branches/work/akonadi-ports/kdepim/akonadi/accountwizard/
+    repository ${REPO}
+    branch work/akonadi-ports
+    prefix akonadi/accountwizard/
+#    max revision 1061290
 end match
 
-match /trunk/KDE/kdepim/akonadi/cmake/
-    prefix cmake/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
-end match
-
-match /trunk/KDE/kdepim/akonadi/defaultsetup/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    prefix defaultsetup/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
-end match
-
-match /trunk/KDE/kdepim/akonadi/doc/
-    prefix doc/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
-end match
-
-match /trunk/KDE/kdepim/akonadi/kcm/
-    prefix kcm/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
-end match
-
-match /trunk/KDE/kdepim/akonadi/kioslave/
-    prefix kioslave/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
-end match
-
-match /trunk/KDE/kdepim/akonadi/kresources/
-    prefix kresources/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
-    min revision 982988
-end match
 match /trunk/KDE/kdepim/kresources/akonadi/
-    prefix kresources/akonadi/
-#    rootdir /trunk/KDE/kdepim/
-    repository KDE/kdepim-runtime
+    repository ${REPO}
     branch master
+    prefix kresources/akonadi/
     max revision 982988
     min revision 772772
 end match
 match /trunk/playground/pim/akonadi-kres/
+    repository ${REPO}
+    branch playground
     prefix akonadi-kres/
-#    rootdir /trunk/playground/pim/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 772772
+#    max revision 772772
 end match
 
-match /trunk/KDE/kdepim/akonadi/libkdepim-copy/
-    prefix libkdepim-copy/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
-    min revision 982582
-end match
 match /trunk/KDE/kdepim/libkdepim/
-    prefix libkdepim/
-#    rootdir /trunk/KDE/kdepim/
-    repository KDE/kdepim-runtime
+    repository ${REPO}
     branch master
+    prefix libkdepim/
     max revision 982582
     min revision 455550
 end match
 match /branches/KDE/3.5/kdepim/libkdepim/
-    prefix libkdepim/
-#    rootdir /branches/KDE/3.5/kdepim/
-    repository KDE/kdepim-runtime
+    repository ${REPO}
     branch master
+    prefix libkdepim/
     max revision 455550
     min revision 438981
 end match
 match /trunk/KDE/kdepim/libkdepim/
-    prefix libkdepim/
-#    rootdir /trunk/KDE/kdepim/
-    repository KDE/kdepim-runtime
+    repository ${REPO}
     branch master
+    prefix libkdepim/
     max revision 438981
     min revision 409202
 end match
 match /trunk/kdepim/libkdepim/
-    prefix libkdepim/
-#    rootdir /trunk/kdepim/
-    repository KDE/kdepim-runtime
+    repository ${REPO}
     branch master
+    prefix libkdepim/
     max revision 409202
 end match
 
-match /trunk/KDE/kdepim/akonadi/migration/
-    prefix migration/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
+match /trunk/playground/pim/akonadi/kde-qml/
+    repository ${REPO}
+    branch playground
+    prefix akonadi/kde-qml/
+#    max revision 1101913
 end match
 
-match /trunk/KDE/kdepim/akonadi/opensync/
-    prefix opensync/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
-end match
-
-match /trunk/KDE/kdepim/akonadi/plugins/
-    prefix plugins/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
-end match
-
-match /trunk/KDE/kdepim/akonadi/resources/
-    prefix resources/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
-    min revision 559016
-end match
 match /trunk/KDE/kdepim/akonadiresources/
-    prefix akonadiresources/
-#    rootdir /trunk/KDE/kdepim/
-    repository KDE/kdepim-runtime
+    repository ${REPO}
     branch master
+    prefix resources/
     max revision 559016
 end match
 
-match /trunk/playground/pim/openxchange/
-    repository KDE/kdepim-runtime
-    prefix resources/openxchange/
-    branch master
-    max revision 1079550
+match /trunk/kdereview/dav/
+    repository ${REPO}
+    branch kdereview
+    prefix dav/
+#    max revision 1117316
+#    min revision 1106037
+end match
+match /trunk/playground/pim/dav/
+    repository ${REPO}
+    branch playground
+    prefix dav/
+#    max revision 1106037
 end match
 
-match /trunk/KDE/kdepim/akonadi/resourcetester/
-    prefix resourcetester/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
+match /branches/work/~ervin/(imap-resource-refactor)/tests/
+    repository ${REPO}
+    branch work/personal/ervin/\1
+    prefix tests/
+#    max revision 1139084
 end match
 
-match /trunk/KDE/kdepim/akonadi/tray/
-    prefix tray/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
+match /trunk/KDE/kdepimlibs/libmbox/
+    repository ${REPO}
     branch master
-    max revision 1061321
+    prefix libmbox/
+#    max revision 1117592
+#    min revision 1117588
 end match
 
-match /trunk/KDE/kdepim/akonadi/xml/
-    prefix xml/
-#    rootdir /trunk/KDE/kdepim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 1061321
-    min revision 946339
+match /trunk/playground/pim/openxchange/icons/
+    repository ${REPO}
+    branch playground
+    prefix openxchange/icons/
+#    max revision 1079549
 end match
+
+match /trunk/playground/pim/openxchange/oxa/
+    repository ${REPO}
+    branch playground
+    prefix openxchange/oxa/
+#    max revision 1079549
+end match
+
 match /trunk/playground/pim/akonadi/xml/
-    prefix xml/
-#    rootdir /trunk/playground/pim/akonadi/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 946339
-    min revision 939440
+    repository ${REPO}
+    branch playground
+    prefix akonadi/xml/
 end match
 match /trunk/playground/pim/libakonadi-xml/
+    repository ${REPO}
+    branch playground
     prefix libakonadi-xml/
-#    rootdir /trunk/playground/pim/
-    repository KDE/kdepim-runtime
-    branch master
-    max revision 939440
 end match
+
 ##############
 # Branches...
 ##############
 # Non merged branches
-match /branches/work/(akonadi-ports)/(kdepim/runtime)/
-    repository KDE/kdepim-runtime
+match /branches/work/(akonadi-ports)/(kdepim/(?:runtime|akonadi))/
+    repository ${REPO}
     branch \1
 end match
 
-# KDAB
-match /branches/kdepim/(enterprise)/(kdepim/runtime)/
-    repository KDE/kdepim-runtime
-    branch \1
-end match
-match /branches/kdepim/(enterprise4)/(kdepim/runtime)/
-    repository KDE/kdepim-runtime
-    branch \1
-end match
-match /branches/work/(komo)/(kdepim/runtime)/
-    repository KDE/kdepim-runtime
-    branch \1
-end match
-
-match /branches/KDE/(\d+)\.(\d+)/(kdepim/runtime)/
-    repository KDE/kdepim-runtime
-    branch \1.\2
-end match
 match /branches/(work)/(arzie_akonadi)/
-    repository KDE/kdepim-runtime
+    repository ${REPO}
     branch \1/\2
 end match
-match /branches/(work)/(soc-pim)/kdepim/runtime/
-    repository KDE/kdepim-runtime
-    branch \1/\2
-end match
+
+include kdepim-branches-rules
 ##############
 # Tags
 ##############
-match /tags/KDE/(\d+)\.(\d+)/(kdepim/runtime)/
-    repository KDE/kdepim-runtime
-    branch refs/tags/v\1.\2.0
-    annotated true
-end match
-match /tags/KDE/4.4.1/(kdepim/runtime)/
-    max revision 1096480
-end match
-match /tags/KDE/(\d+)\.(\d+)\.(\d+)/(kdepim/runtime)/
-    repository KDE/kdepim-runtime
-    branch refs/tags/v\1.\2.\3
-    annotated true
-end match
-
+include kdepim-tags-rules
 ##############
 # Recurse
 ##############
-match /trunk/$
-    action recurse
-end match
-
-match /trunk/KDE/$
-    action recurse
-end match
-
-match /trunk/KDE/[^/]+/$
-    action recurse
-end match
-
-match /branches/KDE/[^/]+/$
-    action recurse
-end match
-
-match /branches/KDE_[^/]+/$
-    action recurse
-end match
-
-# Make sure all tags are included
-match /tags/KDE/[^/]/$
-    action recurse
-end match
-match /branches/work/(akonadi-ports)/(kdepim/runtime)/$
-    action recurse
-end match
-
-# KDAB
-match /branches/kdepim/(enterprise)/(kdepim/runtime)/$
-    action recurse
-end match
-match /branches/kdepim/(enterprise4)/(kdepim/runtime)/$
-    action recurse
-end match
-match /branches/work/(komo)/(kdepim/runtime)/$
-    action recurse
-end match
-
-match /branches/KDE/(\d+)\.(\d+)/(kdepim/runtime)/$
-    action recurse
-end match
-
 match /branches/(work)/(arzie_akonadi)/$
     action recurse
 end match
+
+include kdepim-recurse-rules
 ##############
 # Ignore everything else
 ##############

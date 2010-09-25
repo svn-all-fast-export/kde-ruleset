@@ -912,9 +912,6 @@ end repository
 create repository kdesupport/gmm
 end repository
 
-create repository extragear/kaider
-end repository
-
 create repository extragear/kdiskmanager
 end repository
 
@@ -2146,6 +2143,11 @@ end match
 
 match /trunk/kdenonbeta/kgeography/
   repository KDE/kdeedu/kgeography
+  branch master
+end match
+
+match /trunk/(extragear/sdk|kdereview|playground/devtools)/kaider/
+  repository KDE/kdesdk/kaider
   branch master
 end match
 

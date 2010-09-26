@@ -209,7 +209,23 @@ create repository KDE/kdesdk/strigi-analyzer
 end repository
 create repository KDE/kdesdk/umbrello
 end repository
+
+#abandoned stuff
 create repository KDE/kdesdk/kbabel
+end repository
+create repository KDE/kdesdk/kdedoc
+end repository
+create repository KDE/kdesdk/kexample
+end repository
+create repository KDE/kdesdk/kdesgmltools
+end repository
+create repository KDE/kdesdk/kappgen
+end repository
+create repository KDE/kdesdk/kscreenruler
+end repository
+create repository KDE/kdesdk/kdewidgets
+end repository
+create repository KDE/kdesdk/ebn
 end repository
 
 create repository KDE/kdetoys
@@ -596,9 +612,6 @@ create repository extragear/kvpnc
 end repository
 
 create repository extragear/knetd
-end repository
-
-create repository extragear/kfile-plugins
 end repository
 
 create repository extragear/appfs
@@ -2073,12 +2086,42 @@ match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeedu)/kvoctrain/
   max revision 409202
 end match
 
-
 #skip older tags, more rules would be needed for them
 match /tags/([^/]+)/(kdeedu)/(kvoctrain)/
 end match
 
-#skip files direclty in kdeedu
+match /trunk/(KDE/)?kdesdk/ksgmltools/
+  repository KDE/kdesdk/kdesgmltools
+  branch master
+end match
+
+match /trunk/(KDE/)?kdesdk/kfile-plugins/
+  repository KDE/kdesdk/strigi-analyzer
+  branch master
+end match
+match /branches/KDE_(\d+)_(\d+)_BRANCH/kdesdk/kfile-plugins/
+  repository KDE/kdesdk/strigi-analyzer
+  branch KDE/\1.\2
+  max revision 409202
+end match
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/kdesdk/kfile-plugins/
+  repository KDE/kdesdk/strigi-analyzer
+  branch KDE/\1.\2.\3
+  max revision 409202
+end match
+match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/kdesdk/kfile-plugins/
+  repository KDE/kdesdk/strigi-analyzer
+  branch KDE/\1.\2.\3-beta\4
+  min revision 376088
+  max revision 409202
+end match
+match /(branches|tags)/KDE/([^/]+)/kdesdk/kfile-plugins/
+  repository KDE/kdesdk/strigi-analyzer
+  branch KDE/\2
+  min revision 409209
+end match
+
+#skip files directly in kdeedu
 match /(trunk(/KDE)?|(branches|tags)/(KDE/)?[^/]+)/(kdeedu|kdesdk)/[^/]+$
 end match
 
@@ -2147,7 +2190,17 @@ match /trunk/kdenonbeta/kgeography/
 end match
 
 match /trunk/(extragear/sdk|kdereview|playground/devtools)/kaider/
-  repository KDE/kdesdk/kaider
+  repository KDE/kdesdk/lokalize
+  branch master
+end match
+
+match /trunk/KDE/kdesdk/dolphin/
+  repository KDE/kdesdk/dolphin-plugins
+  branch master
+end match
+
+match /trunk/(kdereview|playground/devtools)/kapptemplate/
+  repository KDE/kdesdk/kapptemplate
   branch master
 end match
 
@@ -2626,6 +2679,10 @@ match /trunk/extragear/plasma/
   max revision 813309
 end match
 
+match /trunk/extragear/pim/kfile-plugins/
+  #TODO
+end match
+
 match /trunk/(extragear/[^/]+|kdeextragear-[^/]+)/([^/]+)/
   repository extragear/\2
   branch master
@@ -3015,6 +3072,9 @@ match /trunk/playground/graphics/solidkreator/
   repository extragear/kreative3d
   branch master
   min revision 841491
+end match
+
+match /trunk/playground/games/kfile-plugins/
 end match
 
 match /trunk/kdeplayground-[^/]+/([^/]+)/

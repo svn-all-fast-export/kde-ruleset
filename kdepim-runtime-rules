@@ -62,22 +62,23 @@ match /trunk/KDE/kdepim/libkdepim/
     branch master
     prefix libkdepim/
     max revision 982582
-    min revision 455550
+#    min revision 455550
 end match
-match /branches/KDE/3.5/kdepim/libkdepim/
-    repository ${REPO}
-    branch master
-    prefix libkdepim/
-    max revision 455550
-    min revision 438981
-end match
+#match /branches/KDE/3.5/kdepim/libkdepim/
+#    repository ${REPO}
+#    branch master
+#    prefix libkdepim/
+#    max revision 455550
+#    min revision 438981
+#end match
 match /trunk/KDE/kdepim/libkdepim/
     repository ${REPO}
     branch master
     prefix libkdepim/
-    max revision 438981
-    min revision 409202
+#   max revision 438981
+    min revision 409204
 end match
+# r409203 kdepim -> KDE/kdepim
 match /trunk/kdepim/libkdepim/
     repository ${REPO}
     branch master
@@ -85,10 +86,10 @@ match /trunk/kdepim/libkdepim/
     max revision 409202
 end match
 
-match /trunk/playground/pim/akonadi/kde-qml/
+match /trunk/playground/pim/akonadi/
     repository ${REPO}
     branch playground
-    prefix akonadi/kde-qml/
+    prefix akonadi/
 #    max revision 1101913
 end match
 
@@ -96,7 +97,7 @@ match /trunk/KDE/kdepim/akonadiresources/
     repository ${REPO}
     branch master
     prefix resources/
-    max revision 559016
+    max revision 559038
 end match
 
 match /trunk/kdereview/dav/
@@ -128,31 +129,28 @@ match /trunk/KDE/kdepimlibs/libmbox/
 #    min revision 1117588
 end match
 
-match /trunk/playground/pim/openxchange/icons/
+match /trunk/playground/pim/openxchange/
     repository ${REPO}
     branch playground
-    prefix openxchange/icons/
+    prefix openxchange/
 #    max revision 1079549
 end match
 
-match /trunk/playground/pim/openxchange/oxa/
-    repository ${REPO}
-    branch playground
-    prefix openxchange/oxa/
-#    max revision 1079549
-end match
-
-match /trunk/playground/pim/akonadi/xml/
-    repository ${REPO}
-    branch playground
-    prefix akonadi/xml/
-end match
+#match /trunk/playground/pim/akonadi/xml/
+#    repository ${REPO}
+#    branch playground
+#    prefix akonadi/xml/
+#end match
 match /trunk/playground/pim/libakonadi-xml/
     repository ${REPO}
     branch playground
     prefix libakonadi-xml/
 end match
-
+match /trunk/KDE/kdepim/maildir/
+    repository ${REPO}
+    branch master
+    prefix maildir/
+end match
 ##############
 # Branches...
 ##############
@@ -188,7 +186,16 @@ match /trunk/playground/pim/mailody/akonadi_resource/
     branch playground
     prefix mailody/akonadi_resource/
 end match
-
+match /trunk/playground/pim/akonaditest/
+    repository ${REPO}
+    branch playground
+    prefix akonaditest/
+end match
+match /trunk/playground/pim/akonadi-kres/
+    repository ${REPO}
+    branch playground
+    prefix akonadi-kres/
+end match
 include kdepim-branches-rules
 ##############
 # Tags
@@ -201,6 +208,9 @@ match /branches/work/(toma-akonadi-account-wizard-ghns-integration)/$
     action recurse
 end match
 match /trunk/playground/pim/libakonadi-xml/$
+    action recurse
+end match
+match /trunk/playground/pim/akonadi/$
     action recurse
 end match
 match /trunk/playground/pim/akonadi/xml/$

@@ -9,7 +9,7 @@ end repository
 ##############
 include kdepim-common-ignore-rules
 # -runtime is in a separate repository
-match /trunk/KDE/${MODULE}/runtime/
+match /${MODULE}/runtime/
 end match
 
 ##############

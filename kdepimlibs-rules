@@ -32,21 +32,26 @@ match /trunk/KDE/kdepim/akonadi/contact/
     repository ${REPO}
     branch master
     prefix akonadi/contact/
-    max revision 1017770
+    max revision 1017777
 end match
 
 match /trunk/KDE/kdepim/kaddressbook/editor/
     repository ${REPO}
     branch master
     prefix kaddressbook/editor/
-    max revision 1010125
-    min revision 1006756
+    max revision 1010350
+    min revision 1007291
+end match
+
+# parent dir is removed but we only track a child so recurse on parent
+match /trunk/KDE/kdepim/kcontactmanager/$
+    action recurse
 end match
 match /trunk/KDE/kdepim/kcontactmanager/editor/
     repository ${REPO}
     branch master
     prefix kcontactmanager/editor/
-    max revision 1006756
+    max revision 1007291
 end match
 
 match /trunk/KDE/kdepim/akonadi/kmime/
@@ -128,6 +133,7 @@ match /trunk/KDE/kdepim/libkcal/
     repository ${REPO}
     branch master
     prefix libkcal/
+    max revision 562354
 end match
 match /trunk/kdepim/libkcal/
     repository ${REPO}
@@ -175,7 +181,12 @@ match /trunk/kdenetwork/kioslaves/
     prefix kioslaves/
     max revision 200753
 end match
-
+match /trunk/kdebase/kioslave/imap4/
+    repository ${REPO}
+    branch master
+    prefix kioslave/imap4/
+    max revision 302876
+end match
 match /branches/KDE/3.5/kdepim/libkmime/
     repository ${REPO}
     branch 3.5
@@ -209,7 +220,7 @@ match /trunk/KDE/kdepim/libkpimidentities/
     repository ${REPO}
     branch master
     prefix libkpimidentities/
-    max revision 679297
+    max revision 682059
     min revision 455550
 end match
 match /branches/KDE/3.5/kdepim/libkpimidentities/
@@ -284,25 +295,30 @@ match /trunk/KDE/kdepim/qgpgme/
     max revision 681577
     min revision 495458
 end match
+
+# parent dir is removed but we only track a child so recurse on parent
+match /trunk/KDE/kdepim/libkdenetwork/qgpgme/$
+    action recurse
+end match
 match /trunk/KDE/kdepim/libkdenetwork/qgpgme/
     repository ${REPO}
     branch master
     prefix libkdenetwork/qgpgme/
-    max revision 495458
+    max revision 495753
 end match
 
 match /trunk/KDE/kdepim/libsyndication/
     repository ${REPO}
     branch master
     prefix libsyndication/
-    max revision 571178
-    min revision 529887
+    max revision 571589
+    min revision 529888
 end match
 match /trunk/KDE/kdepim/akregator/src/libsyndication/
     repository ${REPO}
     branch master
     prefix akregator/src/libsyndication/
-    max revision 529887
+    max revision 529888
 end match
 
 ##############

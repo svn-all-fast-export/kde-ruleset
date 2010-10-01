@@ -21,27 +21,34 @@ match /trunk/KDE/kdepim/akonadi/
     repository ${REPO}
     branch master
     prefix akonadi/
-    max revision 1061321
+#    max revision 1061321
 end match
+match /trunk/KDE/kdepim/akonadiserver/
+    repository ${REPO}
+    branch master
+    prefix akonadiserver/
+#    max revision 1061321
+end match
+
 
 match /branches/work/(toma-akonadi-account-wizard-ghns-integration)/accountwizard/
     repository ${REPO}
     branch work/\1
     prefix accountwizard/
 end match
-match /branches/work/akonadi-ports/kdepim/akonadi/accountwizard/
-    repository ${REPO}
-    branch work/akonadi-ports
-    prefix akonadi/accountwizard/
-#    max revision 1061290
-end match
+#match /branches/work/akonadi-ports/kdepim/akonadi/accountwizard/
+#    repository ${REPO}
+#    branch work/akonadi-ports
+#    prefix akonadi/accountwizard/
+##    max revision 1061290
+#end match
 
 match /trunk/KDE/kdepim/kresources/akonadi/
     repository ${REPO}
     branch master
     prefix kresources/akonadi/
-    max revision 982988
-    min revision 772772
+#    max revision 982988
+#    min revision 772772
 end match
 match /trunk/playground/pim/akonadi-kres/
     repository ${REPO}
@@ -150,14 +157,36 @@ end match
 # Branches...
 ##############
 # Non merged branches
-match /branches/work/(akonadi-ports)/(kdepim/(?:runtime|akonadi))/
+match /branches/work/(akonadi-ports)/kdepim/(akonadi)/
+    repository ${REPO}
+    branch \1
+    prefix \2
+end match
+#match /branches/work/(akonadi-ports)/kdepim/runtime/$
+#    action recurse
+#end match
+match /branches/work/(akonadi-ports)/kdepim/runtime/
     repository ${REPO}
     branch \1
 end match
 
+#match /branches/(work)/(arzie_akonadi)/$
+#    action recurse
+#end match
 match /branches/(work)/(arzie_akonadi)/
     repository ${REPO}
     branch \1/\2
+end match
+
+match /branches/kdepim/(soc)/kdepim/akonadi/
+    repository ${REPO}
+    branch \1
+    prefix akonadi/
+end match
+match /trunk/playground/pim/mailody/akonadi_resource/
+    repository ${REPO}
+    branch playground
+    prefix mailody/akonadi_resource/
 end match
 
 include kdepim-branches-rules
@@ -168,10 +197,33 @@ include kdepim-tags-rules
 ##############
 # Recurse
 ##############
-match /branches/(work)/(arzie_akonadi)/$
+match /branches/work/(toma-akonadi-account-wizard-ghns-integration)/$
     action recurse
 end match
-
+match /trunk/playground/pim/libakonadi-xml/$
+    action recurse
+end match
+match /trunk/playground/pim/akonadi/xml/$
+    action recurse
+end match
+match /trunk/playground/pim/openxchange/oxa/$
+    action recurse
+end match
+match /trunk/playground/pim/openxchange/icons/$
+    action recurse
+end match
+match /trunk/kdereview/dav/$
+    action recurse
+end match
+match /trunk/playground/pim/akonadi/kde-qml/$
+    action recurse
+end match
+match /trunk/playground/pim/akonadi-kres/$
+    action recurse
+end match
+match /branches/kdepim/(soc)/kdepim/$
+    action recurse
+end match
 include kdepim-recurse-rules
 ##############
 # Ignore everything else

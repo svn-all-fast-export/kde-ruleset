@@ -2293,6 +2293,8 @@ end repository
 create repository extragear/workout
 end repository
 
+create repository extragear/nepomuktelepathyservice
+end repository
 
 
 #

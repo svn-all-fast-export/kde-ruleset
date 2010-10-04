@@ -209,6 +209,8 @@ create repository KDE/kdesdk/strigi-analyzer
 end repository
 create repository KDE/kdesdk/umbrello
 end repository
+create repository KDE/kdesdk/okteta
+end repository
 
 #abandoned stuff
 create repository KDE/kdesdk/kbabel
@@ -1223,9 +1225,6 @@ create repository extragear/phonon-pcmio
 end repository
 
 create repository extragear/kdeprint
-end repository
-
-create repository extragear/okteta
 end repository
 
 create repository extragear/strigi-foaf
@@ -2953,6 +2952,21 @@ match /trunk/KDE/kdesdk/dolphin/
   branch master
 end match
 
+
+match /trunk/playground/utils/okteta/
+  repository KDE/kdesdk/okteta
+  branch master
+end match
+match /trunk/(KDE/)?kdeedu/okteta/
+  repository KDE/kdesdk/okteta
+  branch master
+end match
+
+match /(branches|tags)/KDE/([^/]+)/(kdeutils)/okteta/
+  repository KDE/kdesdk/okteta
+  branch KDE/\2
+end match
+
 #skip files directly in kdeedu
 match /(trunk(/KDE)?|(branches|tags)/(KDE/)?[^/]+)/(kdeedu|kdesdk)/[^/]+$
 end match
@@ -3020,6 +3034,7 @@ match /trunk/kdenonbeta/kgeography/
   repository KDE/kdeedu/kgeography
   branch master
 end match
+
 
 match /trunk/(extragear/sdk|kdereview|playground/devtools)/kaider/
   repository KDE/kdesdk/lokalize

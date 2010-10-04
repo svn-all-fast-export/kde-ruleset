@@ -2348,7 +2348,7 @@ match /tags/KDE/3.0.2/kdeextragear-1/
   max revision 416394
 end match
 match /tags/KDE/([^/]+)/oxygen-icons/
-  kdesupport/oxygen-icons
+  repository kdesupport/oxygen-icons
   branch KDE/\1
 end match
 

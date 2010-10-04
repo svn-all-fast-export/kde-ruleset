@@ -1736,7 +1736,7 @@ match /branches/kdesupport/3.5/kdesupport/([^/]+)/
   branch KDE/3.5
   min revision 504781
 end match
-match /branches/kdesupport/
+match /branches/kdesupport/$
   action recurse
   min revision 504781
 end match

@@ -1471,6 +1471,830 @@ end repository
 create repository extragear/asciiquarium
 end repository
 
+create repository extragear/libkmediaplayercontrol
+end repository
+
+create repository extragear/attica
+end repository
+
+create repository extragear/rawthumbnail
+end repository
+
+create repository extragear/dekorator
+end repository
+
+create repository extragear/kremail
+end repository
+
+create repository extragear/kde3to4
+end repository
+
+create repository extragear/kate-ctags
+end repository
+
+create repository extragear/kosdwidget
+end repository
+
+create repository extragear/oooicons
+end repository
+
+create repository extragear/minim
+end repository
+
+create repository extragear/taskbar
+end repository
+
+create repository extragear/richtextbuilders
+end repository
+
+create repository extragear/klotz
+end repository
+
+create repository extragear/partitionmanager
+end repository
+
+create repository extragear/knowit4
+end repository
+
+create repository extragear/kjotsrewrite
+end repository
+
+create repository extragear/kpackagekit
+end repository
+
+create repository extragear/kte_autobrace
+end repository
+
+create repository extragear/kephal
+end repository
+
+create repository extragear/kmimecontentstrategy
+end repository
+
+create repository extragear/kolor-manager
+end repository
+
+create repository extragear/qjson
+end repository
+
+create repository extragear/kte_linter
+end repository
+
+create repository extragear/kigo
+end repository
+
+create repository extragear/platform #base/platform
+end repository
+
+create repository extragear/sshaskpass
+end repository
+
+create repository extragear/kolf-ng
+end repository
+
+create repository extragear/proxymodeltest
+end repository
+
+create repository extragear/kmj
+end repository
+
+create repository extragear/choqok
+end repository
+
+create repository extragear/fruitwars
+end repository
+
+create repository extragear/kalternatives
+end repository
+
+create repository extragear/kgoldrunner
+end repository
+
+create repository extragear/granatier
+end repository
+
+create repository extragear/akonadi
+end repository
+
+create repository extragear/kssh4
+end repository
+
+create repository extragear/KDEArtWork.port
+end repository
+
+create repository extragear/magazynier
+end repository
+
+create repository extragear/telepathy-accountmanager-kwallet
+end repository
+
+create repository extragear/konqueror
+end repository
+
+create repository extragear/solid-actions-kcm
+end repository
+
+create repository extragear/maildispatcheragent
+end repository
+
+create repository extragear/rtm
+end repository
+
+create repository extragear/telepathy-accounts-kcm
+end repository
+
+create repository extragear/base
+end repository
+
+create repository extragear/kamala
+end repository
+
+create repository extragear/tote
+end repository
+
+create repository extragear/mobipocket
+end repository
+
+create repository extragear/lintv
+end repository
+
+create repository extragear/kcontrol4
+end repository
+
+create repository extragear/googledata
+end repository
+
+create repository extragear/kio_slp
+end repository
+
+create repository extragear/pege
+end repository
+
+create repository extragear/blazer
+end repository
+
+create repository extragear/microblog
+end repository
+
+create repository extragear/networkkio
+end repository
+
+create repository extragear/KALEngine
+end repository
+
+create repository extragear/smoke_gobject
+end repository
+
+create repository extragear/tellico
+end repository
+
+create repository extragear/kopier
+end repository
+
+create repository extragear/drkonqi
+end repository
+
+create repository extragear/KGLEngine
+end repository
+
+create repository extragear/libakonadi-xml
+end repository
+
+create repository kdesupport/polkit-qt
+end repository
+
+create repository extragear/katimon
+end repository
+
+create repository extragear/kode
+end repository
+
+create repository extragear/noenter
+end repository
+
+create repository extragear/KCLEngine
+end repository
+
+create repository extragear/taglib-extras
+end repository
+
+create repository extragear/KMessageStyle
+end repository
+
+create repository kdesupport/oxygen-icons
+end repository
+
+create repository kdesupport/taglib-extras
+end repository
+
+create repository extragear/kauthorize
+end repository
+
+create repository extragear/devicesync
+end repository
+
+create repository extragear/solid-wicd
+end repository
+
+create repository extragear/ui
+end repository
+
+create repository extragear/knut
+end repository
+
+create repository extragear/gobject-consume
+end repository
+
+create repository extragear/plasmaapplets
+end repository
+
+create repository extragear/kmodifierkeyinfo
+end repository
+
+create repository extragear/kbackendselector
+end repository
+
+create repository extragear/kmathml
+end repository
+
+create repository extragear/drkonqi2
+end repository
+
+create repository extragear/aki
+end repository
+
+create repository extragear/solid-sysclass
+end repository
+
+create repository extragear/utils
+end repository
+
+create repository extragear/cubetest
+end repository
+
+create repository extragear/rememberthemilk
+end repository
+
+create repository extragear/libknotificationitem
+end repository
+
+create repository extragear/libs
+end repository
+
+create repository extragear/skrooge
+end repository
+
+create repository extragear/rekonq
+end repository
+
+create repository extragear/CueTeeGraph
+end repository
+
+create repository extragear/mancala
+end repository
+
+create repository extragear/akiirc
+end repository
+
+create repository extragear/kmymoney
+end repository
+
+create repository extragear/kformat
+end repository
+
+create repository extragear/outboxinterface
+end repository
+
+create repository extragear/ksana
+end repository
+
+create repository extragear/kcam
+end repository
+
+create repository extragear/smokegenerator
+end repository
+
+create repository extragear/krusader
+end repository
+
+create repository extragear/syncml
+end repository
+
+create repository extragear/falkor
+end repository
+
+create repository extragear/klipper-ng
+end repository
+
+create repository extragear/KOrganizerAgendaView
+end repository
+
+create repository extragear/mailreader
+end repository
+
+create repository extragear/backgammon
+end repository
+
+create repository extragear/telepathy-contacts-resource
+end repository
+
+create repository extragear/aurorae
+end repository
+
+create repository extragear/telepathy-integration-daemon
+end repository
+
+create repository kdesupport/kdewin
+end repository
+
+create repository extragear/libkauth
+end repository
+
+create repository extragear/rubots
+end repository
+
+create repository extragear/kidle
+end repository
+
+create repository extragear/kbarbu-GC
+end repository
+
+create repository extragear/kross-rework
+end repository
+
+create repository extragear/kopete-telepathy-protocol
+end repository
+
+create repository extragear/binspekt
+end repository
+
+create repository extragear/rekonq2
+end repository
+
+create repository extragear/device-automounter
+end repository
+
+create repository extragear/kidletime
+end repository
+
+create repository extragear/conversion
+end repository
+
+create repository extragear/kapptemplatecli
+end repository
+
+create repository extragear/telepathy-accounts-kcm-plugins
+end repository
+
+create repository extragear/khtmlxsltplugin
+end repository
+
+create repository extragear/translatoid
+end repository
+
+create repository extragear/ultracopier
+end repository
+
+create repository extragear/ktimechooser
+end repository
+
+create repository extragear/palette
+end repository
+
+create repository extragear/konsume
+end repository
+
+create repository extragear/kunitconversion
+end repository
+
+create repository extragear/KWarBots
+end repository
+
+create repository extragear/kspiral
+end repository
+
+create repository extragear/krita-exp
+end repository
+
+create repository extragear/kbluetooth
+end repository
+
+create repository extragear/telepathy-launcher-kded
+end repository
+
+create repository extragear/blogilo
+end repository
+
+create repository extragear/controlflowgraph
+end repository
+
+create repository extragear/libkdiskmanager
+end repository
+
+create repository extragear/disksdaemon
+end repository
+
+create repository extragear/python
+end repository
+
+create repository extragear/kopete-runner
+end repository
+
+create repository extragear/krosswordpuzzle
+end repository
+
+create repository extragear/palapeli.old
+end repository
+
+create repository extragear/kscore
+end repository
+
+create repository extragear/kupnp
+end repository
+
+create repository extragear/kss-slideshow
+end repository
+
+create repository extragear/kfingerprint
+end repository
+
+create repository KDE/kdeexamples
+end repository
+
+create repository extragear/kannasaver
+end repository
+
+create repository extragear/kdevelop4-extra-libraries
+end repository
+
+create repository extragear/nepomuk-activities-service
+end repository
+
+create repository extragear/kte_iconinserter
+end repository
+
+create repository extragear/kdewebkit
+end repository
+
+create repository extragear/nepomuk-kio-timeline
+end repository
+
+create repository extragear/calgo
+end repository
+
+create repository extragear/kmid2
+end repository
+
+create repository extragear/audex
+end repository
+
+create repository extragear/smb4k
+end repository
+
+create repository extragear/comicbook-thumbnails
+end repository
+
+create repository extragear/qyotoassemblygen
+end repository
+
+create repository extragear/KStarStack
+end repository
+
+create repository extragear/qguiplatformplugin_kde
+end repository
+
+create repository extragear/dav
+end repository
+
+create repository extragear/freespacenotifier
+end repository
+
+create repository extragear/solid
+end repository
+
+create repository extragear/solidrunner
+end repository
+
+create repository extragear/networkmanagement
+end repository
+
+create repository extragear/kdeobservatory
+end repository
+
+create repository extragear/localimageakonadiresource
+end repository
+
+create repository extragear/example_akonadi_imageviewer
+end repository
+
+create repository extragear/kcm_devinfo
+end repository
+
+create repository kdesupport/attica
+end repository
+
+create repository extragear/skank
+end repository
+
+create repository extragear/polkit-qt-1
+end repository
+
+create repository extragear/akonadi_kdeforum
+end repository
+
+create repository extragear/polkit-kde
+end repository
+
+create repository extragear/openxchange
+end repository
+
+create repository extragear/skanlite-sk
+end repository
+
+create repository extragear/skanlite-ng
+end repository
+
+create repository extragear/ksfpm_testcase
+end repository
+
+create repository extragear/kdevplatform
+end repository
+
+create repository extragear/kdevelop
+end repository
+
+create repository extragear/quanta
+end repository
+
+create repository extragear/kxsldbg
+end repository
+
+create repository extragear/kblocks-refactoring
+end repository
+
+create repository extragear/skansuite
+end repository
+
+create repository extragear/kragonegg_kde3
+end repository
+
+create repository extragear/cantor-backends
+end repository
+
+create repository extragear/highlight
+end repository
+
+create repository extragear/kitchensync
+end repository
+
+create repository extragear/tvanytime
+end repository
+
+create repository extragear/ldap
+end repository
+
+create repository extragear/kdevelop-php
+end repository
+
+create repository extragear/kdevelop-php-docs
+end repository
+
+create repository extragear/remotewidgets
+end repository
+
+create repository kdesupport/polkit-qt-1
+end repository
+
+create repository extragear/polkit-kde-1
+end repository
+
+create repository extragear/solid-dumper
+end repository
+
+create repository extragear/kte_acomment
+end repository
+
+create repository extragear/kpilot
+end repository
+
+create repository extragear/crashcatching
+end repository
+
+create repository extragear/kdevelop-plugins
+end repository
+
+create repository extragear/kajongg
+end repository
+
+create repository extragear/quickpen
+end repository
+
+create repository extragear/kwebkitpart
+end repository
+
+create repository extragear/aboutdata
+end repository
+
+create repository extragear/ksecretservice
+end repository
+
+create repository extragear/kolf2
+end repository
+
+create repository extragear/print-manager
+end repository
+
+create repository extragear/synaptiks
+end repository
+
+create repository extragear/telepathy-contactlist
+end repository
+
+create repository extragear/perlqt4
+end repository
+
+create repository extragear/pam_kwallet
+end repository
+
+create repository extragear/leute
+end repository
+
+create repository extragear/plasmoidax
+end repository
+
+create repository extragear/kmid.old
+end repository
+
+create repository extragear/kcm_tablet
+end repository
+
+create repository extragear/kpws
+end repository
+
+create repository extragear/kio-locate
+end repository
+
+create repository kdesupport/cmake_external_project
+end repository
+
+create repository extragear/kremotecontrol
+end repository
+
+create repository extragear/keyboard2
+end repository
+
+create repository extragear/bluedevil
+end repository
+
+create repository extragear/kinfocenter2
+end repository
+
+create repository extragear/kategdbplugin
+end repository
+
+create repository extragear/libqapt
+end repository
+
+create repository extragear/kappfinder
+end repository
+
+create repository extragear/kxtodvd
+end repository
+
+create repository extragear/libktorrent
+end repository
+
+create repository extragear/kte_insanehtml_le
+end repository
+
+create repository extragear/videocatcher
+end repository
+
+create repository extragear/cagibi
+end repository
+
+create repository extragear/activities
+end repository
+
+create repository extragear/calendarviews
+end repository
+
+create repository extragear/kpeg
+end repository
+
+create repository kdesupport/cagibi
+end repository
+
+create repository extragear/knights
+end repository
+
+create repository extragear/kded_kosd
+end repository
+
+create repository extragear/kless
+end repository
+
+create repository extragear/telepathy-chat-handler
+end repository
+
+create repository extragear/ksayit
+end repository
+
+create repository extragear/releaseschedule
+end repository
+
+create repository extragear/smaragd
+end repository
+
+create repository extragear/alkimia
+end repository
+
+create repository extragear/palapeli-goldberg-slicer
+end repository
+
+create repository extragear/appstats
+end repository
+
+create repository extragear/kio_torrent
+end repository
+
+create repository extragear/zippl
+end repository
+
+create repository extragear/libdebconf-kde
+end repository
+
+create repository extragear/muon
+end repository
+
+create repository extragear/kdumppixmap
+end repository
+
+create repository extragear/kofficeplugins
+end repository
+
+create repository extragear/kwhiteboard
+end repository
+
+create repository extragear/nunosview
+end repository
+
+create repository extragear/libktelepathy
+end repository
+
+create repository extragear/oxygen-transparent
+end repository
+
+create repository extragear/people
+end repository
+
+create repository extragear/meta-experiments
+end repository
+
+create repository extragear/konqueror-sendtoplugin
+end repository
+
+create repository extragear/libktelepathy-examples
+end repository
+
+create repository extragear/telepathy-testlib
+end repository
+
+create repository extragear/wacomtablet
+end repository
+
+create repository extragear/plasma-kpart
+end repository
+
+create repository extragear/kcm_nic
+end repository
+
+create repository extragear/okteta-kdevelop4-plugin
+end repository
+
+create repository extragear/kfprintee
+end repository
+
+create repository extragear/kio_magnet
+end repository
+
+create repository extragear/telepathy-approver
+end repository
+
+create repository extragear/telepathy-contactlist-qml
+end repository
+
+create repository extragear/akonaditelepathy
+end repository
+
+create repository extragear/nepomukservicetelepathy
+end repository
+
+create repository extragear/workout
+end repository
+
+
+
 #
 # Ignore rules
 #

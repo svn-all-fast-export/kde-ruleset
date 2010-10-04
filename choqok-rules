@@ -8,11 +8,24 @@
 create repository choqok
 end repository
 
+create repository choqok-playground
+end repository
+
 # Choqok from playground
 match /trunk/playground/network/choqok/
   repository choqok
+  min revision 897788
+  max revision 942425
   branch master
 end match
+
+match /trunk/playground/network/choqok/
+  repository choqok-playground
+  min revision 1122556
+  max revision 1182215
+  branch master
+end match
+
 
 match /trunk/kdereview/choqok/
   repository choqok
@@ -49,6 +62,16 @@ end match
 match /tags/choqok/0.9.55/choqok/
   repository choqok
   branch refs/tags/v0.9.55
+end match
+
+match /tags/choqok/0.9.85/choqok/
+  repository choqok
+  branch refs/tags/v0.9.85
+end match
+
+match /tags/choqok/0.9.90/choqok/
+  repository choqok
+  branch refs/tags/v0.9.90
 end match
 
 # Ignore everything else

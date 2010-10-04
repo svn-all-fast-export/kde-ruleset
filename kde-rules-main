@@ -1494,7 +1494,6 @@ match /branches/KDE/4.1/kdeplasmoids
   min revision 830065
 end match
 
-
 # fix-up these
 match /tags/KDE/2.0/koffice/
   min revision 416394
@@ -1523,6 +1522,10 @@ end match
 match /tags/KDE/3.0.2/kdeextragear-1/
   min revision 416394
   max revision 416394
+end match
+match /tags/KDE/([^/]+)/oxygen-icons/
+  kdesupport/oxygen-icons
+  branch KDE/\1
 end match
 
 

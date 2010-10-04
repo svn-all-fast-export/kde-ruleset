@@ -2121,6 +2121,11 @@ match /(branches|tags)/KDE/([^/]+)/kdesdk/kfile-plugins/
   min revision 409209
 end match
 
+match /trunk/KDE/kdesdk/dolphin/
+  repository KDE/kdesdk/dolphin-plugins
+  branch master
+end match
+
 #skip files directly in kdeedu
 match /(trunk(/KDE)?|(branches|tags)/(KDE/)?[^/]+)/(kdeedu|kdesdk)/[^/]+$
 end match
@@ -2191,11 +2196,6 @@ end match
 
 match /trunk/(extragear/sdk|kdereview|playground/devtools)/kaider/
   repository KDE/kdesdk/lokalize
-  branch master
-end match
-
-match /trunk/KDE/kdesdk/dolphin/
-  repository KDE/kdesdk/dolphin-plugins
   branch master
 end match
 

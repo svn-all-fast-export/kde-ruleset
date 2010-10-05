@@ -59,7 +59,7 @@ end match
 
 match /trunk/KDE/kdepim/libkdepim/
     repository ${REPO}
-    branch master
+    branch refs/history/kdepim
     prefix libkdepim/
     max revision 982582
 #    min revision 455550
@@ -71,17 +71,17 @@ end match
 #    max revision 455550
 #    min revision 438981
 #end match
-match /trunk/KDE/kdepim/libkdepim/
-    repository ${REPO}
-    branch master
-    prefix libkdepim/
+#match /trunk/KDE/kdepim/libkdepim/
+#    repository ${REPO}
+#    branch master
+#    prefix libkdepim/
 #   max revision 438981
-    min revision 409204
-end match
+#    min revision 409204
+#end match
 # r409203 kdepim -> KDE/kdepim
 match /trunk/kdepim/libkdepim/
     repository ${REPO}
-    branch master
+    branch refs/history/kdepim
     prefix libkdepim/
     max revision 409202
 end match

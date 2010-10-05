@@ -1,0 +1,36 @@
+#
+# Created by Eike Hein <hein@kde.org>
+#
+
+create repository yakuake
+end repository
+
+
+# KDE 3 codebase on kde3 branch
+match /trunk/extragear/utils/yakuake/
+  repository yakuake
+  branch kde3
+  max revision 663538
+end match
+match /branches/extragear/kde3/utils/yakuake/
+  repository yakuake
+  branch kde3
+end match
+
+# KDE 4 codebase (a from-scratch rewrite) on master
+match /trunk/extragear/utils/yakuake/
+  repository yakuake
+  branch master
+  min revision 758718
+end match
+
+# Release tags
+match /tags/yakuake/([^/]+)/
+  repository yakuake
+  branch refs/tags/v\1
+  annotated true
+end match
+
+# Ignore everything else
+match /
+end match

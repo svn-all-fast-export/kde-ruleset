@@ -125,7 +125,12 @@ match /trunk/${REPO}libs/kpgp(/|$)
     max revision 684901
     min revision 681873
 end match
-
+match /trunk/kdenetwork/(libkdenetwork)/(kpgp.*)
+    repository ${REPO}
+    branch master
+    prefix \1/\2
+    max revision 200753
+end match
 match /trunk/playground/pim/akonadi/akonadi_next/
     repository ${REPO}
     prefix akonadi/akonadi_next/

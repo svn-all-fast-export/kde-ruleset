@@ -252,7 +252,33 @@ end repository
 create repository KDE/kdetoys
 end repository
 
-create repository KDE/kdeutils
+create repository KDE/kdeutils/ark
+end repository
+create repository KDE/kdeutils/cmake
+end repository
+create repository KDE/kdeutils/doc
+end repository
+create repository KDE/kdeutils/kcalc
+end repository
+create repository KDE/kdeutils/kcharselect
+end repository
+create repository KDE/kdeutils/kdf
+end repository
+create repository KDE/kdeutils/kfloppy
+end repository
+create repository KDE/kdeutils/kgpg
+end repository
+create repository KDE/kdeutils/kremotecontrol
+end repository
+create repository KDE/kdeutils/ktimer
+end repository
+create repository KDE/kdeutils/kwallet
+end repository
+create repository KDE/kdeutils/printer-applet
+end repository
+create repository KDE/kdeutils/superkaramba
+end repository
+create repository KDE/kdeutils/sweeper
 end repository
 
 create repository KDE/kdevelop
@@ -1429,9 +1455,6 @@ end repository
 create repository extragear/palapeli
 end repository
 
-create repository extragear/printer-applet
-end repository
-
 create repository extragear/safra
 end repository
 
@@ -2289,9 +2312,6 @@ end repository
 create repository kdesupport/cmake_external_project
 end repository
 
-create repository extragear/kremotecontrol
-end repository
-
 create repository extragear/keyboard2
 end repository
 
@@ -2904,16 +2924,16 @@ match /(branches|tags)/KDE/([^/]+)/kdeplasmoids/
   max revision 830065
 end match
 
-# kdeedu, kdesdk, kdenetwork
-match /trunk/(KDE/)?(kdeedu|kdesdk|kdenetwork)/$
+# kdeedu, kdesdk, kdenetwork, kdeutils
+match /trunk/(KDE/)?(kdeedu|kdesdk|kdenetwork|kdeutils)/$
   action recurse
 end match
 
-match /branches/work/kde4/(kdeedu|kdesdk|kdenetwork)/$
+match /branches/work/kde4/(kdeedu|kdesdk|kdenetwork|kdeutils)/$
   action recurse
 end match
 
-match /(branches(/work)?|tags)/(KDE/)?[^/]+/(kdeedu|kdesdk|kdenetwork)/$
+match /(branches(/work)?|tags)/(KDE/)?[^/]+/(kdeedu|kdesdk|kdenetwork|kdeutils)/$
   action recurse
 end match
 
@@ -3006,27 +3026,27 @@ match /(branches|tags)/KDE/([^/]+)/(kdeutils)/okteta/
   branch KDE/\2
 end match
 
-#skip files directly in kdeedu
-match /(trunk(/KDE)?|(branches|tags)/(KDE/)?[^/]+)/(kdeedu|kdesdk|kdenetwork)/[^/]+$
+#skip files directly in module
+match /(trunk(/KDE)?|(branches|tags)/(KDE/)?[^/]+)/(kdeedu|kdesdk|kdenetwork|kdeutils)/[^/]+$
 end match
 
 #skip this one, not sure if it will be needed
-match /(trunk(/KDE)?|(branches(/work)?|tags)(/KDE)?/[^/]+)/(kdeedu|kdesdk|kdenetwork)/(debian|admin)/
+match /(trunk(/KDE)?|(branches(/work)?|tags)(/KDE)?/[^/]+)/(kdeedu|kdesdk|kdenetwork|kdeutils)/(debian|admin)/
 end match
 
-match /trunk/KDE/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /trunk/KDE/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\1/\2
   branch master
   min revision 409209
 end match
 
-match /trunk/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /trunk/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\1/\2
   branch master
   max revision 409202
 end match
 
-match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\3/\4
   branch KDE/\1.\2
   max revision 409202
@@ -3086,7 +3106,7 @@ match /branches/(work|cvs)/make_kget_cool/(kdenetwork/)?kget/
   branch make_kget_cool
 end match
 
-match /branches/work/soc-krdc/krdc
+match /branches/work/soc-krdc/krdc/
   repository KDE/kdenetwork/krdc
   branch soc-krdc
 end match
@@ -3102,56 +3122,85 @@ match /trunk/(kdereview|playground/devtools)/kapptemplate/
   branch master
 end match
 
+#kdeutils special branches
+match /branches/work/libarchive-based-ark/
+  repository KDE/kdeutils/ark
+  branch libarchive-based-ark
+end match
+
+match /branches/work/kdelirc/
+  repository KDE/kdeutils/kremotecontrol
+  branch work
+end match
+
+match /trunk/((KDE/)?kdeutils|kdereview|playground/utils)/kdelirc/
+  repository KDE/kdeutils/kremotecontrol
+  branch master
+end match
+
+match /trunk/kdereview/printer-applet
+  repository KDE/kdeutils/printer-applet
+  branch master
+end match
+
+match /trunk/KDE/kdeutils/privacy/
+  repository KDE/kdeutils/sweeper
+  branch master
+end match
+#TODO Other sweeper locations:
+#/trunk/KDE/kdebase/workspace/kcontrol/privacy
+#/trunk/KDE/kdebase/kcontrol
+
 #cvs tags
-match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\3/\4
   branch KDE/\1.\2.0
   max revision 409202
 end match
 
-match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\3/\4
   branch KDE/\1.\2.0
   max revision 85028
   min revision 68154
 end match
 
-match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\4/\5
   branch KDE/\1.\2.\3
   max revision 409202
 end match
-match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\4/\5
   branch KDE/\1.\2.\3a
   min revision 192719
   max revision 409202
 end match
-match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\5/\6
   branch KDE/\1.\2.\3-beta\4
   min revision 376088
   max revision 409202
 end match
 
-match /tags/KDE/3.5.0-alpha1/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /tags/KDE/3.5.0-alpha1/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\1/\2
   branch KDE/3.4.90
   min revision 443441
   max revision 445561
 end match
-match /tags/KDE/3.5.0-beta1/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /tags/KDE/3.5.0-beta1/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\1/\2
   branch KDE/3.4.91
   min revision 459298
   max revision 460260
 end match
-match /(branches|tags)/KDE/([^/]+)A/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /(branches|tags)/KDE/([^/]+)A/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\3/\4
   branch KDE/\2a
   min revision 409209
 end match
-match /(branches|tags)/KDE/([^/]+)/(kdeedu|kdesdk|kdenetwork)/([^/]+)/
+match /(branches|tags)/KDE/([^/]+)/(kdeedu|kdesdk|kdenetwork|kdeutils)/([^/]+)/
   repository KDE/\3/\4
   branch KDE/\2
   min revision 409209
@@ -3168,43 +3217,43 @@ end match
 #
 # Main KDE modules
 #
-match /trunk/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /trunk/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\1
   branch master
   max revision 409202
 end match
 
-match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /branches/KDE_(\d+)_(\d+)_BRANCH/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\3
   branch KDE/\1.\2
   max revision 409202
 end match
 
-match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\3
   branch KDE/\1.\2.0
   max revision 409202
 end match
 
-match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /tags/KDE_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\3
   branch KDE/\1.\2.0
   max revision 85028
   min revision 68154
 end match
 
-match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /tags/KDE_(\d+)_(\d+)_(\d+)_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\4
   branch KDE/\1.\2.\3
   max revision 409202
 end match
-match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /tags/KDE_(\d+)_(\d+)_(\d+)[Aa]_RELEASE/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\4
   branch KDE/\1.\2.\3a
   min revision 192719
   max revision 409202
 end match
-match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /tags/KDE_(\d+)_(\d+)_(\d+)_BETA_(\d+)/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdevelop|kdevplatform|kdewebdev)/
   repository KDE/\5
   branch KDE/\1.\2.\3-beta\4
   min revision 376088
@@ -3996,7 +4045,7 @@ match /branches/work/kde4/(kde-common|unsermake|[^/]+$)
   min revision 411069
   max revision 628065
 end match
-match /branches/work/kde4/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdeutils|kdevelop|kdevplatform|kdewebdev)/
+match /branches/work/kde4/(kdeaccessibility|kdeaddons|kdeadmin|kdeartwork|kdebase|kdebindings|kdegames|kdegraphics|kdelibs|kdemultimedia|kdepim|kdepimlibs|kdetoys|kdevelop|kdevplatform|kdewebdev)/
   min revision 411284
   max revision 450000
   repository KDE/\1

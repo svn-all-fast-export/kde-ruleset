@@ -251,6 +251,9 @@ end match
 match /branches/kdepim/(soc)/kdepim/$
     action recurse
 end match
+match /branches/work/akonadi-ports/kdepim/$
+    action recurse
+end match
 include kdepim-recurse-rules
 ##############
 # Ignore everything else

@@ -328,7 +328,21 @@ include kdepim-modules-rules
 ##############
 # Branches...
 ##############
-
+match /branches/work/(akonadi-ports)/kdepim/akonadi/
+    repository ${REPO}
+    branch work/\1
+    prefix akonadi/
+end match
+match /trunk/playground/pim/(maildispatcheragent)/
+    repository ${REPO}
+    branch playground
+    prefix pim/\1/
+end match
+match /trunk/playground/pim/(mailody)/(akonadi_resource)/
+    repository ${REPO}
+    branch playground
+    prefix pim/\1/\2
+end match
 match /branches/(work)/~(ervin)/(zanshin)/
     repository ${REPO}
     branch \1/\2/\3

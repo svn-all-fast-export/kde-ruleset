@@ -166,11 +166,13 @@ create repository KDE/kdegraphics/kview
 end repository
 create repository KDE/kdegraphics/kpaint
 end repository
-
-#abandoned stuff
 create repository KDE/kdegraphics/kfax
 end repository
 create repository KDE/kdegraphics/kfract
+end repository
+create repository KDE/kdegraphics/kdvi
+end repository
+create repository KDE/kdegraphics/kiconedit
 end repository
 
 create repository KDE/kdemultimedia/cmake
@@ -199,6 +201,12 @@ end repository
 #abandoned stuff
 create repository KDE/kdemultimedia/kscd
 end repository
+create repository KDE/kdemultimedia/kmedia
+end repository
+create repository KDE/kdemultimedia/kmid
+end repository
+create repository KDE/kdemultimedia/kmidi
+end repository
 
 create repository KDE/kdenetwork/cmake
 end repository
@@ -225,6 +233,20 @@ end repository
 create repository KDE/kdenetwork/kmail #correct rules in extra rule file
 end repository
 create repository KDE/kdenetwork/krn
+end repository
+create repository KDE/kdenetwork/knu
+end repository
+create repository KDE/kdenetwork/korn
+end repository
+create repository KDE/kdenetwork/ksirc
+end repository
+create repository KDE/kdenetwork/ktalkd
+end repository
+create repository KDE/kdenetwork/kbiff
+end repository
+create repository KDE/kdenetwork/kfinger
+end repository
+create repository KDE/kdenetwork/karchie
 end repository
 
 create repository KDE/kdepim
@@ -304,6 +326,9 @@ create repository KDE/kdesdk/kdewidgets
 end repository
 create repository KDE/kdesdk/ebn
 end repository
+create repository KDE/kdesdk/ktranslator
+end repository
+
 
 create repository KDE/kdetoys
 end repository
@@ -349,6 +374,22 @@ end repository
 create repository KDE/kdeutils/knotes
 end repository
 create repository KDE/kdeutils/karm #renamed to ktimetracker (kdepim)
+end repository
+create repository KDE/kdeutils/kzip
+end repository
+create repository KDE/kdeutils/kljettool
+end repository
+create repository KDE/kdeutils/ktop
+end repository
+create repository KDE/kdeutils/kwrite #belongs to kate repository
+end repository
+create repository KDE/kdeutils/kab
+end repository
+create repository KDE/kdeutils/kpm
+end repository
+create repository KDE/kdeutils/klpq
+end repository
+create repository KDE/kdeutils/klipper
 end repository
 
 create repository KDE/kdevelop
@@ -687,9 +728,6 @@ create repository extragear/kurriculum
 end repository
 
 create repository extragear/ewok
-end repository
-
-create repository extragear/ktranslator
 end repository
 
 create repository extragear/kabcclient
@@ -3075,7 +3113,7 @@ match /(trunk(/KDE)?|(branches|tags)/(KDE/)?[^/]+)/(kdeedu|kdesdk|kdenetwork|kde
 end match
 
 #skip this one, not sure if it will be needed
-match /(trunk(/KDE)?|(branches(/work)?|tags)(/KDE)?/[^/]+)/(kdeedu|kdesdk|kdenetwork|kdeutils|kdemultimedia|kdegraphics(/libs)?)/(debian|admin|po)/
+match /(trunk(/KDE)?|(branches(/work)?|tags)(/KDE)?/[^/]+)/(kdeedu|kdesdk|kdenetwork|kdeutils|kdemultimedia|kdegraphics(/libs)?)/(debian|admin|po|bsd-port)/
 end match
 
 match /trunk/KDE/(kdeedu|kdesdk|kdenetwork|kdeutils|kdemultimedia|kdegraphics(/libs)?)/([^/]+)/

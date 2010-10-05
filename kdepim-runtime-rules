@@ -31,10 +31,10 @@ match /trunk/KDE/kdepim/akonadiserver/
 end match
 
 
-match /branches/work/(toma-akonadi-account-wizard-ghns-integration)/accountwizard/
+match /branches/work/(toma-akonadi-account-wizard-ghns-integration)/(accountwizard)/
     repository ${REPO}
     branch work/\1
-    prefix accountwizard/
+    prefix \2/
 end match
 #match /branches/work/akonadi-ports/kdepim/akonadi/accountwizard/
 #    repository ${REPO}

@@ -195,7 +195,25 @@ match /trunk/playground/pim/akonadi-kres/
     branch playground
     prefix akonadi-kres/
 end match
+
 include kdepim-branches-rules
+
+match /branches/(work)/(akonadi-ports|komo)/(kdepim)/(korganizer|libkdepim)/
+    repository ${REPO}
+    branch /refs/history/\1/\2/\3
+    prefix \4
+end match
+match /branches/(kdepim)/(enterprise4|proko2)/(kdepim)/(libkdepim)/
+    repository ${REPO}
+    branch /refs/history/\1/\2/\3
+    prefix \4
+end match
+match /branches/(work)/(soc-gtd)/(libkdepim)/
+    repository ${REPO}
+    branch /refs/history/\1/\2
+    prefix \3
+end match
+
 ##############
 # Tags
 ##############

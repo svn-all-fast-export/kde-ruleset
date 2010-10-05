@@ -91,12 +91,12 @@ match /trunk/KDE/kdepim/gpgmepp/interfaces/
     max revision 681577
     min revision 495458
 end match
-match /trunk/KDE/kdepim/libkdenetwork/gpgmepp/interfaces/
-    repository ${REPO}
-    branch master
-    prefix gpgmepp/interfaces/
-    max revision 495458
-end match
+#match /trunk/KDE/kdepim/libkdenetwork/gpgmepp/interfaces/
+#    repository ${REPO}
+#    branch master
+#    prefix gpgmepp/interfaces/
+#    max revision 495458
+#end match
 
 match /trunk/KDE/kdelibs/kabc/
     repository ${REPO}
@@ -297,14 +297,14 @@ match /trunk/KDE/kdepim/qgpgme/
 end match
 
 # parent dir is removed but we only track a child so recurse on parent
-match /trunk/KDE/kdepim/libkdenetwork/qgpgme/$
+match /trunk/KDE/kdepim/libkdenetwork/$
     action recurse
 end match
 match /trunk/KDE/kdepim/libkdenetwork/qgpgme/
     repository ${REPO}
     branch master
     prefix libkdenetwork/qgpgme/
-    max revision 495753
+#    max revision 495753
 end match
 
 match /trunk/KDE/kdepim/libsyndication/

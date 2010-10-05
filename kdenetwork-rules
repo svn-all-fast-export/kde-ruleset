@@ -1,0 +1,209 @@
+#
+# Created by George Goldberg <grundleborg@googlemail.com>
+#
+
+### This stuff commented out but can be useful if converting this rules file back to
+### generating a monolithic kdenetwork repo.
+
+#create repository KDE/kdenetwork
+#end repository
+
+#match /trunk/kdenetwork/
+#  repository KDE/kdenetwork
+#  branch master
+#  min revision 221
+#  max revision 409155
+#end match
+
+#match /trunk/KDE/kdenetwork/
+#  repository KDE/kdenetwork
+#  branch master
+#  min revision 409776
+#end match
+
+# Ignore everything else
+#match /
+#end match
+
+
+####################################################################################################
+
+
+# These are rules for split-repository generation.
+# Should the "consensus" opt for full-module repos, they
+# should be fairly straightforward to convert for generating
+# one monolithic repository instead.
+
+################
+# Create the repositories
+################
+
+create repository filesharing
+end repository
+
+create repository kdnssd
+end repository
+
+create repository kget
+end repository
+
+create repository kopete
+end repository
+
+create repository kppp
+end repository
+
+create repository krdc
+end repository
+
+create repository krfb
+end repository
+
+create repository torrent
+end repository
+
+################
+# Trunk match rules
+################
+
+####
+# filesharing match rules
+
+match /trunk/KDE/kdenetwork/filesharing/
+    repository filesharing
+    branch master
+    min revision 410634
+end match
+
+match /trunk/kdenetwork/filesharing/
+    repository filesharing
+    branch master
+    min revision 145702
+    max revision 408950
+end match
+
+####
+# kdnssd match rules
+
+match /trunk/kdenetwork/kdnssd/
+    repository kdnssd
+    branch master
+    min revision 368436
+    max revision 406402
+end match
+
+match /trunk/KDE/kdenetwork/kdnssd/
+    repository kdnssd
+    branch master
+    min revision 410634
+end match
+
+####
+# kget match rules
+
+match /trunk/kdenetwork/kget/
+    repository kget
+    branch master
+    min revision 141006
+    max revision 647302
+end match
+
+match /trunk/KDE/kdenetwork/kget/
+    repository kget
+    branch master
+    min revision 647303
+end match
+
+# FIXME: Looks like a massive merge back to trunk done by svn cp here :S
+
+####
+# kppp match rules
+
+match /trunk/kdenetwork/kppp/
+    repository kppp
+    branch master
+    min revision 3105
+    max revision 406679
+end match
+
+match /trunk/KDE/kdenetwork/kppp/
+    repository kppp
+    branch master
+    min revision 409776
+end match
+
+####
+# krdc match rules
+
+# FIXME: Does krdc have any history prior to this in KDE svn?
+
+match /trunk/KDE/kdenetwork/krdc/
+    repository krdc
+    branch master
+    min revision 669104
+end match
+
+####
+# krfb match rules
+
+match /trunk/kdenetwork/krfb/
+    repository krfb
+    branch master
+    min revision 125891
+    max revision 401169
+end match
+
+match /trunk/KDE/kdenetwork/krfb/
+    repository krfb
+    branch master
+    min revision 410634
+end match
+
+####
+# torrent match rules
+
+match /trunk/kdenetwork/kfile-plugins/torrent/
+    repository torrent
+    branch master
+    min revision 342870
+    max revision 407266
+end match
+
+match /trunk/KDE/kdenetwork/kfile-plugins/torrent/
+    repository torrent
+    branch master
+    min revision 410634
+    max revision 946656
+end match
+
+match /trunk/KDE/kdenetwork/strigi-analyzer/torrent/
+    repository torrent
+    branch master
+    min revision 946662
+end match
+
+####
+# Kopete match rules
+
+match /trunk/kdenetwork/kopete/
+    repository kopete
+    branch master
+    min revision 129465
+    max revision 409155
+end match
+
+match /trunk/KDE/kdenetwork/kopete/
+    repository kopete
+    branch master
+    min revision 409776
+end match
+
+
+################
+# Ignore what's left over
+################
+
+# Ignore everything else
+match /
+end match
+

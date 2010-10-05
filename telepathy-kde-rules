@@ -1,0 +1,194 @@
+#
+# Created by George Goldberg <grundleborg@googlemail.com>
+#
+
+################
+# Create the repositories
+################
+
+create repository kwhiteboard
+end repository
+
+create repository kopete-protocol-telepathy
+end repository
+
+create repository telepathy-accounts-kcm
+end repository
+
+create repository telepathy-accounts-kcm-plugins
+end repository
+
+create repository telepathy-approver
+end repository
+
+create repository telepathy-call-ui
+end repository
+
+create repository telepathy-chat-handler
+end repository
+
+create repository telepathy-contact-list
+end repository
+
+create repository telepathy-kde
+end repository
+
+create repository telepathy-launcher-kded
+end repository
+
+create repository telepathy-nepomuk-service
+end repository
+
+create repository telepathy-testlib
+end repository
+
+
+################
+# Trunk match rules
+################
+
+####
+# kwhiteboard match rules
+
+match /trunk/playground/network/kwhiteboard/
+  repository kwhiteboard
+  branch master
+  min revision 1145573
+end match
+
+####
+# kopete-protocol-telepathy match rules
+
+match /trunk/KDE/kdenetwork/kopete/protocols/telepathy/
+  repository kopete-protocol-telepathy
+  branch master
+  min revision 588904
+  max revision 908246
+end match
+
+match /branches/work/kopete/kopete-tpqt4/protocols/telepathy/
+  repository kopete-protocol-telepathy
+  branch master
+  min revision 912104
+  max revision 984663
+end match
+
+match /trunk/playground/network/kopete/protocols/telepathy/
+  repository kopete-protocol-telepathy
+  branch master
+  min revision 996420
+end match
+
+
+####
+# telepathy-accounts-kcm match rules
+
+match /trunk/playground/network/telepathy-accounts-kcm/
+  repository telepathy-accounts-kcm
+  branch master
+  min revision 914722
+end match
+
+
+####
+# telepathy-accounts-kcm-plugins match rules
+
+match /trunk/playground/network/telepathy-accounts-kcm-plugins/
+  repository telepathy-accounts-kcm-plugins
+  branch master
+  min revision 1003645
+end match
+
+####
+# telepathy-approver match rules
+
+match /trunk/playground/network/telepathy-approver/
+  repository telepathy-approver
+  branch master
+  min revision 1176804
+end match
+
+####
+# telepathy-call-ui match rules
+
+match /trunk/playground/multimedia/kcall/
+  repository telepathy-call-ui
+  branch master
+  min revision 975938
+  max revision 975989
+end match
+
+match /trunk/playground/network/kcall/
+  repository telepathy-call-ui
+  branch master
+  min revision 978838
+end match
+
+####
+# telepathy-chat-handler match rules
+
+match /trunk/playground/network/telepathy-chat-handler/
+  repository telepathy-chat-handler
+  branch master
+  min revision 1128164
+end match
+
+####
+# telepathy-contact-list match rules
+
+match /trunk/playground/network/telepathy-contactlist/
+  repository telepathy-contact-list
+  branch master
+  min revision 1090140
+end match
+
+####
+# telepathy-kde match rules
+
+match /trunk/playground/network/libktelepathy/
+  repository telepathy-kde
+  branch master
+  min revision 1151686
+end match
+
+####
+# telepathy-launcher-kded match rules
+
+match /trunk/playground/network/telepathy-launcher-kded/
+  repository telepathy-launcher-kded
+  branch master
+  min revision 1024852
+end match
+
+####
+# telepathy-nepomuk-service match rules
+
+match /trunk/playground/network/telepathy-integration-daemon/
+  repository telepathy-nepomuk-service
+  branch master
+  min revision 984341
+  max revision 1181215
+end match
+
+match /trunk/playground/network/nepomuktelepathyservice/
+  repository telepathy-nepomuk-service
+  branch master
+  min revision 1181298
+end match
+
+####
+# telepathy-testlib match rules
+
+match /trunk/playground/network/telepathy-testlib/
+  repository telepathy-testlib
+  branch master
+  min revision 1158739
+end match
+
+################
+# Ignore what's left over
+################
+
+# Ignore everything else
+match /
+end match

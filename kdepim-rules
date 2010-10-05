@@ -181,11 +181,17 @@ match /trunk/playground/pim/doc/blogilo/
     branch playground
 end match
 
+match /trunk/KDE/kdeutils/kjots/
+    repository ${REPO}
+    prefix kjots/
+    branch master
+    max revision 808845
+end match
 match /trunk/KDE/kdeutils/doc/kjots/
     repository ${REPO}
     prefix doc/kjots/
     branch master
-    max revision 808838
+    max revision 808845
 end match
 
 match /trunk/playground/pim/microblog/demoapp/

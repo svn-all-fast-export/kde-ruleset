@@ -42,73 +42,50 @@ end repository
 
 create repository KDE/kdeedu/blinken
 end repository
-
 create repository KDE/kdeedu/cantor
 end repository
-
 create repository KDE/kdeedu/kalgebra
 end repository
-
 create repository KDE/kdeedu/kalzium
 end repository
-
 create repository KDE/kdeedu/kanagram
 end repository
-
 create repository KDE/kdeedu/kbruch
 end repository
-
 create repository KDE/kdeedu/kgeography
 end repository
-
 create repository KDE/kdeedu/khangman
 end repository
-
 create repository KDE/kdeedu/kig
 end repository
-
 create repository KDE/kdeedu/kiten
 end repository
-
 create repository KDE/kdeedu/klettres
 end repository
-
 create repository KDE/kdeedu/kmplot
 end repository
-
 create repository KDE/kdeedu/kstars
 end repository
-
 create repository KDE/kdeedu/ktouch
 end repository
-
 create repository KDE/kdeedu/kturtle
 end repository
-
 create repository KDE/kdeedu/kwordquiz
 end repository
-
 create repository KDE/kdeedu/marble
 end repository
-
 create repository KDE/kdeedu/parley
 end repository
-
 create repository KDE/kdeedu/rocs
 end repository
-
 create repository KDE/kdeedu/step
 end repository
-
 create repository KDE/kdeedu/cmake
 end repository
-
 create repository KDE/kdeedu/data
 end repository
-
 create repository KDE/kdeedu/libkdeedu
 end repository
-
 create repository KDE/kdeedu/doc
 end repository
 

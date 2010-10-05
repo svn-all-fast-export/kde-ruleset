@@ -159,6 +159,15 @@ end repository
 create repository KDE/kdegraphics/libs/mobipocket
 end repository
 
+#abandoned stuff
+create repository KDE/kdegraphics/kghostview
+end repository
+create repository KDE/kdegraphics/kview
+end repository
+create repository KDE/kdegraphics/kpaint
+end repository
+
+
 create repository KDE/kdemultimedia/cmake
 end repository
 create repository KDE/kdemultimedia/doc
@@ -314,6 +323,10 @@ end repository
 create repository KDE/kdeutils/sweeper
 end repository
 
+#abandoned stuff
+create repository KDE/kdeutils/kedit
+end repository
+
 create repository KDE/kdevelop
 end repository
 
@@ -333,9 +346,6 @@ create repository extragear/konversation
 end repository
 
 create repository extragear/k3b
-end repository
-
-create repository extragear/gwenview
 end repository
 
 create repository extragear/kmyfirewall
@@ -398,9 +408,6 @@ create repository extragear/kiosktool
 end repository
 
 create repository extragear/kdetv
-end repository
-
-create repository extragear/libkipi
 end repository
 
 create repository extragear/keurocalc
@@ -593,9 +600,6 @@ create repository extragear/kro
 end repository
 
 create repository extragear/pekunia
-end repository
-
-create repository extragear/okular
 end repository
 
 create repository extragear/tenor
@@ -993,9 +997,6 @@ end repository
 create repository extragear/grama
 end repository
 
-create repository extragear/libkexiv2
-end repository
-
 create repository extragear/plastik-focus
 end repository
 
@@ -1021,9 +1022,6 @@ create repository extragear/klegendary
 end repository
 
 create repository extragear/sonnet
-end repository
-
-create repository extragear/libkdcraw
 end repository
 
 create repository extragear/dragonplayer
@@ -1254,9 +1252,6 @@ end repository
 create repository extragear/del.icio.us
 end repository
 
-create repository extragear/libksane
-end repository
-
 create repository extragear/elampo
 end repository
 
@@ -1333,9 +1328,6 @@ create repository extragear/conversationview
 end repository
 
 create repository extragear/dashboard
-end repository
-
-create repository extragear/svgpart
 end repository
 
 create repository extragear/keduca
@@ -1522,9 +1514,6 @@ create repository extragear/ksaneservice
 end repository
 
 create repository extragear/krichtext
-end repository
-
-create repository extragear/ksaneplugin
 end repository
 
 create repository extragear/waterflow
@@ -1818,9 +1807,6 @@ create repository extragear/kamala
 end repository
 
 create repository extragear/tote
-end repository
-
-create repository extragear/mobipocket
 end repository
 
 create repository extragear/lintv
@@ -3210,9 +3196,23 @@ match /trunk/playground/graphics/(ksaneservice|ksaneplugin)/
   repository KDE/kdegraphics/ksaneplugin
   branch master
 end match
-match /trunk/playground/graphics/oKular/kpdf/
+match /trunk/playground/graphics/oKular/kpdf/   # KDE 3 version
   repository KDE/kdegraphics/okular
   branch master
+  min revision 431968
+  max revision 520781
+end match
+match /trunk/playground/graphics/oKular/kpdf/   # KDE 3 version
+  repository KDE/kdegraphics/okular
+  branch kde3
+  min revision 520782
+  max revision 552283
+end match
+match /branches/work/kde4/playground/graphics/okular/kpdf/
+  repository KDE/kdegraphics/okular
+  branch master
+  min revision 520782
+  max revision 551163
 end match
 
 
@@ -3855,25 +3855,6 @@ match /trunk/playground/office/kange/
   branch master
   min revision 427170
   max revision 563682
-end match
-
-match /trunk/playground/graphics/oKular/   # KDE 3 version
-  repository extragear/okular
-  branch master
-  min revision 431968
-  max revision 520781
-end match
-match /trunk/playground/graphics/oKular/   # KDE 3 version
-  repository extragear/okular
-  branch kde3
-  min revision 520782
-  max revision 552283
-end match
-match /branches/work/kde4/playground/graphics/okular/
-  repository extragear/okular
-  branch master
-  min revision 520782
-  max revision 551163
 end match
 
 match /trunk/playground/utils/ksim2/

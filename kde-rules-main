@@ -167,6 +167,11 @@ end repository
 create repository KDE/kdegraphics/kpaint
 end repository
 
+#abandoned stuff
+create repository KDE/kdegraphics/kfax
+end repository
+create repository KDE/kdegraphics/kfract
+end repository
 
 create repository KDE/kdemultimedia/cmake
 end repository
@@ -191,6 +196,10 @@ end repository
 create repository KDE/kdemultimedia/strigi-analyzer
 end repository
 
+#abandoned stuff
+create repository KDE/kdemultimedia/kscd
+end repository
+
 create repository KDE/kdenetwork/cmake
 end repository
 create repository KDE/kdenetwork/doc
@@ -212,6 +221,11 @@ end repository
 create repository KDE/kdenetwork/torrent
 end repository
 
+#abandoned stuff
+create repository KDE/kdenetwork/kmail #correct rules in extra rule file
+end repository
+create repository KDE/kdenetwork/krn
+end repository
 
 create repository KDE/kdepim
 end repository
@@ -325,6 +339,16 @@ end repository
 
 #abandoned stuff
 create repository KDE/kdeutils/kedit
+end repository
+create repository KDE/kdeutils/khexedit
+end repository
+create repository KDE/kdeutils/khexdit
+end repository
+create repository KDE/kdeutils/kjots
+end repository
+create repository KDE/kdeutils/knotes
+end repository
+create repository KDE/kdeutils/karm #renamed to ktimetracker (kdepim)
 end repository
 
 create repository KDE/kdevelop
@@ -3051,7 +3075,7 @@ match /(trunk(/KDE)?|(branches|tags)/(KDE/)?[^/]+)/(kdeedu|kdesdk|kdenetwork|kde
 end match
 
 #skip this one, not sure if it will be needed
-match /(trunk(/KDE)?|(branches(/work)?|tags)(/KDE)?/[^/]+)/(kdeedu|kdesdk|kdenetwork|kdeutils|kdemultimedia|kdegraphics(/libs)?)/(debian|admin)/
+match /(trunk(/KDE)?|(branches(/work)?|tags)(/KDE)?/[^/]+)/(kdeedu|kdesdk|kdenetwork|kdeutils|kdemultimedia|kdegraphics(/libs)?)/(debian|admin|po)/
 end match
 
 match /trunk/KDE/(kdeedu|kdesdk|kdenetwork|kdeutils|kdemultimedia|kdegraphics(/libs)?)/([^/]+)/

@@ -114,10 +114,9 @@ match /trunk/playground/pim/dav/
 #    max revision 1106037
 end match
 
-match /branches/work/~ervin/(imap-resource-refactor)/tests/
+match /branches/work/~ervin/(imap-resource-refactor)/
     repository ${REPO}
     branch work/personal/ervin/\1
-    prefix tests/
 #    max revision 1139084
 end match
 

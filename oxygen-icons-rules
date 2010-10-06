@@ -16,20 +16,6 @@ match /
   max revision 411973
 end match
 
-## Tags
-
-match /tags/KDE/(\d+)\.(\d+)/oxygen-icons/
-    repository ${REPO}
-    branch refs/tags/v\1.\2.0
-    annotated true
-end match
-
-match /tags/KDE/(\d+)\.(\d+)\.(\d+)/oxygen-icons/
-    repository ${REPO}
-    branch refs/tags/v\1.\2.\3
-    annotated true
-end match
-
 ## Oxygen
 
 match /trunk/playground/artwork/Oxygen/theme/oxygen/
@@ -65,6 +51,20 @@ match /trunk/kdesupport/oxygen-icons/
   repository oxygen-icons
   branch master
 end
+
+## Tags
+
+match /tags/KDE/(\d+)\.(\d+)/oxygen-icons/
+    repository ${REPO}
+    branch refs/tags/v\1.\2.0
+    annotated true
+end match
+
+match /tags/KDE/(\d+)\.(\d+)\.(\d+)/oxygen-icons/
+    repository ${REPO}
+    branch refs/tags/v\1.\2.\3
+    annotated true
+end match
 
 match /
 end

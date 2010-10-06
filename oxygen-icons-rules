@@ -1,0 +1,53 @@
+# Created by Riccardo Iaconelli <riccardo@kde.org>
+
+create repository oxygen-icons
+end repository
+
+# Ignore some upheaval in KDE's SVN history.
+# stolen from konversation-rules
+match /
+  min revision 409202
+  max revision 409210
+end match
+match /
+  min revision 411973
+  max revision 411973
+end match
+
+match /trunk/playground/artwork/Oxygen/theme/oxygen/
+  min revision 546682
+  max revision 626666
+  repository oxygen-icons
+  branch master
+end
+
+match /trunk/playground/artwork/Oxygen/theme/oxygen/
+  min revision 626698
+  max revision 640043
+  repository oxygen-icons
+  branch master
+end
+
+match /trunk/KDE/kdelibs/pics/oxygen/
+  min revision 640052
+  max revision 699614
+  repository oxygen-icons
+  branch master
+end
+
+match /trunk/KDE/kdebase/runtime/pics/oxygen/
+  min revision 699615
+  max revision 940054
+  repository oxygen-icons
+  branch master
+end
+
+match /trunk/kdesupport/oxygen-icons/
+  min revision 940055
+  repository oxygen-icons
+  branch master
+end
+
+match /
+end
+

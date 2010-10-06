@@ -58,7 +58,7 @@ match /tags/KDE/(\d+)\.(\d+)\.(\d+)/oxygen-icons/
     repository oxygen-icons
     branch refs/tags/v\1.\2.\3
     annotated true
-end match match
+end match
 
 ## If it didn't match, ignore
 

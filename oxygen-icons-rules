@@ -1,4 +1,6 @@
+#
 # Created by Riccardo Iaconelli <riccardo@kde.org>
+#
 
 create repository oxygen-icons
 end repository
@@ -13,6 +15,22 @@ match /
   min revision 411973
   max revision 411973
 end match
+
+## Tags
+
+match /tags/KDE/(\d+)\.(\d+)/oxygen-icons/
+    repository ${REPO}
+    branch refs/tags/v\1.\2.0
+    annotated true
+end match
+
+match /tags/KDE/(\d+)\.(\d+)\.(\d+)/oxygen-icons/
+    repository ${REPO}
+    branch refs/tags/v\1.\2.\3
+    annotated true
+end match
+
+## Oxygen
 
 match /trunk/playground/artwork/Oxygen/theme/oxygen/
   min revision 546682
@@ -50,4 +68,3 @@ end
 
 match /
 end
-

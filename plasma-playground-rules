@@ -1,0 +1,29 @@
+#
+# Created by Riccardo Iaconelli <riccardo@kde.org>
+# 
+
+# Repos
+
+create repository plasmate
+end repository
+
+# Matches
+
+match /trunk/playground/base/plasma/plasmate/
+    repository plasmate
+    branch master
+end match
+
+# Tags
+
+match /tags/plasmate/0.1-alphai(\d)/
+    repository plasmate
+    branch refs/tags/v0.1-alpha\1
+    annotated true
+end match
+
+# Catchall
+
+match /
+end match
+

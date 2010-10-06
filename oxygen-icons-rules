@@ -19,7 +19,7 @@ end match
 ## Oxygen
 
 match /trunk/playground/artwork/Oxygen/theme/oxygen/
-  min revision 546682
+  min revision 546784
   max revision 626666
   repository oxygen-icons
   branch master

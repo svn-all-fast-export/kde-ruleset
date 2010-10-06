@@ -10,11 +10,11 @@ end repository
 match /
   min revision 409202
   max revision 409210
-end match
+end match match
 match /
   min revision 411973
   max revision 411973
-end match
+end match match
 
 ## Oxygen
 
@@ -23,34 +23,34 @@ match /trunk/playground/artwork/Oxygen/theme/oxygen/
   max revision 626666
   repository oxygen-icons
   branch master
-end
+end match
 
 match /trunk/playground/artwork/Oxygen/theme/oxygen/
   min revision 626698
   max revision 640043
   repository oxygen-icons
   branch master
-end
+end match
 
 match /trunk/KDE/kdelibs/pics/oxygen/
   min revision 640052
   max revision 699614
   repository oxygen-icons
   branch master
-end
+end match
 
 match /trunk/KDE/kdebase/runtime/pics/oxygen/
   min revision 699615
   max revision 940054
   repository oxygen-icons
   branch master
-end
+end match
 
 match /trunk/kdesupport/oxygen-icons/
   min revision 940055
   repository oxygen-icons
   branch master
-end
+end match
 
 ## Tags
 
@@ -58,9 +58,9 @@ match /tags/KDE/(\d+)\.(\d+)\.(\d+)/oxygen-icons/
     repository oxygen-icons
     branch refs/tags/v\1.\2.\3
     annotated true
-end match
+end match match
 
 ## If it didn't match, ignore
 
 match /
-end
+end match
